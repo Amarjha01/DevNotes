@@ -180,7 +180,7 @@ const NotFound = () => {
 
         {/* Footer message */}
         <p className="text-sm text-gray-500 mt-8 animate-pulse">
-          Error code: DIMENSION_NOT_FOUND
+          Error code: DIMENSION_NOT_FOUND. please contact us
         </p>
       </div>
 
