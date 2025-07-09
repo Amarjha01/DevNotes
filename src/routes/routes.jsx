@@ -4,7 +4,7 @@ import Home from '../pages/Home'
 import Frontend from '../pages/Frontend'
 import Html from "../components/frontend/Html";
 import Css from "../components/frontend/Css";
-import Js from "../components/frontend/js";
+import Js from "../components/frontend/Js";
 import ReactJs from "../components/frontend/ReactJs";
 import TailwindCss from "../components/frontend/TailwindCss";
 import NotFound from "../components/gloable/NotFound";
