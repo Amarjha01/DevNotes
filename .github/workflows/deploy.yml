@@ -3,7 +3,7 @@ name: Deploy React App to DigitalOcean VPS
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
