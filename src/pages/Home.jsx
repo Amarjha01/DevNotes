@@ -35,7 +35,7 @@ const Home = () => {
   }, [controls]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden">
+    <div className="min-h-[80vh] mt-[5%] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex justify-center items-center">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
@@ -46,21 +46,21 @@ const Home = () => {
       {/* Floating Code Snippets */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
-          className="absolute top-20 left-10 text-purple-400/20 font-mono text-sm"
+          className="absolute lg:top-[10%] top-[20%] left-10 text-purple-400/70 lg:text-purple-400/50 font-mono text-sm"
           animate={{ y: [0, -20, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
         >
           &lt;div className="hero"&gt;
         </motion.div>
         <motion.div
-          className="absolute top-32 right-20 text-blue-400/20 font-mono text-sm"
+          className="absolute top-32 right-20 text-blue-400/80 lg:text-blue-400/20 font-mono text-sm"
           animate={{ y: [0, 20, 0] }}
           transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
           {/* function() {{ return  'awesome' }} */}
         </motion.div>
         <motion.div
-          className="absolute bottom-32 left-20 text-green-400/20 font-mono text-sm"
+          className="absolute bottom-32 left-20 text-green-400/50 lg:text-green-400/30 font-mono text-sm"
           animate={{ y: [0, -15, 0] }}
           transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         >
@@ -70,7 +70,7 @@ const Home = () => {
 
       {/* Main Content */}
       <motion.div
-        className="relative z-10 min-h-screen flex flex-col items-center justify-center text-center px-6"
+        className="relative z-10 min-h-[50vh] lg:min-h-screen flex flex-col items-center justify-center text-center px-6"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
@@ -82,7 +82,7 @@ const Home = () => {
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
         >
-          <span className="text-sm text-purple-300 flex items-center gap-2">
+          <span className="lg:text-sm text-2xl text-purple-300 flex items-center gap-2">
             <FaRocket className="text-yellow-400" />
             Your Journey to Full-Stack Excellence
           </span>
@@ -121,7 +121,7 @@ const Home = () => {
           {technologies.map((tech, index) => (
             <motion.span
               key={tech}
-              className="px-4 py-2 bg-gray-800/50 backdrop-blur-sm rounded-full text-sm text-gray-300 border border-gray-700/50 hover:border-purple-500/50 transition-all"
+              className="px-4 py-2 bg-gray-800/50 backdrop-blur-sm rounded-full lg:text-sm text-2xl text-gray-300 border border-gray-700/50 hover:border-purple-500/50 transition-all"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8 + index * 0.1 }}
@@ -143,7 +143,7 @@ const Home = () => {
             to="/frontend/html" 
             className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 font-medium"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 text-3xl">
               <FaLaptopCode />
               Explore Frontend
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -153,7 +153,7 @@ const Home = () => {
             to="/backend/nodejs" 
             className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 font-medium"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 text-3xl">
               <FaServer />
               Explore Backend
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
@@ -193,10 +193,10 @@ const Home = () => {
 
         {/* Floating Action Button */}
         <motion.div
-          className="fixed bottom-8 right-8 z-50"
-          animate={controls}
+          className="fixed bottom-8 right-8 z-[70]"
+          // animate={controls}
           initial={{ opacity: 0, scale: 0 }}
-          // animate={{ opacity: 1, scale: 1 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}
         >
           <a
@@ -209,22 +209,7 @@ const Home = () => {
           </a>
         </motion.div>
 
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2, duration: 0.8 }}
-        >
-          <div className="flex flex-col items-center text-gray-400">
-            <span className="text-xs mb-2">Scroll to explore</span>
-            <motion.div
-              className="w-1 h-8 bg-gradient-to-b from-purple-500 to-transparent rounded-full"
-              animate={{ height: [32, 16, 32] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
-        </motion.div>
+ 
       </motion.div>
     </div>
   );

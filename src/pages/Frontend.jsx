@@ -133,10 +133,10 @@ const Frontend = () => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col md:flex-row gap-6 mt-[13%] md:mt-[6%] relative">
+    <div className="min-h-screen flex flex-col md:flex-row gap-6 mt-[20%] lg:mt-[6%] relative">
       {/* Mobile Menu Button */}
       <button
-        className="lg:hidden fixed top-36 text-5xl right-6 z-50 bg-gradient-to-r from-purple-600 to-pink-600 text-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+        className="lg:hidden fixed top-[] text-5xl right-6 z-50 bg-gradient-to-r from-purple-600 to-pink-600 text-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
         onClick={toggleSidebar}
         aria-label="Toggle sidebar"
       >
