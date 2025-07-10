@@ -109,7 +109,7 @@ export function Header() {
                       window.location.href = item.path;
                       setMenuOpen(false);
                     }}
-                    className={`group flex items-center gap-4 px-8 py-4 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.color} hover:shadow-purple-500/25 min-w-[200px]`}
+                    className={`group flex items-center items-center gap-4 px-8 py-4 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.color} hover:shadow-purple-500/25 min-w-[400px]`}
                     style={{ 
                       animationDelay: `${index * 100}ms`,
                       animation: 'slideInFromRight 0.5s ease-out forwards'
