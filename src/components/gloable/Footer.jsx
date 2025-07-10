@@ -23,20 +23,20 @@ const Footer = () => {
           <div className="flex flex-col items-center lg:items-start gap-4 text-center lg:text-left">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-lg">
+                <div className="lg:w-10 lg:h-10 w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-lg">
                   <FaCode className="text-white text-lg" />
                 </div>
                 <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full animate-ping"></div>
               </div>
               <div>
-                <h3 className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                <h3 className="lg:text-xl text-4xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                   DevNotes
                 </h3>
-                <p className="text-xs text-gray-500">Code • Learn • Share</p>
+                <p className="lg:text-xs text-xl text-gray-500">Code • Learn • Share</p>
               </div>
             </div>
             
-            <div className="flex items-center gap-2 text-sm">
+            <div className="flex items-center gap-2 lg:text-sm">
               <span className="text-gray-400">© {new Date().getFullYear()}</span>
               <span className="text-gray-600">•</span>
               <span className="flex items-center gap-1">
@@ -65,7 +65,7 @@ const Footer = () => {
 
           {/* Right Section - Social Links */}
           <div className="flex flex-col items-center lg:items-end gap-4">
-            <div className="flex items-center gap-1 text-sm text-gray-400">
+            <div className="flex items-center gap-1 lg:text-sm text-2xl text-gray-400">
               <span>Connect with me</span>
               <div className="w-8 h-px bg-gradient-to-r from-purple-500 to-transparent"></div>
             </div>
@@ -74,18 +74,18 @@ const Footer = () => {
                 href="https://github.com/amarjha01" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="group relative w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl hover:bg-gray-700/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25"
+                className="group relative lg:w-12 lg:h-12 w-16 h-16 bg-gray-800/50 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl hover:bg-gray-700/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-purple-500/25"
               >
-                <FaGithub className="text-gray-400 group-hover:text-white transition-colors" />
+                <FaGithub className="text-gray-400 group-hover:text-white transition-colors text-4xl lg:text-xl" />
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 to-purple-500/0 group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all duration-300"></div>
               </a>
               <a 
                 href="https://linkedin.com/in/amarjha01" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="group relative w-12 h-12 bg-gray-800/50 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl hover:bg-gray-700/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
+                className="group relative lg:w-12 lg:h-12 w-16 h-16 bg-gray-800/50 backdrop-blur-sm rounded-xl flex items-center justify-center text-xl hover:bg-gray-700/50 transition-all duration-300 hover:scale-110 hover:shadow-lg hover:shadow-blue-500/25"
               >
-                <FaLinkedin className="text-gray-400 group-hover:text-blue-400 transition-colors" />
+                <FaLinkedin className="text-gray-400 group-hover:text-blue-400 transition-colors text-4xl lg:text-xl" />
                 <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/0 to-blue-500/0 group-hover:from-blue-500/20 group-hover:to-cyan-500/20 transition-all duration-300"></div>
               </a>
             </div>
@@ -93,7 +93,7 @@ const Footer = () => {
         </div>
 
         {/* Bottom Divider */}
-        <div className="mt-8 pt-6 border-t border-gray-700/50">
+        {/* <div className="mt-8 pt-6 border-t border-gray-700/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
             <div className="flex items-center gap-4">
               <span>Made with passion in India</span>
@@ -107,7 +107,7 @@ const Footer = () => {
               <span className="text-blue-400 font-medium">Tailwind CSS</span>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );
