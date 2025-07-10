@@ -8,6 +8,8 @@ import Js from "../components/frontend/Js";
 import ReactJs from "../components/frontend/ReactJs";
 import TailwindCss from "../components/frontend/TailwindCss";
 import NotFound from "../components/gloable/NotFound";
+import Backend from "../pages/Backend";
+import Nodejs from "../components/backend/NodeJs";
 
 const routes = createBrowserRouter(
     [
@@ -17,6 +19,7 @@ const routes = createBrowserRouter(
             children:
             [
             {path:'/' , element:<Home />},
+
             {path:'/frontend',
              element:<Frontend />,
              children:
@@ -28,6 +31,14 @@ const routes = createBrowserRouter(
                 {path:'/frontend/tailwind' , element:<TailwindCss />}
 
              ]
+            },
+            {
+                path:'/backend',
+                element:<Backend />,
+                children:
+                [
+                    {path:'/backend/nodejs', element:<Nodejs />}
+                ]
             }
             ]
 

@@ -83,6 +83,7 @@ const Frontend = () => {
   };
 
   const SidebarLink = ({ link, index, isActive }) => (
+    
     <Link
       to={link.path}
       className={`
