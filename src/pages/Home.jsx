@@ -150,7 +150,7 @@ const Home = () => {
             </span>
           </Link>
           <Link 
-            to="/backend" 
+            to="/backend/nodejs" 
             className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 font-medium"
           >
             <span className="flex items-center gap-2">
