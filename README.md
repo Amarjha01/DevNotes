@@ -1,12 +1,87 @@
-# React + Vite
+# 📘 DevNotes – Learn • Code • Share
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**DevNotes** is a beautifully organized and beginner-friendly web development learning platform. It offers a structured and progressive way to master **Frontend**, **Backend**, **Deployment**, and **Miscellaneous** topics — perfect for self-learners, coding students, and developers refreshing their skills.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Demo
 
-## Expanding the ESLint configuration
+👉 [Visit DevNotes](https://devnotes.amarjha.dev/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Features
+
+- ✅ Structured notes on key web development topics
+- 🎯 Frontend: HTML, CSS, JavaScript, React, Tailwind CSS
+- 🧠 Backend: Node.js, Express, MongoDB
+- 📦 Deployment: Hosting, domain setup, deployment tips
+- 🧩 Miscellaneous: Useful extras and tools
+- ✨ Clean UI with dark theme for better reading
+- 🧪 Learning progress tracker
+- 💡 Pro Tips for quick insights and best practices
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, Tailwind CSS
+- **Routing & State:** React Router, Context API
+- **Backend:** Node.js, Express (planned/optional)
+- **Styling:** Tailwind CSS
+- **Deployment:** Vercel / Netlify
+
+---
+
+## 📚 Topics Covered
+
+### Frontend
+- HTML (Structure, Tags, Forms, etc.)
+- CSS (Selectors, Flexbox, Grid)
+- JavaScript (Basics to Advanced)
+- React JS (Components, Hooks, Routing)
+- Tailwind CSS
+
+### Backend
+- Node.js, Express.js
+- MongoDB basics (planned)
+
+### Deployment
+- Hosting websites
+- Domain configuration
+- Git & CI/CD (planned)
+
+### Miscellaneous
+- Dev tools, GitHub tips, productivity tricks
+
+---
+
+## 📈 Project Status
+
+- 🔧 Currently adding new content regularly
+- 🧪 Planned features: search filters, quiz modules, video support
+
+---
+
+## 🧑‍💻 Author
+
+**Amar Jha**  
+🌐 [Portfolio](https://amarjha.dev)  
+📫 [LinkedIn](https://linkedin.com/in/amarjha-dev)  
+🐙 [GitHub](https://github.com/amar-jha)
+
+---
+
+## 🤝 Contributions
+
+Contributions are welcome! Open issues, suggest new sections, or fork the repo to add more helpful content.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
+
+---
+
+> 💬 *“const learn = () => code;”*
