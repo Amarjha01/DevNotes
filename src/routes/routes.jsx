@@ -10,6 +10,8 @@ import TailwindCss from "../components/frontend/TailwindCss";
 import NotFound from "../components/gloable/NotFound";
 import Backend from "../pages/Backend";
 import Nodejs from "../components/backend/NodeJs";
+import Projects from "../pages/Projects";
+import ProjectDetail from "../components/projects/ProjectDetail";
 
 const routes = createBrowserRouter(
     [
@@ -39,6 +41,14 @@ const routes = createBrowserRouter(
                 [
                     {path:'/backend/nodejs', element:<Nodejs />}
                 ]
+            },
+            {
+                path:'/projects',
+                element:<Projects />
+            },
+            {
+                path:'/projects/:projectId',
+                element:<ProjectDetail />
             }
             ]
 
