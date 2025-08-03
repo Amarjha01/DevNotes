@@ -14,6 +14,8 @@ import Express from "../components/backend/Express";
 import MongoDB from "../components/backend/MongoDB";
 import RestApi from "../components/backend/RestApi";
 import JwtAuth from "../components/backend/JwtAuth";
+import Projects from "../pages/Projects";
+import ProjectDetail from "../components/projects/ProjectDetail";
 
 const routes = createBrowserRouter(
     [
@@ -48,6 +50,14 @@ const routes = createBrowserRouter(
                     {path:'/backend/jwt', element:<JwtAuth />}
 
                 ]
+            },
+            {
+                path:'/projects',
+                element:<Projects />
+            },
+            {
+                path:'/projects/:projectId',
+                element:<ProjectDetail />
             }
             ]
 

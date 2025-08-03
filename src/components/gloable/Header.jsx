@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRocket, FaEllipsisH } from 'react-icons/fa';
+import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRocket, FaEllipsisH, FaProjectDiagram } from 'react-icons/fa';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -26,6 +26,7 @@ export function Header() {
   const navItems = [
     { name: 'Frontend', path: '/frontend/html', icon: FaLaptopCode, color: 'text-purple-400' },
     { name: 'Backend', path: '/backend/nodejs', icon: FaServer, color: 'text-blue-400' },
+    { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
     { name: 'Deployment', path: '/deployment', icon: FaRocket, color: 'text-green-400' },
     { name: 'Miscellaneous', path: '/miscellaneous', icon: FaEllipsisH, color: 'text-pink-400' }
   ];
