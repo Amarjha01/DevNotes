@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen } from 'react-icons/fa';
+import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen, FaProjectDiagram } from 'react-icons/fa';
 
 const Home = () => {
   const [typedText, setTypedText] = useState('');
@@ -178,8 +178,8 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <Link 
-            to="/frontend/html" 
+          <Link
+            to="/frontend/html"
             className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 font-medium"
           >
             <span className="flex items-center gap-2 text-3xl">
@@ -188,8 +188,18 @@ const Home = () => {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link 
-            to="/backend/nodejs" 
+          <Link
+            to="/projects"
+            className="group relative px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-xl shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105 font-medium"
+          >
+            <span className="flex items-center gap-2 text-3xl">
+              <FaProjectDiagram />
+              Build Projects
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+          <Link
+            to="/backend/nodejs"
             className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 font-medium"
           >
             <span className="flex items-center gap-2 text-3xl">
@@ -403,5 +413,3 @@ const Home = () => {
 };
 
 export default Home;
-// Note: Ensure to add the necessary CSS styles for the classes used in this component.
-// This includes styles for gradients, animations, and responsive design as per your project's requirements.
