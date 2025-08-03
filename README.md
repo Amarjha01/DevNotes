@@ -27,9 +27,9 @@
 
 - **Frontend:** React.js, Tailwind CSS
 - **Routing & State:** React Router, Context API
-- **Backend:** Node.js, Express (planned/optional)
+- **Backend:** Node.js, Express (Not planned)
 - **Styling:** Tailwind CSS
-- **Deployment:** Vercel / Netlify
+- **Deployment:** Digital Ocean
 
 ---
 
@@ -37,7 +37,7 @@
 
 ### Frontend
 - HTML (Structure, Tags, Forms, etc.)
-- CSS (Selectors, Flexbox, Grid)
+- CSS (Selectors, Flexbox, Grid etc.)
 - JavaScript (Basics to Advanced)
 - React JS (Components, Hooks, Routing)
 - Tailwind CSS
@@ -67,8 +67,8 @@
 
 **Amar Jha**  
 🌐 [Portfolio](https://amarjha.dev)  
-📫 [LinkedIn](https://linkedin.com/in/amarjha-dev)  
-🐙 [GitHub](https://github.com/amar-jha)
+📫 [LinkedIn](https://linkedin.com/in/amarjha01)  
+🐙 [GitHub](https://github.com/amarjha01)
 
 ---
 
