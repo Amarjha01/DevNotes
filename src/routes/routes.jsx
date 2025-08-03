@@ -10,6 +10,10 @@ import TailwindCss from "../components/frontend/TailwindCss";
 import NotFound from "../components/gloable/NotFound";
 import Backend from "../pages/Backend";
 import Nodejs from "../components/backend/NodeJs";
+import Express from "../components/backend/Express";
+import MongoDB from "../components/backend/MongoDB";
+import RestApi from "../components/backend/RestApi";
+import JwtAuth from "../components/backend/JwtAuth";
 import Projects from "../pages/Projects";
 import ProjectDetail from "../components/projects/ProjectDetail";
 
@@ -39,7 +43,12 @@ const routes = createBrowserRouter(
                 element:<Backend />,
                 children:
                 [
-                    {path:'/backend/nodejs', element:<Nodejs />}
+                    {path:'/backend/nodejs', element:<Nodejs />},
+                    {path:'/backend/express', element:<Express />},
+                    {path:'/backend/mongodb', element:<MongoDB />},
+                    {path:'/backend/restapi', element:<RestApi />},
+                    {path:'/backend/jwt', element:<JwtAuth />}
+
                 ]
             },
             {
