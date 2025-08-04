@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRocket, FaEllipsisH, FaProjectDiagram } from 'react-icons/fa';
+import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -38,30 +38,33 @@ export function Header() {
   const navItems = [
     { name: 'Frontend', path: '/frontend/html', icon: FaLaptopCode, color: 'text-purple-400' },
     { name: 'Backend', path: '/backend/nodejs', icon: FaServer, color: 'text-blue-400' },
+    { name: 'ML/AI', path: '/machine-learning/ai', icon: FaBrain, color: 'text-orange-400' },
+    { name: 'Android', path: '/android', icon: FaAndroid, color: 'text-green-400' },
     { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
     { name: 'Deployment', path: '/deployment', icon: FaRocket, color: 'text-green-400' },
-    { name: 'Miscellaneous', path: '/miscellaneous', icon: FaEllipsisH, color: 'text-pink-400' }
+    { name: 'Miscellaneous', path: '/miscellaneous', icon: FaEllipsisH, color: 'text-pink-400' },
+
+
   ];
 
   return (
-    <header className={`fixed top-0  w-full z-50 transition-all duration-500 max-w-[1424px] m-auto ${
-      scrolled 
-        ? 'bg-[#0a0415]/5 backdrop-blur-xl border-b border-purple-500/20 shadow-lg shadow-purple-500/10' 
-        : 'bg-white/5 backdrop-blur-lg'
-    }`}>
+    <header className={`fixed top-0  w-full z-50 transition-all duration-500 max-w-[1424px] m-auto ${scrolled
+      ? 'bg-[#0a0415]/5 backdrop-blur-xl border-b border-purple-500/20 shadow-lg shadow-purple-500/10'
+      : 'bg-white/5 backdrop-blur-lg'
+      }`}>
       <div className="flex items-center justify-between px-6 py-24 lg:py-4 transition-all duration-300 h-20">
-        
+
         {/* Logo Section */}
-        <button 
+        <button
           onClick={() => window.location.href = '/'}
           className="group flex items-center gap-3 z-50 hover:scale-105 transition-all duration-300"
         >
           <div className="relative">
             <div className="w-32 h-32 lg:w-12 lg:h-12 rounded-full overflow-hidden border-2 border-purple-400/30 group-hover:border-purple-400/60 transition-all duration-300 shadow-lg">
-              <img 
-                src={`/DevNotes-logos/logo${currLogo}.jpg`} 
-                alt="DevNotes Logo" 
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" 
+              <img
+                src={`/DevNotes-logos/logo${currLogo}.jpg`}
+                alt="DevNotes Logo"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
             </div>
             <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse"></div>
@@ -122,8 +125,8 @@ export function Header() {
                       window.location.href = item.path;
                       setMenuOpen(false);
                     }}
-                    className={`group flex items-center items-center gap-4 px-8 py-4 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.color} hover:shadow-purple-500/25 min-w-[400px]`}
-                    style={{ 
+                    className={`group flex items-center  gap-4 px-8 py-4 rounded-2xl bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.color} hover:shadow-purple-500/25 min-w-[400px]`}
+                    style={{
                       animationDelay: `${index * 100}ms`,
                       animation: 'slideInFromRight 0.5s ease-out forwards'
                     }}
