@@ -16,50 +16,77 @@ import RestApi from "../components/backend/RestApi";
 import JwtAuth from "../components/backend/JwtAuth";
 import Projects from "../pages/Projects";
 import ProjectDetail from "../components/projects/ProjectDetail";
+import MachineLearning from "../pages/MachineLearning"; // Import the new Machine Learning page
+import Introduction from "../components/machineLearning/Introduction";
+import AI from "../components/machineLearning/AI"; // Import the AI component
+import SupervisedLearning from "../components/machineLearning/SupervisedLearning"; // Import the Supervised Learning component
+import UnsupervisedLearning from "../components/machineLearning/UnsupervisedLearning";
+import ReinforcementLearning from "../components/machineLearning/ReinforcementLearning";
+import AndroidDevelopmentRoadmap from "../pages/AndroidDevelopmentRoadmap";
+import Evaluation from "../components/machineLearning/Evaluation";
 
 const routes = createBrowserRouter(
     [
         {
-            path:'/' ,
-            element:<App />,
+            path: '/',
+            element: <App />,
             children:
-            [
-            {path:'/' , element:<Home />},
-
-            {path:'/frontend',
-             element:<Frontend />,
-             children:
-             [
-                {path:'/frontend/html' , element:<Html />},
-                {path:'/frontend/css' , element:<Css />},
-                {path:'/frontend/js' , element:<Js />},
-                {path:'/frontend/reactjs' , element:<ReactJs />},
-                {path:'/frontend/tailwind' , element:<TailwindCss />}
-
-             ]
-            },
-            {
-                path:'/backend',
-                element:<Backend />,
-                children:
                 [
-                    {path:'/backend/nodejs', element:<Nodejs />},
-                    {path:'/backend/express', element:<Express />},
-                    {path:'/backend/mongodb', element:<MongoDB />},
-                    {path:'/backend/restapi', element:<RestApi />},
-                    {path:'/backend/jwt', element:<JwtAuth />}
+                    { path: '/', element: <Home /> },
 
+                    {
+                        path: '/frontend',
+                        element: <Frontend />,
+                        children:
+                            [
+                                { path: '/frontend/html', element: <Html /> },
+                                { path: '/frontend/css', element: <Css /> },
+                                { path: '/frontend/js', element: <Js /> },
+                                { path: '/frontend/reactjs', element: <ReactJs /> },
+                                { path: '/frontend/tailwind', element: <TailwindCss /> }
+
+                            ]
+                    },
+                    {
+                        path: '/backend',
+                        element: <Backend />,
+                        children:
+                            [
+                                { path: '/backend/nodejs', element: <Nodejs /> },
+                                { path: '/backend/express', element: <Express /> },
+                                { path: '/backend/mongodb', element: <MongoDB /> },
+                                { path: '/backend/restapi', element: <RestApi /> },
+                                { path: '/backend/jwt', element: <JwtAuth /> }
+
+                            ]
+                    },
+                    {
+                        path: '/machine-learning',
+                        element: <MachineLearning />,
+                        children: [
+                            { path: '/machine-learning/introduction', element: <Introduction /> },
+                            {path: '/machine-learning/ai', element: <AI />},
+                            {path: '/machine-learning/supervised', element: <SupervisedLearning />},
+                            {path: '/machine-learning/unsupervised', element: <UnsupervisedLearning />},
+                            {path: '/machine-learning/reinforcement', element: <ReinforcementLearning />},
+                            {path: '/machine-learning/evaluation', element: <Evaluation />}
+                        ]
+                    },
+                    {path: '/android', element: <AndroidDevelopmentRoadmap />},
+
+                    {
+
+                    },
+
+                    {
+                        path: '/projects',
+                        element: <Projects />
+                    },
+                    {
+                        path: '/projects/:projectId',
+                        element: <ProjectDetail />
+                    }
                 ]
-            },
-            {
-                path:'/projects',
-                element:<Projects />
-            },
-            {
-                path:'/projects/:projectId',
-                element:<ProjectDetail />
-            }
-            ]
 
         },
         { path: '*', element: <NotFound /> }
