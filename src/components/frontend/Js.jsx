@@ -514,13 +514,13 @@ for (let i = 0; i < 1e9; i++) {} // Takes time and blocks the thread`,
               <select
                 value={selectedCategory}
                 onChange={(e) => setSelectedCategory(e.target.value)}
-                className="bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="bg-purple-500/20 backdrop-blur-sm text-white border border-purple-300/40 hover:border-purple-300/60 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-300/50 focus:border-purple-200 transition-all duration-200"
               >
                 {categories.map((category) => (
                   <option
                     key={category}
                     value={category}
-                    className="text-black"
+                    className="bg-purple-900 text-purple-100 hover:bg-purple-800 transition-all duration-200"
                   >
                     {category}
                   </option>
@@ -532,13 +532,13 @@ for (let i = 0; i < 1e9; i++) {} // Takes time and blocks the thread`,
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
-                className="bg-white/20 backdrop-blur-sm text-white border border-white/30 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-400"
+                className="bg-purple-500/20 backdrop-blur-sm text-white border border-purple-300/40 hover:border-purple-300/60 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-purple-300/50 focus:border-purple-200 transition-all duration-200"
               >
                 {difficulties.map((difficulty) => (
                   <option
                     key={difficulty}
                     value={difficulty}
-                    className="text-black"
+                    className="bg-purple-900 text-purple-100 hover:bg-purple-800 transition-all duration-200"
                   >
                     {difficulty}
                   </option>
