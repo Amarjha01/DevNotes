@@ -1,7 +1,7 @@
 // pages/Frontend.jsx
 import React, { useState, useEffect, useMemo } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
-import { RiMenu3Fill } from "react-icons/ri";
+import { RiMenu3Fill, RiArrowUpLine} from "react-icons/ri";
 const sidebarLinks = [
   { 
     name: 'HTML', 
@@ -44,6 +44,7 @@ const Frontend = () => {
   const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState(null);
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   // Memoize current page info to avoid recalculation
   const currentPageInfo = useMemo(() => {
@@ -71,6 +72,17 @@ const Frontend = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  //to handle scroll to top
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      setShowBackToTop(scrollTop > 300);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   // Close sidebar when route changes (mobile)
   useEffect(() => {
     if (isSidebarOpen) {
@@ -80,6 +92,14 @@ const Frontend = () => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  //function to scroll back to top
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top:0,
+      behaviour: 'smooth'
+    });
   };
 
   const SidebarLink = ({ link, index, isActive }) => (
@@ -142,6 +162,25 @@ const Frontend = () => {
       >
       <RiMenu3Fill />
       </button>
+
+      {/* Back to Top Button */}
+      {showBackToTop && (
+        <button
+          onClick={scrollToTop}
+          className={`
+            fixed bottom-8 right-8 z-40 
+            bg-gradient-to-r from-purple-600 to-pink-600 
+            text-white p-4 rounded-full shadow-2xl 
+            hover:shadow-purple-500/25 hover:scale-110 
+            transition-all duration-300 transform
+            border border-purple-500/20 backdrop-blur-sm
+            animate-bounce-subtle
+          `}
+          aria-label="Back to top"
+        >
+          <RiArrowUpLine className="w-6 h-6" />
+        </button>
+      )}
 
       {/* Overlay for mobile */}
       {isSidebarOpen && (
