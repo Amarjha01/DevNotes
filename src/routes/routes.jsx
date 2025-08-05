@@ -24,6 +24,12 @@ import UnsupervisedLearning from "../components/machineLearning/UnsupervisedLear
 import ReinforcementLearning from "../components/machineLearning/ReinforcementLearning";
 import AndroidDevelopmentRoadmap from "../pages/AndroidDevelopmentRoadmap";
 import Evaluation from "../components/machineLearning/Evaluation";
+import GenAI_Tools from "../pages/GenAITools";
+import GenAITools from "../pages/GenAITools";
+import FrontEndTools from "../components/GenAITools/FrontEndTools";
+import BackEndTools from "../components/GenAITools/BackEndTools";
+import MLTools from "../components/GenAITools/MLTools";
+import AndroidDevTools from "../components/GenAITools/AndroidDevTools";
 
 const routes = createBrowserRouter(
     [
@@ -85,7 +91,20 @@ const routes = createBrowserRouter(
                     {
                         path: '/projects/:projectId',
                         element: <ProjectDetail />
-                    }
+                    },
+                    {
+  path: '/GenAI-Tools',
+  element: <GenAITools />,
+  children: [
+    { path: '', element: <Introduction /> }, // for /GenAI-Tools
+    { path: 'FrontEndTools', element: <FrontEndTools /> }, // for /GenAI-Tools/FrontEndTools
+    { path: 'BackEndTools', element: <BackEndTools /> },   // for /GenAI-Tools/BackEndTools
+    { path: 'MLTools', element: <MLTools /> },             // for /GenAI-Tools/MLTools
+    { path: 'AndroidDevTools', element: <AndroidDevTools/> },
+  ]
+}
+
+
                 ]
 
         },
