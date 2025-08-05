@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
+import Particles from './Particles';
 
 const Home = () => {
   const [typedText, setTypedText] = useState('');
@@ -75,6 +76,20 @@ const Home = () => {
 
   return (
     <div className="min-h-[80vh] mt-[5%] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
+      {/* Particles Background */}
+      <div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: 5 }}>
+        <Particles
+          particleColors={['#ffffff', '#ffffff']}
+          particleCount={1000}
+          particleSpread={10}
+          speed={0.1}
+          particleBaseSize={200}
+          moveParticlesOnHover={true}
+          alphaParticles={false}
+          disableRotation={false}
+        />
+      </div>
+
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
