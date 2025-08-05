@@ -36,6 +36,13 @@ const Home = () => {
     }
   ];
 
+  // FAQ state management
+  const [openFaq, setOpenFaq] = useState(null);
+
+  const toggleFaq = (index) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
   // Handle form submission
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -312,19 +319,81 @@ const Home = () => {
         </h2>
         <div className="max-w-4xl mx-auto space-y-6">
           {faqs.map(({ q, a }, index) => (
-            <motion.details
+            <motion.div
               key={q}
-              className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 border border-gray-700/50 hover:border-purple-500/30 transition-all duration-300 cursor-pointer relative z-30"
+                             className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30 overflow-hidden ${
+                 openFaq === index 
+                   ? 'border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80' 
+                   : 'border-gray-700/50 hover:border-purple-500/30'
+               }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.0 + index * 0.1 }}
               style={{ pointerEvents: 'auto' }}
             >
-              <summary className="cursor-pointer font-semibold text-lg md:text-xl text-purple-300 hover:text-purple-200 transition-colors list-none outline-none">
-                {q}
-              </summary>
-              <p className="mt-4 text-gray-300 leading-relaxed text-base md:text-lg">{a}</p>
-            </motion.details>
+              <div 
+                className="p-6 flex items-center justify-between group"
+                onClick={() => toggleFaq(index)}
+              >
+                <h3 className="font-semibold text-lg md:text-xl text-purple-300 group-hover:text-purple-200 transition-colors">
+                  {q}
+                </h3>
+                                 <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${
+                   openFaq === index 
+                     ? 'bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]' 
+                     : 'bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50'
+                 }`}>
+                   <motion.div
+                     className={`flex items-center justify-center w-full h-full transition-all duration-300 ${
+                       openFaq === index 
+                         ? 'text-purple-200 drop-shadow-lg' 
+                         : 'text-purple-300'
+                     }`}
+                     animate={{ rotate: openFaq === index ? 180 : 0 }}
+                     transition={{ duration: 0.3 }}
+                   >
+                     <svg 
+                       width="16" 
+                       height="16" 
+                       viewBox="0 0 24 24" 
+                       fill="none" 
+                       stroke="currentColor" 
+                       strokeWidth="2" 
+                       strokeLinecap="round" 
+                       strokeLinejoin="round"
+                       className="transition-all duration-300"
+                     >
+                       {openFaq === index ? (
+                         // Minus icon (horizontal line)
+                         <line x1="5" y1="12" x2="19" y2="12" />
+                       ) : (
+                         // Plus icon (vertical and horizontal lines)
+                         <>
+                           <line x1="12" y1="5" x2="12" y2="19" />
+                           <line x1="5" y1="12" x2="19" y2="12" />
+                         </>
+                       )}
+                     </svg>
+                   </motion.div>
+                 </div>
+              </div>
+              
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openFaq === index ? 'auto' : 0,
+                  opacity: openFaq === index ? 1 : 0
+                }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <div className="px-6 pb-6">
+                  <p className="text-gray-300 leading-relaxed text-base md:text-lg">
+                    {a}
+                  </p>
+                </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </motion.section>
