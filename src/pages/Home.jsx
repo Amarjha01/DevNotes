@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen, FaProjectDiagram } from 'react-icons/fa';
+import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
 
 const Home = () => {
   const [typedText, setTypedText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
-  
+
   const technologies = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'TypeScript'];
   const fullText = 'Master Web Development';
 
@@ -42,10 +42,10 @@ const Home = () => {
     const name = formData.get('name');
     const email = formData.get('email');
     const message = formData.get('message');
-    
+
     // For now, just show an alert - replace with actual form handling
     alert(`Thank you ${name}! Your message has been received.\n\nWe'll get back to you at ${email} soon!`);
-    
+
     // Reset form
     e.target.reset();
   };
@@ -128,7 +128,7 @@ const Home = () => {
         </motion.div>
 
         {/* Main Title with Typing Effect */}
-        <motion.h1 
+        <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -139,14 +139,14 @@ const Home = () => {
         </motion.h1>
 
         {/* Subtitle */}
-        <motion.p 
+        <motion.p
           className="text-xl md:text-2xl text-gray-300 max-w-4xl mb-8 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          Your daily dose of web development notes. Master 
-          <span className="text-purple-400 font-semibold"> HTML, CSS, JavaScript, React, Node.js</span> and more 
+          Your daily dose of web development notes. Master
+          <span className="text-purple-400 font-semibold"> HTML, CSS, JavaScript, React, Node.js</span> and more
           in a structured, beautifully organized format.
         </motion.p>
 
@@ -208,7 +208,33 @@ const Home = () => {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
+
+          {/* ➕ Machine Learning Button */}
+          <Link
+            to="/machine-learning/ai"
+            className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl shadow-lg hover:shadow-orange-400/25 transition-all duration-300 hover:scale-105 font-medium"
+          >
+            <span className="flex items-center gap-2 text-3xl">
+              <FaBrain />
+              Machine Learning
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+
+
+          {/* ➕ Android Development Button */}
+          <Link
+            to="/android"
+            className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 font-medium"
+          >
+            <span className="flex items-center gap-2 text-3xl">
+              <FaAndroid />
+              Android Development
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
         </motion.div>
+
 
         {/* Stats Section */}
         <motion.div
@@ -302,7 +328,7 @@ const Home = () => {
         <p className="text-center text-gray-300 mb-12 max-w-2xl mx-auto text-lg">
           Have questions? Want to contribute? We'd love to hear from you!
         </p>
-        
+
         <form
           onSubmit={handleFormSubmit}
           className="max-w-2xl mx-auto space-y-6 relative z-30"
@@ -321,14 +347,14 @@ const Home = () => {
               required
               placeholder="Your awesome name"
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all relative z-50"
-              style={{ 
+              style={{
                 pointerEvents: 'auto',
                 position: 'relative',
                 zIndex: 50
               }}
             />
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -342,14 +368,14 @@ const Home = () => {
               required
               placeholder="your.email@awesome.com"
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all relative z-50"
-              style={{ 
+              style={{
                 pointerEvents: 'auto',
                 position: 'relative',
                 zIndex: 50
               }}
             />
           </motion.div>
-          
+
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -363,14 +389,14 @@ const Home = () => {
               required
               placeholder="Tell us what's on your mind..."
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all resize-none relative z-50"
-              style={{ 
+              style={{
                 pointerEvents: 'auto',
                 position: 'relative',
                 zIndex: 50
               }}
             />
           </motion.div>
-          
+
           <motion.button
             type="submit"
             className="block mx-auto px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full shadow-lg hover:shadow-pink-500/25 transition-all duration-300 hover:scale-105 font-medium text-lg relative z-50"
@@ -379,7 +405,7 @@ const Home = () => {
             transition={{ delay: 2.5, duration: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            style={{ 
+            style={{
               pointerEvents: 'auto',
               position: 'relative',
               zIndex: 50
@@ -401,7 +427,7 @@ const Home = () => {
             <a href="mailto:hello@devnotes.com" className="text-purple-400 hover:text-purple-300 transition-colors">
               📧 hello@devnotes.com
             </a>
-           
+
             <a href="https://github.com/amarjha01" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors">
               🔗 GitHub
             </a>
