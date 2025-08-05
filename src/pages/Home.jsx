@@ -1,7 +1,8 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
+import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen, FaProjectDiagram, FaBrain, FaAndroid, FaEllipsisH } from 'react-icons/fa';
 import Particles from './Particles';
 
 const Home = () => {
@@ -12,7 +13,6 @@ const Home = () => {
   const technologies = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'TypeScript'];
   const fullText = 'Master Web Development';
 
-  // FAQ content
   const faqs = [
     {
       q: "What is DevNotes?",
@@ -28,7 +28,7 @@ const Home = () => {
     },
     {
       q: "What technologies are covered?",
-      a: "We cover HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, TypeScript and more modern web technologies."
+      a: "We cover HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, TypeScript, and more modern web technologies."
     },
     {
       q: "How often is content updated?",
@@ -36,14 +36,12 @@ const Home = () => {
     }
   ];
 
-  // FAQ state management
   const [openFaq, setOpenFaq] = useState(null);
 
   const toggleFaq = (index) => {
     setOpenFaq(openFaq === index ? null : index);
   };
 
-  // Handle form submission
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
@@ -51,10 +49,7 @@ const Home = () => {
     const email = formData.get('email');
     const message = formData.get('message');
 
-    // For now, just show an alert - replace with actual form handling
     alert(`Thank you ${name}! Your message has been received.\n\nWe'll get back to you at ${email} soon!`);
-
-    // Reset form
     e.target.reset();
   };
 
@@ -83,7 +78,6 @@ const Home = () => {
 
   return (
     <div className="min-h-[80vh] mt-[5%] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
-      {/* Particles Background */}
       <div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: 5 }}>
         <Particles
           particleColors={['#ffffff', '#ffffff']}
@@ -97,14 +91,12 @@ const Home = () => {
         />
       </div>
 
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-500"></div>
       </div>
 
-      {/* Floating Code Snippets */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div
           className="absolute lg:top-[10%] top-[20%] left-10 text-purple-400/70 lg:text-purple-400/50 font-mono text-sm"
@@ -129,14 +121,12 @@ const Home = () => {
         </motion.div>
       </div>
 
-      {/* Main Content */}
       <motion.div
         className="relative z-10 min-h-[50vh] lg:min-h-screen flex flex-col items-center justify-center text-center px-6"
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        {/* Hero Badge */}
         <motion.div
           className="mb-8 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30"
           initial={{ scale: 0 }}
@@ -149,7 +139,6 @@ const Home = () => {
           </span>
         </motion.div>
 
-        {/* Main Title with Typing Effect */}
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -160,7 +149,6 @@ const Home = () => {
           <span className="animate-pulse text-purple-400">|</span>
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
           className="text-xl md:text-2xl text-gray-300 max-w-4xl mb-8 leading-relaxed"
           initial={{ opacity: 0, y: 20 }}
@@ -172,7 +160,6 @@ const Home = () => {
           in a structured, beautifully organized format.
         </motion.p>
 
-        {/* Tech Stack Showcase */}
         <motion.div
           className="flex flex-wrap justify-center gap-3 mb-10"
           initial={{ opacity: 0 }}
@@ -193,7 +180,6 @@ const Home = () => {
           ))}
         </motion.div>
 
-        {/* Action Buttons */}
         <motion.div
           className="flex gap-6 flex-wrap justify-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -230,8 +216,6 @@ const Home = () => {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-
-          {/* ➕ Machine Learning Button */}
           <Link
             to="/machine-learning/ai"
             className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl shadow-lg hover:shadow-orange-400/25 transition-all duration-300 hover:scale-105 font-medium"
@@ -242,9 +226,6 @@ const Home = () => {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-
-
-          {/* ➕ Android Development Button */}
           <Link
             to="/android"
             className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 font-medium"
@@ -255,10 +236,38 @@ const Home = () => {
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
+          <Link
+            to="/miscellaneous/git"
+            className="group relative px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl shadow-lg hover:shadow-teal-400/25 transition-all duration-300 hover:scale-105 font-medium"
+          >
+            <span className="flex items-center gap-2 text-3xl">
+              <FaEllipsisH />
+              Miscellaneous Tools
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+          <Link
+            to="/deployment/heroku"
+            className="group relative px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl shadow-lg hover:shadow-pink-400/25 transition-all duration-300 hover:scale-105 font-medium"
+          >
+            <span className="flex items-center gap-2 text-3xl">
+              <FaRocket />
+              Deployment
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
+          <Link
+            to="/GenAI-Tools/FrontEndTools"
+            className="group relative px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl shadow-lg hover:shadow-purple-400/25 transition-all duration-300 hover:scale-105 font-medium"
+          >
+            <span className="flex items-center gap-2 text-3xl">
+              <FaCode />
+              Gen-AI Dev Tools
+              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+            </span>
+          </Link>
         </motion.div>
 
-
-        {/* Stats Section */}
         <motion.div
           className="flex flex-wrap justify-center gap-8 mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -288,7 +297,6 @@ const Home = () => {
           </div>
         </motion.div>
 
-        {/* Floating Action Button */}
         <motion.div
           className="fixed bottom-8 right-8 z-[100]"
           initial={{ opacity: 0, scale: 0 }}
@@ -306,7 +314,6 @@ const Home = () => {
         </motion.div>
       </motion.div>
 
-      {/* FAQ Section */}
       <motion.section
         id="faq"
         className="w-full py-20 px-6 bg-gradient-to-br from-[#1a0b2e] to-[#11071f] text-gray-200 relative z-20"
@@ -321,11 +328,11 @@ const Home = () => {
           {faqs.map(({ q, a }, index) => (
             <motion.div
               key={q}
-                             className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30 overflow-hidden ${
-                 openFaq === index 
-                   ? 'border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80' 
-                   : 'border-gray-700/50 hover:border-purple-500/30'
-               }`}
+              className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30 overflow-hidden ${
+                openFaq === index 
+                  ? 'border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80' 
+                  : 'border-gray-700/50 hover:border-purple-500/30'
+              }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.0 + index * 0.1 }}
@@ -338,44 +345,42 @@ const Home = () => {
                 <h3 className="font-semibold text-lg md:text-xl text-purple-300 group-hover:text-purple-200 transition-colors">
                   {q}
                 </h3>
-                                 <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${
-                   openFaq === index 
-                     ? 'bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]' 
-                     : 'bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50'
-                 }`}>
-                   <motion.div
-                     className={`flex items-center justify-center w-full h-full transition-all duration-300 ${
-                       openFaq === index 
-                         ? 'text-purple-200 drop-shadow-lg' 
-                         : 'text-purple-300'
-                     }`}
-                     animate={{ rotate: openFaq === index ? 180 : 0 }}
-                     transition={{ duration: 0.3 }}
-                   >
-                     <svg 
-                       width="16" 
-                       height="16" 
-                       viewBox="0 0 24 24" 
-                       fill="none" 
-                       stroke="currentColor" 
-                       strokeWidth="2" 
-                       strokeLinecap="round" 
-                       strokeLinejoin="round"
-                       className="transition-all duration-300"
-                     >
-                       {openFaq === index ? (
-                         // Minus icon (horizontal line)
-                         <line x1="5" y1="12" x2="19" y2="12" />
-                       ) : (
-                         // Plus icon (vertical and horizontal lines)
-                         <>
-                           <line x1="12" y1="5" x2="12" y2="19" />
-                           <line x1="5" y1="12" x2="19" y2="12" />
-                         </>
-                       )}
-                     </svg>
-                   </motion.div>
-                 </div>
+                <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${
+                  openFaq === index 
+                    ? 'bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]' 
+                    : 'bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50'
+                }`}>
+                  <motion.div
+                    className={`flex items-center justify-center w-full h-full transition-all duration-300 ${
+                      openFaq === index 
+                        ? 'text-purple-200 drop-shadow-lg' 
+                        : 'text-purple-300'
+                    }`}
+                    animate={{ rotate: openFaq === index ? 180 : 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                      className="transition-all duration-300"
+                    >
+                      {openFaq === index ? (
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      ) : (
+                        <>
+                          <line x1="12" y1="5" x2="12" y2="19" />
+                          <line x1="5" y1="12" x2="19" y2="12" />
+                        </>
+                      )}
+                    </svg>
+                  </motion.div>
+                </div>
               </div>
               
               <motion.div
@@ -398,7 +403,6 @@ const Home = () => {
         </div>
       </motion.section>
 
-      {/* Contact Section */}
       <motion.section
         id="contact"
         className="w-full py-20 px-6 bg-gradient-to-br from-[#11071f] to-[#0a0415] text-gray-200 relative z-20"
@@ -499,7 +503,6 @@ const Home = () => {
           </motion.button>
         </form>
 
-        {/* Contact Info */}
         <motion.div
           className="mt-16 text-center space-y-4 relative z-30"
           initial={{ opacity: 0, y: 20 }}
@@ -511,7 +514,6 @@ const Home = () => {
             <a href="mailto:hello@devnotes.com" className="text-purple-400 hover:text-purple-300 transition-colors">
               📧 hello@devnotes.com
             </a>
-
             <a href="https://github.com/amarjha01" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors">
               🔗 GitHub
             </a>
