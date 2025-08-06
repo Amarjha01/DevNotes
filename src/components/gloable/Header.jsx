@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+
+import { FaBars, FaPlay, FaTimes, FaCode, FaLaptopCode, FaServer,FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid, FaDatabase } from 'react-icons/fa';
 import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
 import SearchBar from '../SearchBar';
 
@@ -40,6 +42,8 @@ export function Header() {
     { name: 'Frontend', path: '/frontend/html', icon: FaLaptopCode, color: 'text-purple-400' },
     { name: 'Backend', path: '/backend/nodejs', icon: FaServer, color: 'text-blue-400' },
     { name: 'ML/AI', path: '/machine-learning/ai', icon: FaBrain, color: 'text-orange-400' },
+    { name: 'DSA', path: '/dsa', icon: FaPlay, color: 'text-purple-400' },         //dsa link added
+    { name: 'System Design', path: '/system-design', icon: FaDatabase, color: 'text-purple-400' },  //system design link added
     { name: 'Android', path: '/android', icon: FaAndroid, color: 'text-green-400' },
     { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
     { name: 'GitGuide', path: '/Git Guide', icon: FaCode, color: 'text-yellow-400' },
@@ -80,7 +84,7 @@ export function Header() {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-2 bg-gray-900/50 backdrop-blur-sm rounded-full px-4 py-2 border border-gray-700/50">
+        <nav className="hidden lg:flex items-center gap-1 bg-gray-900/50 backdrop-blur-sm rounded-full px-2 py-1 border border-gray-700/50 ml-6  ">
           {navItems.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -89,7 +93,7 @@ export function Header() {
                 onClick={() => window.location.href = item.path}
                 className={`group relative flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 ${item.color} hover:scale-105`}
               >
-                <Icon className="text-sm" />
+                <Icon className="text-lg" />
                 <span className="text-gray-300 group-hover:text-white">{item.name}</span>
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300"></div>
               </button>
