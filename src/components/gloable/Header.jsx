@@ -44,8 +44,9 @@ export function Header() {
     { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
     { name: 'GitGuide', path: '/Git Guide', icon: FaCode, color: 'text-yellow-400' },
     { name: 'Deployment', path: '/deployment', icon: FaRocket, color: 'text-green-400' },
+    { name: 'Deployment', path: '/deployment/heroku', icon: FaRocket, color: 'text-green-400' },
     { name: 'Gen-AI Dev Tools', path: '/GenAI-Tools/FrontEndTools', icon: FaRobot, color: 'text-purple-400' },
-    { name: 'Miscellaneous', path: '/miscellaneous', icon: FaEllipsisH, color: 'text-pink-400' },
+    { name: 'Miscellaneous', path: '/miscellaneous/git', icon: FaEllipsisH, color: 'text-pink-400' },
 
 
   ];
