@@ -29,6 +29,89 @@ import FrontEndTools from "../components/GenAITools/FrontEndTools";
 import BackEndTools from "../components/GenAITools/BackEndTools";
 import MLTools from "../components/GenAITools/MLTools";
 import AndroidDevTools from "../components/GenAITools/AndroidDevTools";
+import GitGuide from "../pages/GitGuide";
+
+const routes = createBrowserRouter(
+    [
+        {
+            path: '/',
+            element: <App />,
+            children:
+                [
+                    { path: '/', element: <Home /> },
+
+                    {
+                        path: '/frontend',
+                        element: <Frontend />,
+                        children:
+                            [
+                                { path: '/frontend/html', element: <Html /> },
+                                { path: '/frontend/css', element: <Css /> },
+                                { path: '/frontend/js', element: <Js /> },
+                                { path: '/frontend/reactjs', element: <ReactJs /> },
+                                { path: '/frontend/tailwind', element: <TailwindCss /> }
+
+                            ]
+                    },
+                    {
+                        path: '/backend',
+                        element: <Backend />,
+                        children:
+                            [
+                                { path: '/backend/nodejs', element: <Nodejs /> },
+                                { path: '/backend/express', element: <Express /> },
+                                { path: '/backend/mongodb', element: <MongoDB /> },
+                                { path: '/backend/restapi', element: <RestApi /> },
+                                { path: '/backend/jwt', element: <JwtAuth /> }
+
+                            ]
+                    },
+                    {
+                        path: '/machine-learning',
+                        element: <MachineLearning />,
+                        children: [
+                            { path: '/machine-learning/introduction', element: <Introduction /> },
+                            {path: '/machine-learning/ai', element: <AI />},
+                            {path: '/machine-learning/supervised', element: <SupervisedLearning />},
+                            {path: '/machine-learning/unsupervised', element: <UnsupervisedLearning />},
+                            {path: '/machine-learning/reinforcement', element: <ReinforcementLearning />},
+                            {path: '/machine-learning/evaluation', element: <Evaluation />}
+                        ]
+                    },
+                    {path: '/android', element: <AndroidDevelopmentRoadmap />},
+                    {path: '/GitGuide', element: <GitGuide />},
+
+                    {
+
+                    },
+
+                    {
+                        path: '/projects',
+                        element: <Projects />
+                    },
+                    {
+                        path: '/projects/:projectId',
+                        element: <ProjectDetail />
+                    },
+                    {
+  path: '/GenAI-Tools',
+  element: <GenAITools />,
+  children: [
+    { path: '', element: <Introduction /> }, // for /GenAI-Tools
+    { path: 'FrontEndTools', element: <FrontEndTools /> }, // for /GenAI-Tools/FrontEndTools
+    { path: 'BackEndTools', element: <BackEndTools /> },   // for /GenAI-Tools/BackEndTools
+    { path: 'MLTools', element: <MLTools /> },             // for /GenAI-Tools/MLTools
+    { path: 'AndroidDevTools', element: <AndroidDevTools/> },
+  ]
+}
+
+
+                ]
+
+        },
+        { path: '*', element: <NotFound /> }
+    ]
+)
 import Miscellaneous from "../pages/miscellaneous";
 import Deployment from "../pages/deployment";
 import Git from "../components/miscellaneous/Git";
