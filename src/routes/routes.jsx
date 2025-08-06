@@ -30,6 +30,7 @@ import FrontEndTools from "../components/GenAITools/FrontEndTools";
 import BackEndTools from "../components/GenAITools/BackEndTools";
 import MLTools from "../components/GenAITools/MLTools";
 import AndroidDevTools from "../components/GenAITools/AndroidDevTools";
+import GitGuide from "../pages/GitGuide";
 
 const routes = createBrowserRouter(
     [
@@ -79,6 +80,7 @@ const routes = createBrowserRouter(
                         ]
                     },
                     {path: '/android', element: <AndroidDevelopmentRoadmap />},
+                    {path: '/GitGuide', element: <GitGuide />},
 
                     {
 
