@@ -100,25 +100,12 @@ const routes = createBrowserRouter([
         ],
       },
 
-                            ]
-                    },
-                    {
-                        path: '/machine-learning',
-                        element: <MachineLearning />,
-                        children: [
-                            { path: '/machine-learning/introduction', element: <Introduction /> },
-                            {path: '/machine-learning/ai', element: <AI />},
-                            {path: '/machine-learning/supervised', element: <SupervisedLearning />},
-                            {path: '/machine-learning/unsupervised', element: <UnsupervisedLearning />},
-                            {path: '/machine-learning/reinforcement', element: <ReinforcementLearning />},
-                            {path: '/machine-learning/evaluation', element: <Evaluation />}
-                        ]
-                    },
+                            
+                   
                     {path: '/android', element: <AndroidDevelopmentRoadmap />},
                     {path: '/GitGuide', element: <GitGuide />},
 
 
-      { path: "/android", element: <AndroidDevelopmentRoadmap /> },
 
       {
         path: "/dsa",
@@ -166,16 +153,15 @@ const routes = createBrowserRouter([
     { path: 'BackEndTools', element: <BackEndTools /> },   // for /GenAI-Tools/BackEndTools
     { path: 'MLTools', element: <MLTools /> },             // for /GenAI-Tools/MLTools
     { path: 'AndroidDevTools', element: <AndroidDevTools/> },
-  ]
-}
+  ],
+},
 
 
                 ]
 
         },
-        { path: '*', element: <NotFound /> }
-    ]
-)
+        { path: '*', element: <NotFound /> },
+    ])
 import Miscellaneous from "../pages/miscellaneous";
 import Deployment from "../pages/deployment";
 import Git from "../components/miscellaneous/Git";
