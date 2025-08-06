@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-// components/frontend/Reactjs.jsx
-import React from 'react';
+
 import Chat from '../Chat';
-=======
 import React, { useState } from 'react';
->>>>>>> eb39a52d4a8b0c65359c726911c63c721f7a95ce
+
 
 const ReactJs = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -448,10 +445,9 @@ function App() {
             Master React with interactive notes and code examples
           </p>
         </div>
-<<<<<<< HEAD
-      ))}
-      <Chat/>
-=======
+      
+  
+
 
         {/* Filters */}
         <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-8">
@@ -564,7 +560,7 @@ function App() {
           <p>Keep learning and happy coding! 🚀</p>
         </div>
       </div>
->>>>>>> eb39a52d4a8b0c65359c726911c63c721f7a95ce
+      <Chat />
     </div>
   );
 };
