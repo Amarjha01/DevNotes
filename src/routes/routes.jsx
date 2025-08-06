@@ -31,38 +31,74 @@ import MLTools from "../components/GenAITools/MLTools";
 import AndroidDevTools from "../components/GenAITools/AndroidDevTools";
 import GitGuide from "../pages/GitGuide";
 
-const routes = createBrowserRouter(
-    [
-        {
-            path: '/',
-            element: <App />,
-            children:
-                [
-                    { path: '/', element: <Home /> },
+import DSA from "../pages/Dsa";
+import Array from "../components/Dsa/Array";
+import Greedy from "../components/Dsa/Greedy";
+import Queue from "../components/Dsa/Queue";
+import Stack from "../components/Dsa/Stack";
+import String from "../components/Dsa/String";
 
-                    {
-                        path: '/frontend',
-                        element: <Frontend />,
-                        children:
-                            [
-                                { path: '/frontend/html', element: <Html /> },
-                                { path: '/frontend/css', element: <Css /> },
-                                { path: '/frontend/js', element: <Js /> },
-                                { path: '/frontend/reactjs', element: <ReactJs /> },
-                                { path: '/frontend/tailwind', element: <TailwindCss /> }
+import SystemDesign from "../pages/SystemDesign";
+import ApiDesign from "../components/system-design/API-Design";
+import Caching from "../components/system-design/Caching";
+import DatabaseDesign from "../components/system-design/Database-Design";
+import LoadBalancer from "../components/system-design/Load-Balancers";
+import Scalability from "../components/system-design/Scalability";
 
-                            ]
-                    },
-                    {
-                        path: '/backend',
-                        element: <Backend />,
-                        children:
-                            [
-                                { path: '/backend/nodejs', element: <Nodejs /> },
-                                { path: '/backend/express', element: <Express /> },
-                                { path: '/backend/mongodb', element: <MongoDB /> },
-                                { path: '/backend/restapi', element: <RestApi /> },
-                                { path: '/backend/jwt', element: <JwtAuth /> }
+const routes = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+
+
+      {
+        path: "/frontend",
+        element: <Frontend />,
+        children: [
+          { path: "/frontend/html", element: <Html /> },
+          { path: "/frontend/css", element: <Css /> },
+          { path: "/frontend/js", element: <Js /> },
+          { path: "/frontend/reactjs", element: <ReactJs /> },
+          { path: "/frontend/tailwind", element: <TailwindCss /> },
+        ],
+      },
+      {
+        path: "/backend",
+        element: <Backend />,
+        children: [
+          { path: "/backend/nodejs", element: <Nodejs /> },
+          { path: "/backend/express", element: <Express /> },
+          { path: "/backend/mongodb", element: <MongoDB /> },
+          { path: "/backend/restapi", element: <RestApi /> },
+          { path: "/backend/jwt", element: <JwtAuth /> },
+        ],
+      },
+      {
+        path: "/machine-learning",
+        element: <MachineLearning />,
+        children: [
+          { path: "/machine-learning/introduction", element: <Introduction /> },
+          { path: "/machine-learning/ai", element: <AI /> },
+          {
+            path: "/machine-learning/supervised",
+            element: <SupervisedLearning />,
+          },
+          {
+            path: "/machine-learning/unsupervised",
+            element: <UnsupervisedLearning />,
+          },
+          {
+            path: "/machine-learning/reinforcement",
+            element: <ReinforcementLearning />,
+          },
+          { path: "/machine-learning/evaluation", element: <Evaluation /> },
+        ],
+      },
 
                             ]
                     },
@@ -81,9 +117,37 @@ const routes = createBrowserRouter(
                     {path: '/android', element: <AndroidDevelopmentRoadmap />},
                     {path: '/GitGuide', element: <GitGuide />},
 
-                    {
 
-                    },
+      { path: "/android", element: <AndroidDevelopmentRoadmap /> },
+
+      {
+        path: "/dsa",
+        element: <DSA />,
+        children: [
+          { index: true, element: <Array /> },
+          { path: "/dsa/array", element: <Array /> },
+          { path: "/dsa/greedy", element: <Greedy /> },
+          { path: "/dsa/queue", element: <Queue /> },
+          { path: "/dsa/stack", element: <Stack /> },
+          { path: "/dsa/string", element: <String /> },
+        ],
+      },
+      {
+        path: "/system-design",
+        element: <SystemDesign />,
+        children: [
+          { index: true, element: <Scalability /> },
+          { path: "/system-design/api-design", element: <ApiDesign /> },
+          { path: "/system-design/caching", element: <Caching /> },
+          {
+            path: "/system-design/database-design",
+            element: <DatabaseDesign />,
+          },
+          { path: "/system-design/load-balancers", element: <LoadBalancer /> },
+          { path: "/system-design/scalability", element: <Scalability /> },
+        ],
+      },
+
 
                     {
                         path: '/projects',
@@ -206,6 +270,7 @@ const routes = createBrowserRouter([
           { path: "/deployment/cloudhosting", element: <CloudHosting /> },
         ],
       },
+
       {
         path: "/projects",
         element: <Projects />,
@@ -218,10 +283,17 @@ const routes = createBrowserRouter([
         path: "/GenAI-Tools",
         element: <GenAITools />,
         children: [
+
+          { path: "", element: <Introduction /> }, // for /GenAI-Tools
+          { path: "FrontEndTools", element: <FrontEndTools /> }, // for /GenAI-Tools/FrontEndTools
+          { path: "BackEndTools", element: <BackEndTools /> }, // for /GenAI-Tools/BackEndTools
+          { path: "MLTools", element: <MLTools /> }, // for /GenAI-Tools/MLTools
+
           { path: "", element: <Introduction /> },
           { path: "FrontEndTools", element: <FrontEndTools /> },
           { path: "BackEndTools", element: <BackEndTools /> },
           { path: "MLTools", element: <MLTools /> },
+
           { path: "AndroidDevTools", element: <AndroidDevTools /> },
         ],
       },
