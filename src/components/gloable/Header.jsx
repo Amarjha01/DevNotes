@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import { FaPlay } from 'react-icons/fa';
+import { FaDatabase } from 'react-icons/fa';
 
-import { FaBars, FaPlay, FaTimes, FaCode, FaLaptopCode, FaServer,FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid, FaDatabase } from 'react-icons/fa';
 import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
 import SearchBar from '../SearchBar';
 
@@ -47,10 +48,10 @@ export function Header() {
     { name: 'Android', path: '/android', icon: FaAndroid, color: 'text-green-400' },
     { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
     { name: 'GitGuide', path: '/GitGuide', icon: FaCode, color: 'text-yellow-400' },
-    { name: 'Deployment', path: '/deployment', icon: FaRocket, color: 'text-green-400' },
+  //  { name: 'Deployment', path: '/deployment', icon: FaRocket, color: 'text-green-400' },
     { name: 'Gen-AI Dev Tools', path: '/GenAI-Tools/FrontEndTools', icon: FaRobot, color: 'text-purple-400' },
-    { name: 'Miscellaneous', path: '/miscellaneous', icon: FaEllipsisH, color: 'text-pink-400' },
-    { name: 'Miscellaneous', path: '/miscellaneous/git', icon: FaEllipsisH, color: 'text-pink-400' },
+   // { name: 'Miscellaneous', path: '/miscellaneous', icon: FaEllipsisH, color: 'text-pink-400' },
+  
   ];
 
   return (
