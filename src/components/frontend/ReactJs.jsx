@@ -1,5 +1,6 @@
 // components/frontend/Reactjs.jsx
 import React from 'react';
+import Chat from '../Chat';
 
 const ReactJs = () => {
   const notes = [
@@ -68,6 +69,7 @@ const ReactJs = () => {
           )}
         </div>
       ))}
+      <Chat/>
     </div>
   );
 };

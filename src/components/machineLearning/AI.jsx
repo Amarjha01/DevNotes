@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Chat from '../Chat';
 
 const notes = [
   {
@@ -164,6 +165,7 @@ const AI = () => {
           )}
         </div>
       ))}
+      <Chat />
     </div>
   );
 };

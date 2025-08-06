@@ -1,5 +1,6 @@
 // components/frontend/Tailwindcss.jsx
 import React from 'react';
+import Chat from '../Chat';
 
 const TailwindCss = () => {
   const notes = [
@@ -67,6 +68,7 @@ npx tailwindcss init`
           )}
         </div>
       ))}
+      <Chat/>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Chat from '../Chat';
 
 const notes = [
   {
@@ -170,6 +171,7 @@ const Introduction = () => {
           </div>
         ))
       )}
+      <Chat/>
     </div>
   );
 };

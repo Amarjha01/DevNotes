@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Chat from "../Chat";
 
 const Js = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -623,6 +624,7 @@ for (let i = 0; i < 1e9; i++) {} // Takes time and blocks the thread`,
           <p>Keep learning and happy coding! 🚀</p>
         </div>
       </div>
+      <Chat />
     </div>
   );
 };
