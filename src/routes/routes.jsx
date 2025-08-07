@@ -42,6 +42,18 @@ import CICD from "../components/deployment/CICD";
 import StaticHosting from "../components/deployment/StaticHosting";
 import CloudHosting from "../components/deployment/CloudHosting";
 import Accessibility from "../components/miscellaneous/Accessibility";
+import SystemDesign from "../pages/SystemDesign";
+import API from "../components/system-design/API-Design";
+import Caching from "../components/system-design/Caching";
+import DatabaseDesign from "../components/system-design/Database-Design";
+import Scalability from "../components/system-design/Scalability";
+import LoadBalancers from "../components/system-design/Load-Balancers";
+import DSA from "../pages/Dsa";
+import Array from "../components/Dsa/Array";
+import Greedy from "../components/Dsa/Greedy";
+import Stack from "../components/Dsa/Stack";
+import Queue from "../components/Dsa/Queue";
+import String from "../components/Dsa/String";
 
 const routes = createBrowserRouter([
   {
@@ -49,6 +61,7 @@ const routes = createBrowserRouter([
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
+      
       {
         path: "/frontend",
         element: <Frontend />,
@@ -60,6 +73,7 @@ const routes = createBrowserRouter([
           { path: "/frontend/tailwind", element: <TailwindCss /> },
         ],
       },
+
       {
         path: "/backend",
         element: <Backend />,
@@ -71,6 +85,7 @@ const routes = createBrowserRouter([
           { path: "/backend/jwt", element: <JwtAuth /> },
         ],
       },
+
       {
         path: "/machine-learning",
         element: <MachineLearning />,
@@ -83,7 +98,7 @@ const routes = createBrowserRouter([
           { path: "/machine-learning/evaluation", element: <Evaluation /> },
         ],
       },
-      { path: "/android", element: <AndroidDevelopmentRoadmap /> },
+
       {
         path: "/miscellaneous",
         element: <Miscellaneous />,
@@ -95,6 +110,7 @@ const routes = createBrowserRouter([
           { path: "/miscellaneous/webperformance", element: <WebPerformance /> },
         ],
       },
+
       {
         path: "/deployment",
         element: <Deployment />,
@@ -106,8 +122,7 @@ const routes = createBrowserRouter([
           { path: "/deployment/cloudhosting", element: <CloudHosting /> },
         ],
       },
-      { path: "/projects", element: <Projects /> },
-      { path: "/projects/:projectId", element: <ProjectDetail /> },
+
       {
         path: "/GenAI-Tools",
         element: <GenAITools />,
@@ -119,7 +134,36 @@ const routes = createBrowserRouter([
           { path: "AndroidDevTools", element: <AndroidDevTools /> },
         ],
       },
+
+      {
+        path: "/system-design",
+        element: <SystemDesign />,
+        children: [
+          { path: "/system-design/api-design", element: <API /> },
+          { path: "/system-design/caching", element: <Caching /> },
+          { path: "/system-design/database-design", element: <DatabaseDesign /> },
+          { path: "/system-design/scalability", element: <Scalability /> },
+          { path: "/system-design/load-balancers", element: <LoadBalancers /> },
+        ]
+      },
+
+      {
+        path: "/dsa",
+        element: <DSA />,
+        children: [
+          { path: "/dsa/array", element: <Array /> },
+          { path: "/dsa/greedy", element: <Greedy /> },
+          { path: "/dsa/stack", element: <Stack /> },
+          { path: "/dsa/queue", element: <Queue /> },
+          { path: "/dsa/string", element: <String /> }
+        ]
+      },
+      
+      { path: "/android", element: <AndroidDevelopmentRoadmap /> },
+      { path: "/projects", element: <Projects /> },
+      { path: "/projects/:projectId", element: <ProjectDetail /> },
       { path: "/GitGuide", element: <GitGuide /> },
+
     ],
   },
   { path: "*", element: <NotFound /> },
