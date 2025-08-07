@@ -1,5 +1,6 @@
 // components/frontend/Html.jsx
 import React, { useState, useEffect } from 'react';
+import Chat from '../Chat';
 
 const Html = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -1255,6 +1256,7 @@ socket.onmessage = (event) => console.log(event.data);`,
           animation: fade-in-up 0.6s ease-out;
         }
       `}</style>
+      <Chat/>
     </div>
   );
 };
