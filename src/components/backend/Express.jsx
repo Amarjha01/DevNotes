@@ -1,5 +1,8 @@
 // components/backend/Express.jsx
 import React from 'react';
+import Chat from '../Chat';
+import { useRef } from 'react';
+import { GoChevronDown } from "react-icons/go";
 
 const notes = [
   {
@@ -73,17 +76,33 @@ app.delete('/', (req, res) => res.send('DELETE Request'));`,
 ];
 
 const Express = () => {
+  // Ref for chat container
+  const chatRef = useRef(null);
+
+  // Scroll to chat section function
+  const scrollToChat = () => {
+    chatRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="space-y-8">
+    <div className="relative space-y-8 pb-20"> {/* pb-20 to create some bottom padding for fixed button */}
+    
+   
+
       <h1 className="text-3xl font-bold text-white mb-4">🚀 Express.js Basics</h1>
       {notes.map((note, index) => (
-        <div key={index} className="bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-white p-6 rounded-2xl shadow-md border border-gray-700/30">
+        <div
+          key={index}
+          className="bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] text-white p-6 rounded-2xl shadow-md border border-gray-700/30"
+        >
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
               <span className="text-2xl">{note.icon}</span>
               <div>
                 <h2 className="text-xl font-semibold">{note.title}</h2>
-                <p className="text-sm text-gray-400 mt-1">{note.category} · {note.difficulty}</p>
+                <p className="text-sm text-gray-400 mt-1">
+                  {note.category} · {note.difficulty}
+                </p>
               </div>
             </div>
           </div>
@@ -110,6 +129,20 @@ const Express = () => {
           )}
         </div>
       ))}
+
+      {/* Chat container with ref */}
+      <div ref={chatRef}>
+        <Chat />
+      </div>
+       <button
+        onClick={scrollToChat}
+        aria-label="Go to AI Assistant"
+        title="Go to AI Assistant"
+        className="fixed top-6 right-6 z-50 text-2xl font-extrabold bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-full shadow-lg transition focus:outline-none focus:ring-2 focus:ring-purple-500"
+      >
+       <GoChevronDown />
+      </button>
+
     </div>
   );
 };

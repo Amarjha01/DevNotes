@@ -1,5 +1,6 @@
 // components/frontend/Css.jsx
 import React, { useState, useEffect } from 'react';
+import Chat from '../Chat';
 
 const Css = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -1771,6 +1772,7 @@ font: italic bold 16px/1.5 "Open Sans", sans-serif;`,
           animation: fade-in-up 0.6s ease-out;
         }
       `}</style>
+      <Chat/>
     </div>
   );
 };

@@ -1,5 +1,8 @@
 // pages/backend/Nodejs.jsx
 import React from 'react';
+import Chat from '../Chat';
+import { useRef } from 'react';
+import { GoChevronDown } from "react-icons/go";
 
 const notes = [
   {
@@ -69,6 +72,13 @@ server.listen(3000, () => {
 ];
 
 const Nodejs = () => {
+   // Ref for chat container
+      const chatRef = useRef(null);
+    
+      // Scroll to chat section function
+      const scrollToChat = () => {
+        chatRef.current?.scrollIntoView({ behavior: 'smooth' });
+      };
   return (
     <div className="space-y-8">
       <h1 className="text-3xl font-bold text-white mb-4">🟢 Node.js Basics</h1>
@@ -106,6 +116,20 @@ const Nodejs = () => {
           )}
         </div>
       ))}
+      
+
+    {/* Chat container with ref */}
+      <div ref={chatRef}>
+        <Chat />
+      </div>
+       <button
+        onClick={scrollToChat}
+        aria-label="Go to AI Assistant"
+        title="Go to AI Assistant"
+        className="fixed top-6 right-6 z-50 text-2xl font-extrabold bg-purple-600 hover:bg-purple-700 text-white p-4 rounded-full shadow-lg transition focus:outline-none focus:ring-2 focus:ring-purple-500"
+      >
+       <GoChevronDown />
+      </button>
     </div>
   );
 };

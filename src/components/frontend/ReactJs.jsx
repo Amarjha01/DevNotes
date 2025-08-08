@@ -1,4 +1,7 @@
+
+import Chat from '../Chat';
 import React, { useState } from 'react';
+
 
 const ReactJs = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -442,6 +445,9 @@ function App() {
             Master React with interactive notes and code examples
           </p>
         </div>
+      
+  
+
 
         {/* Filters */}
         <div className="bg-white/10 backdrop-blur-md rounded-xl p-6 mb-8">
@@ -554,6 +560,7 @@ function App() {
           <p>Keep learning and happy coding! 🚀</p>
         </div>
       </div>
+      <Chat />
     </div>
   );
 };

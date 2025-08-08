@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Chat from "../Chat";
 
 const Js = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -862,6 +863,7 @@ fetchData(); // "Data fetched!" after 1 second`,
           <p>Keep learning and happy coding! 🚀</p>
         </div>
       </div>
+      <Chat />
     </div>
   );
 };
