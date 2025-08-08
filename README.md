@@ -113,7 +113,7 @@
 | [48](https://github.com/Amarjha01/DevNotes/issues/48) |Feature Request: Integrate AI Assistant (ChatGPT) in Each Learning Section          | [milan-deori](https://github.com/milan-deori)           | 3     | 10    |
 | [49](https://github.com/Amarjha01/DevNotes/issues/49) |Feature Request : GENAI-Powered Developer Tools                                     | [Shaswat0312](https://github.com/Shaswat0312)           | 3     | 10    |
 | [51](https://github.com/Amarjha01/DevNotes/issues/51) |Improvements in FAQ Section                                                         | [Soumyosish](https://github.com/Soumyosish)             | 2     | 7     |
-| [54](https://github.com/Amarjha01/DevNotes/issues/54) |Feature Request: Add Cheat Sheet Section for Each Topic                             | [deepthidornala](https://github.com/deepthidornala) , [riya-742005](https://github.com/riya-742005)          | 3     | 10    |
+| [54](https://github.com/Amarjha01/DevNotes/issues/54) |Feature Request: Add Cheat Sheet Section for Each Topic                             | [deepthidornala](https://github.com/deepthidornala) ,[riya-742005](https://github.com/riya-742005)          | 3     | 10    |
 | [69](https://github.com/Amarjha01/DevNotes/issues/69) |Update routes.jsx file                                                              | [milan-deori](https://github.com/milan-deori)           | 2     | 7    |
   
 
