@@ -47,8 +47,9 @@
 - **Enhanced Topics:** Different types of JavaScript functions, promises, closures, event handling and manipulation, prototypes, and detailed Flexbox coverage similar to selectors  
 
 ### Backend
-- Node.js, Express.js  
-- MongoDB basics (planned)  
+- Node.js, Express.js
+- REST APIs,JWT Auth  
+- MongoDB basics  
 
 ### Deployment
 - Hosting websites  
