@@ -7,6 +7,7 @@ import Css from "../components/frontend/Css";
 import Js from "../components/frontend/Js";
 import ReactJs from "../components/frontend/ReactJs";
 import TailwindCss from "../components/frontend/TailwindCss";
+import CheatSheet from "../components/frontend/cheatsheet";
 import NotFound from "../components/gloable/NotFound";
 import Backend from "../pages/Backend";
 import Nodejs from "../components/backend/NodeJs";
@@ -71,6 +72,7 @@ const routes = createBrowserRouter([
           { path: "/frontend/js", element: <Js /> },
           { path: "/frontend/reactjs", element: <ReactJs /> },
           { path: "/frontend/tailwind", element: <TailwindCss /> },
+          { path: "/frontend/cheatsheet", element: <CheatSheet /> }
         ],
       },
 
@@ -99,6 +101,10 @@ const routes = createBrowserRouter([
         ],
       },
 
+      {
+        path: "/GitGuide",
+        element: <GitGuide />,
+      },
       {
         path: "/miscellaneous",
         element: <Miscellaneous />,

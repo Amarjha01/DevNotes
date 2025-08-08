@@ -38,6 +38,13 @@ const sidebarLinks = [
     description: 'Utility-First CSS',
     color: 'from-teal-500 to-green-500'
   },
+  { 
+    name: 'CheatSheet', 
+    path: '/frontend/cheatsheet', 
+    icon: '📄', 
+    description: 'Quick Reference Guide',
+    color: 'from-gray-500 to-gray-500'
+  },
 ];
 
 const Frontend = () => {
