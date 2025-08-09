@@ -1,7 +1,7 @@
 // mongo.js
 // MongoDB connection utility using Mongoose
 import mongoose from 'mongoose';
-const uri = "mongodb+srv://bookmania:biscuit253@mycluster.ost3m.mongodb.net/";
+const uri = process.env.MONGO_URI;
 let isConnected = false;
 
 export async function connect() {
