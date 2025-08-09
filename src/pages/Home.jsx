@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DigestPreferences from "../components/DigestPreferences";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -180,6 +181,10 @@ const Home = () => {
           </span>
         </motion.div>
 
+        {/* Weekly Digest Preferences */}
+        <div className="flex justify-center my-8">
+          <DigestPreferences userEmail={"user1@example.com"} />
+        </div>
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, scale: 0.8 }}
