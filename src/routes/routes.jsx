@@ -9,6 +9,7 @@ import ReactJs from "../components/frontend/ReactJs";
 import TailwindCss from "../components/frontend/TailwindCss";
 import CheatSheet from "../components/frontend/cheatsheet";
 import NotFound from "../components/gloable/NotFound";
+import DigestInfo from "../pages/DigestInfo";
 import Backend from "../pages/Backend";
 import Nodejs from "../components/backend/NodeJs";
 import Express from "../components/backend/Express";
@@ -168,7 +169,8 @@ const routes = createBrowserRouter([
       { path: "/android", element: <AndroidDevelopmentRoadmap /> },
       { path: "/projects", element: <Projects /> },
       { path: "/projects/:projectId", element: <ProjectDetail /> },
-      { path: "/GitGuide", element: <GitGuide /> },
+  { path: "/GitGuide", element: <GitGuide /> },
+  { path: "/digest-info", element: <DigestInfo /> },
 
     ],
   },
