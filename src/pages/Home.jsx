@@ -102,7 +102,7 @@ const Home = () => {
   }, [controls]);
 
   return (
-    <div className="min-h-[80vh] mt-[5%] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
+    <div className="min-h-[80vh] pt-[80px] lg:pt-[90px] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
       <div
         style={{
           width: "100%",
