@@ -6,6 +6,27 @@ import { Link } from 'react-router-dom';
 const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchTerm, setSearchTerm] = useState('');
+  
+  // Load favorites from localStorage
+  const [favorites, setFavorites] = useState(() => {
+    const saved = localStorage.getItem("favorites");
+    return saved ? JSON.parse(saved) : [];
+  });
+
+  // Toggle Favorites view
+  const [showFavorites, setShowFavorites] = useState(false);
+
+  // Function to toggle favorite
+  const toggleFavorite = (id) => {
+    let updatedFavorites;
+    if (favorites.includes(id)) {
+      updatedFavorites = favorites.filter(favId => favId !== id);
+    } else {
+      updatedFavorites = [...favorites, id];
+    }
+    setFavorites(updatedFavorites);
+    localStorage.setItem("favorites", JSON.stringify(updatedFavorites));
+  };
 
   const projects = {
     beginner: [
@@ -126,20 +147,47 @@ const Projects = () => {
 
   const allProjects = [...projects.beginner, ...projects.intermediate, ...projects.advanced];
 
-  const filteredProjects = allProjects.filter(project => {
-    const matchesCategory = selectedCategory === 'all' || 
+ const filteredProjects = allProjects.filter(project => {
+  const isFavorite = favorites.includes(project.id);
+
+  // If favorites filter is on
+  if (showFavorites) {
+    // Still check category if it's not 'all'
+    const matchesCategory =
+      selectedCategory === 'all' ||
       (selectedCategory === 'beginner' && projects.beginner.includes(project)) ||
       (selectedCategory === 'intermediate' && projects.intermediate.includes(project)) ||
       (selectedCategory === 'advanced' && projects.advanced.includes(project));
-    
-    const matchesSearch = project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.techStack.some(tech => tech.toLowerCase().includes(searchTerm.toLowerCase()));
-    
-    return matchesCategory && matchesSearch;
-  });
+
+    const matchesSearch =
+      project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      project.techStack.some(tech =>
+        tech.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+    return isFavorite && matchesCategory && matchesSearch;
+  }
+
+  // If not in favorites view, normal filtering
+  const matchesCategory =
+    selectedCategory === 'all' ||
+    (selectedCategory === 'beginner' && projects.beginner.includes(project)) ||
+    (selectedCategory === 'intermediate' && projects.intermediate.includes(project)) ||
+    (selectedCategory === 'advanced' && projects.advanced.includes(project));
+
+  const matchesSearch =
+    project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    project.techStack.some(tech =>
+      tech.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+  return matchesCategory && matchesSearch;
+});
+
+
 
   const categories = [
-    { id: 'all', name: 'All Projects', icon: FaCode },
+    { id: 'all', name: showFavorites ? 'Favorite Projects' : 'All Projects', icon: FaCode },
     { id: 'beginner', name: 'Beginner', icon: FaStar },
     { id: 'intermediate', name: 'Intermediate', icon: FaRocket },
     { id: 'advanced', name: 'Advanced', icon: FaUsers }
@@ -196,9 +244,16 @@ const Projects = () => {
             return (
               <button
                 key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => {
+                  if (category.id === 'all') {
+                    setShowFavorites(prev => !prev);
+                  } else {
+                    setSelectedCategory(category.id);
+                    setShowFavorites(false);
+                  }
+                }}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  selectedCategory === category.id
+                  (category.id === 'all' && showFavorites) || selectedCategory === category.id
                     ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
                     : 'bg-gray-800/50 backdrop-blur-sm text-gray-300 hover:bg-gray-700/50 border border-gray-700/50'
                 }`}
@@ -232,6 +287,11 @@ const Projects = () => {
                   <FaCode className="text-white text-xl" />
                 </div>
                 <div className="flex flex-col items-end gap-2">
+                  {/* Favorite Button */}
+                  <button onClick={() => toggleFavorite(project.id)} className="text-yellow-400 hover:scale-110 transition">
+                    {favorites.includes(project.id) ? <FaStar className="fill-current" /> : <FaStar className="opacity-40" />}
+                  </button>
+
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                     project.difficulty === 'Beginner' ? 'bg-green-500/20 text-green-400' :
                     project.difficulty === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
