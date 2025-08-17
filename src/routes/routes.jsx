@@ -2,6 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
 import Frontend from "../pages/Frontend";
+import FrontendNotes from "../components/notes/Frontend";
+import BackendNotes from "../components/notes/Backend";
+import MlNotes from "../components/notes/Ml";
+import DsaNotes from "../components/notes/Dsa";
+import SystemNotes from "../components/notes/System";
+import AndroidNotes from "../components/notes/Android";
 import Html from "../components/frontend/Html";
 import Css from "../components/frontend/Css";
 import Js from "../components/frontend/Js";
@@ -65,17 +71,29 @@ const routes = createBrowserRouter([
       { path: "/", element: <Home /> },
       
       {
-        path: "/frontend",
+         path: "frontend", // No leading slash here
         element: <Frontend />,
         children: [
-          { path: "/frontend/html", element: <Html /> },
-          { path: "/frontend/css", element: <Css /> },
-          { path: "/frontend/js", element: <Js /> },
-          { path: "/frontend/reactjs", element: <ReactJs /> },
-          { path: "/frontend/tailwind", element: <TailwindCss /> },
-          { path: "/frontend/cheatsheet", element: <CheatSheet /> }
-        ],
+          { path: "html", element: <Html /> }, // Relative path
+          { path: "css", element: <Css /> },
+          { path: "js", element: <Js /> },
+          { path: "reactjs", element: <ReactJs /> },
+          { path: "tailwind", element: <TailwindCss /> },
+          { path: "cheatsheet", element: <CheatSheet /> }
+                ],
       },
+      {
+  path: "/notes",
+  children: [
+    { path: "frontend", element: <FrontendNotes /> },
+    { path: "backend", element: <BackendNotes /> },
+    { path: "dsa", element: <DsaNotes /> },
+    { path: "system", element: <SystemNotes /> },
+    { path: "ml", element: <MlNotes /> },
+    { path: "android", element: <AndroidNotes /> },
+  ]
+},
+
 
       {
         path: "/backend",
