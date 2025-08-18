@@ -62,6 +62,7 @@ import Greedy from "../components/Dsa/Greedy";
 import Stack from "../components/Dsa/Stack";
 import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
+import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
 
 const routes = createBrowserRouter([
   {
@@ -182,6 +183,10 @@ const routes = createBrowserRouter([
           { path: "/dsa/queue", element: <Queue /> },
           { path: "/dsa/string", element: <String /> }
         ]
+      },
+      {
+        path: "/dsa/dsaprepsheet",
+        element: <DsaPrepSheet /> 
       },
       
       { path: "/android", element: <AndroidDevelopmentRoadmap /> },

@@ -87,6 +87,7 @@ export function Header() {
     children: [
       { label: "Docs", path: "/dsa/array" },
       { label: "Notes", path: "/notes/dsa" },
+      {label: "Practice", path: "/dsa/dsaprepsheet" },
     ],
   },
   {
