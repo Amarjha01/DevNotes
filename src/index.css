@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
-html{
-    background-color: #11071f;
-    color: white;
-    max-width: 1424px;
-    margin: auto;
+html {
+  background-color: #11071f;
+  color: white;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
 }
