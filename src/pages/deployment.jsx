@@ -118,7 +118,7 @@ eb deploy`,
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 p-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8">
+        <div className="text-center mt-20 mb-8">
           <h1 className="text-4xl font-bold text-white mb-2">Deployment Learning Hub</h1>
           <p className="text-purple-200 text-lg">
             Learn to deploy web applications with modern platforms

@@ -2,6 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
 import Frontend from "../pages/Frontend";
+import FrontendNotes from "../components/notes/Frontend";
+import BackendNotes from "../components/notes/Backend";
+import MlNotes from "../components/notes/Ml";
+import DsaNotes from "../components/notes/Dsa";
+import SystemNotes from "../components/notes/System";
+import AndroidNotes from "../components/notes/Android";
 import Html from "../components/frontend/Html";
 import Css from "../components/frontend/Css";
 import Js from "../components/frontend/Js";
@@ -9,6 +15,7 @@ import ReactJs from "../components/frontend/ReactJs";
 import TailwindCss from "../components/frontend/TailwindCss";
 import CheatSheet from "../components/frontend/cheatsheet";
 import NotFound from "../components/gloable/NotFound";
+import DigestInfo from "../pages/DigestInfo";
 import Backend from "../pages/Backend";
 import Nodejs from "../components/backend/NodeJs";
 import Express from "../components/backend/Express";
@@ -55,6 +62,8 @@ import Greedy from "../components/Dsa/Greedy";
 import Stack from "../components/Dsa/Stack";
 import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
+import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
+import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
 
 const routes = createBrowserRouter([
   {
@@ -64,17 +73,33 @@ const routes = createBrowserRouter([
       { path: "/", element: <Home /> },
       
       {
-        path: "/frontend",
+         path: "frontend", // No leading slash here
         element: <Frontend />,
         children: [
-          { path: "/frontend/html", element: <Html /> },
-          { path: "/frontend/css", element: <Css /> },
-          { path: "/frontend/js", element: <Js /> },
-          { path: "/frontend/reactjs", element: <ReactJs /> },
-          { path: "/frontend/tailwind", element: <TailwindCss /> },
-          { path: "/frontend/cheatsheet", element: <CheatSheet /> }
-        ],
+          { path: "html", element: <Html /> }, // Relative path
+          { path: "css", element: <Css /> },
+          { path: "js", element: <Js /> },
+          { path: "reactjs", element: <ReactJs /> },
+          { path: "tailwind", element: <TailwindCss /> },
+          { path: "cheatsheet", element: <CheatSheet /> }
+                ],
       },
+      {
+  path: "/notes",
+  children: [
+    { path: "frontend", element: <FrontendNotes /> },
+    { path: "backend", element: <BackendNotes /> },
+    { path: "dsa", element: <DsaNotes /> },
+    { path: "system", element: <SystemNotes /> },
+    { path: "ml", element: <MlNotes /> },
+    { path: "android", element: <AndroidNotes /> },
+  ]
+},
+{
+        path: "/frontend/frontendprepsheet",
+        element: <FrontendPrepSheet /> 
+      },
+
 
       {
         path: "/backend",
@@ -164,11 +189,16 @@ const routes = createBrowserRouter([
           { path: "/dsa/string", element: <String /> }
         ]
       },
+      {
+        path: "/dsa/dsaprepsheet",
+        element: <DsaPrepSheet /> 
+      },
       
       { path: "/android", element: <AndroidDevelopmentRoadmap /> },
       { path: "/projects", element: <Projects /> },
       { path: "/projects/:projectId", element: <ProjectDetail /> },
-      { path: "/GitGuide", element: <GitGuide /> },
+  { path: "/GitGuide", element: <GitGuide /> },
+  { path: "/digest-info", element: <DigestInfo /> },
 
     ],
   },

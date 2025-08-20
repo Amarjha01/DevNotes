@@ -1,39 +1,62 @@
-
-import React, { useState, useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { FaCode, FaRocket, FaGithub, FaArrowRight, FaLaptopCode, FaServer, FaStar, FaUsers, FaBookOpen, FaProjectDiagram, FaBrain, FaAndroid, FaEllipsisH } from 'react-icons/fa';
-import Particles from './Particles';
+import React, { useState, useEffect } from "react";
+import DigestPreferences from "../components/DigestPreferences";
+import { motion, useAnimation } from "framer-motion";
+import { Link } from "react-router-dom";
+import {
+  FaCode,
+  FaRocket,
+  FaGithub,
+  FaArrowRight,
+  FaLaptopCode,
+  FaServer,
+  FaStar,
+  FaUsers,
+  FaBookOpen,
+  FaProjectDiagram,
+  FaBrain,
+  FaAndroid,
+  FaEllipsisH,
+} from "react-icons/fa";
+import Particles from "./Particles";
 
 const Home = () => {
-  const [typedText, setTypedText] = useState('');
+  const [typedText, setTypedText] = useState("");
   const [currentIndex, setCurrentIndex] = useState(0);
   const controls = useAnimation();
 
-  const technologies = ['HTML', 'CSS', 'JavaScript', 'React', 'Node.js', 'Express', 'MongoDB', 'TypeScript'];
-  const fullText = 'Master Web Development';
+  const technologies = [
+    "HTML",
+    "CSS",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "TypeScript",
+  ];
+  const fullText = "Master Web Development";
 
   const faqs = [
     {
       q: "What is DevNotes?",
-      a: "DevNotes is an open-source hub for concise, beautifully organized web-dev guides."
+      a: "DevNotes is an open-source hub for concise, beautifully organized web-dev guides.",
     },
     {
       q: "How can I contribute?",
-      a: "Fork the repo, create a branch, push your changes, and open a PR. We'll review!"
+      a: "Fork the repo, create a branch, push your changes, and open a PR. We'll review!",
     },
     {
       q: "Is DevNotes free?",
-      a: "Absolutely—everything is MIT-licensed and ready to remix."
+      a: "Absolutely—everything is MIT-licensed and ready to remix.",
     },
     {
       q: "What technologies are covered?",
-      a: "We cover HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, TypeScript, and more modern web technologies."
+      a: "We cover HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, TypeScript, and more modern web technologies.",
     },
     {
       q: "How often is content updated?",
-      a: "Our community actively contributes new content weekly. You'll always find fresh, up-to-date tutorials and guides."
-    }
+      a: "Our community actively contributes new content weekly. You'll always find fresh, up-to-date tutorials and guides.",
+    },
   ];
 
   const [openFaq, setOpenFaq] = useState(null);
@@ -45,19 +68,21 @@ const Home = () => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const name = formData.get('name');
-    const email = formData.get('email');
-    const message = formData.get('message');
+    const name = formData.get("name");
+    const email = formData.get("email");
+    const message = formData.get("message");
 
-    alert(`Thank you ${name}! Your message has been received.\n\nWe'll get back to you at ${email} soon!`);
+    alert(
+      `Thank you ${name}! Your message has been received.\n\nWe'll get back to you at ${email} soon!`
+    );
     e.target.reset();
   };
 
   useEffect(() => {
     const typeText = () => {
       if (currentIndex < fullText.length) {
-        setTypedText(prev => prev + fullText[currentIndex]);
-        setCurrentIndex(prev => prev + 1);
+        setTypedText((prev) => prev + fullText[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
       }
     };
 
@@ -71,16 +96,23 @@ const Home = () => {
       transition: {
         duration: 2,
         repeat: Infinity,
-        ease: "easeInOut"
-      }
+        ease: "easeInOut",
+      },
     });
   }, [controls]);
 
   return (
-    <div className="min-h-[80vh] mt-[5%] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
-      <div style={{ width: '100%', height: '100%', position: 'absolute', zIndex: 5 }}>
+    <div className="min-h-[80vh] pt-[80px] lg:pt-[90px] rounded-2xl lg:min-w-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "absolute",
+          zIndex: 5,
+        }}
+      >
         <Particles
-          particleColors={['#ffffff', '#ffffff']}
+          particleColors={["#ffffff", "#ffffff"]}
           particleCount={1000}
           particleSpread={10}
           speed={0.1}
@@ -108,14 +140,24 @@ const Home = () => {
         <motion.div
           className="absolute top-32 right-20 text-blue-400/80 lg:text-blue-400/20 font-mono text-sm"
           animate={{ y: [0, 20, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
         >
           {/* function() {{ return  'awesome' }} */}
         </motion.div>
         <motion.div
           className="absolute bottom-32 left-20 text-green-400/50 lg:text-green-400/30 font-mono text-sm"
           animate={{ y: [0, -15, 0] }}
-          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+          transition={{
+            duration: 3.5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
         >
           const learn = () =&gt; code;
         </motion.div>
@@ -128,7 +170,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.div
-          className="mb-8 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30"
+          className="mt-10 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -139,6 +181,10 @@ const Home = () => {
           </span>
         </motion.div>
 
+        {/* Weekly Digest Preferences */}
+        <div className="flex justify-center my-8">
+          <DigestPreferences userEmail={"user1@example.com"} />
+        </div>
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -156,8 +202,11 @@ const Home = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           Your daily dose of web development notes. Master
-          <span className="text-purple-400 font-semibold"> HTML, CSS, JavaScript, React, Node.js</span> and more
-          in a structured, beautifully organized format.
+          <span className="text-purple-400 font-semibold">
+            {" "}
+            HTML, CSS, JavaScript, React, Node.js
+          </span>{" "}
+          and more in a structured, beautifully organized format.
         </motion.p>
 
         <motion.div
@@ -298,10 +347,15 @@ const Home = () => {
         </motion.div>
 
         <motion.div
-          className="fixed bottom-8 right-8 z-[100]"
+          className="fixed bottom-8 right-8 z-[9999] pointer-events-auto"
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}
+          style={{
+            zIndex: 999999, pointerEvents: "auto",
+            pointerEvents: "auto",
+            position: "fixed",
+          }}
         >
           <a
             href="https://github.com/amarjha01"
@@ -316,7 +370,7 @@ const Home = () => {
 
       <motion.section
         id="faq"
-        className="w-full py-20 px-6 bg-gradient-to-br from-[#1a0b2e] to-[#11071f] text-gray-200 relative z-20"
+        className="w-full py-20 px-20 bg-gradient-to-br from-[#1a0b2e] to-[#11071f] text-gray-200 relative "
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.8, duration: 0.8 }}
@@ -324,49 +378,48 @@ const Home = () => {
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400">
           Frequently Asked Questions
         </h2>
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-[90%] md:max-w-4xl mx-auto space-y-6 px-2">
           {faqs.map(({ q, a }, index) => (
             <motion.div
               key={q}
-              className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30 overflow-hidden ${
-                openFaq === index 
-                  ? 'border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80' 
-                  : 'border-gray-700/50 hover:border-purple-500/30'
-              }`}
+              className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30  ${openFaq === index
+                  ? "border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80"
+                  : "border-gray-700/50 hover:border-purple-500/30"
+                }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.0 + index * 0.1 }}
-              style={{ pointerEvents: 'auto' }}
+              style={{ pointerEvents: "auto" }}
             >
-              <div 
+              <div
                 className="p-6 flex items-center justify-between group"
                 onClick={() => toggleFaq(index)}
               >
                 <h3 className="font-semibold text-lg md:text-xl text-purple-300 group-hover:text-purple-200 transition-colors">
                   {q}
                 </h3>
-                <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${
-                  openFaq === index 
-                    ? 'bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]' 
-                    : 'bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50'
-                }`}>
-                  <motion.div
-                    className={`flex items-center justify-center w-full h-full transition-all duration-300 ${
-                      openFaq === index 
-                        ? 'text-purple-200 drop-shadow-lg' 
-                        : 'text-purple-300'
+                <div
+                  className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${openFaq === index
+                      ? "bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]"
+                      : "bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50"
                     }`}
+                >
+                  <motion.div
+                    className={`flex items-center justify-center w-full h-full transition-all duration-300 ${openFaq === index
+                        ? "text-purple-200 drop-shadow-lg"
+                        : "text-purple-300"
+                      }`}
                     animate={{ rotate: openFaq === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 24 24" 
-                      fill="none" 
-                      stroke="currentColor" 
-                      strokeWidth="2" 
-                      strokeLinecap="round" 
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
                       strokeLinejoin="round"
                       className="transition-all duration-300"
                     >
@@ -382,15 +435,15 @@ const Home = () => {
                   </motion.div>
                 </div>
               </div>
-              
+
               <motion.div
                 initial={false}
                 animate={{
-                  height: openFaq === index ? 'auto' : 0,
-                  opacity: openFaq === index ? 1 : 0
+                  height: openFaq === index ? "auto" : 0,
+                  opacity: openFaq === index ? 1 : 0,
                 }}
-                transition={{ duration: 0.3, ease: 'easeInOut' }}
-                className="overflow-hidden"
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+
               >
                 <div className="px-6 pb-6">
                   <p className="text-gray-300 leading-relaxed text-base md:text-lg">
@@ -405,7 +458,7 @@ const Home = () => {
 
       <motion.section
         id="contact"
-        className="w-full py-20 px-6 bg-gradient-to-br from-[#11071f] to-[#0a0415] text-gray-200 relative z-20"
+        className="w-full py-20 px-6 bg-gradient-to-br from-[#11071f] to-[#0a0415] text-gray-200 relative"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 2.0, duration: 0.8 }}
@@ -420,7 +473,7 @@ const Home = () => {
         <form
           onSubmit={handleFormSubmit}
           className="max-w-2xl mx-auto space-y-6 relative z-30"
-          style={{ pointerEvents: 'auto' }}
+          style={{ pointerEvents: "auto" }}
         >
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -436,9 +489,9 @@ const Home = () => {
               placeholder="Your awesome name"
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all relative z-50"
               style={{
-                pointerEvents: 'auto',
-                position: 'relative',
-                zIndex: 50
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 50,
               }}
             />
           </motion.div>
@@ -449,7 +502,9 @@ const Home = () => {
             transition={{ delay: 2.3, duration: 0.6 }}
             className="relative z-40"
           >
-            <label className="block text-gray-300 mb-2 font-medium">Email</label>
+            <label className="block text-gray-300 mb-2 font-medium">
+              Email
+            </label>
             <input
               type="email"
               name="email"
@@ -457,9 +512,9 @@ const Home = () => {
               placeholder="your.email@awesome.com"
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all relative z-50"
               style={{
-                pointerEvents: 'auto',
-                position: 'relative',
-                zIndex: 50
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 50,
               }}
             />
           </motion.div>
@@ -470,7 +525,9 @@ const Home = () => {
             transition={{ delay: 2.4, duration: 0.6 }}
             className="relative z-40"
           >
-            <label className="block text-gray-300 mb-2 font-medium">Message</label>
+            <label className="block text-gray-300 mb-2 font-medium">
+              Message
+            </label>
             <textarea
               name="message"
               rows="6"
@@ -478,9 +535,9 @@ const Home = () => {
               placeholder="Tell us what's on your mind..."
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all resize-none relative z-50"
               style={{
-                pointerEvents: 'auto',
-                position: 'relative',
-                zIndex: 50
+                pointerEvents: "auto",
+                position: "relative",
+                zIndex: 50,
               }}
             />
           </motion.div>
@@ -494,9 +551,9 @@ const Home = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             style={{
-              pointerEvents: 'auto',
-              position: 'relative',
-              zIndex: 50
+              pointerEvents: "auto",
+              position: "relative",
+              zIndex: 50,
             }}
           >
             Send Message
@@ -511,10 +568,18 @@ const Home = () => {
         >
           <p className="text-gray-400">Or reach out directly:</p>
           <div className="flex flex-wrap justify-center gap-6 text-sm">
-            <a href="mailto:hello@devnotes.com" className="text-purple-400 hover:text-purple-300 transition-colors">
+            <a
+              href="mailto:hello@devnotes.com"
+              className="text-purple-400 hover:text-purple-300 transition-colors"
+            >
               📧 hello@devnotes.com
             </a>
-            <a href="https://github.com/amarjha01" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-gray-300 transition-colors">
+            <a
+              href="https://github.com/amarjha01"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-gray-300 transition-colors"
+            >
               🔗 GitHub
             </a>
           </div>

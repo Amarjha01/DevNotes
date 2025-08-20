@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { FaDatabase } from 'react-icons/fa';
-
+import { FaChevronDown } from "react-icons/fa";
 import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
 import SearchBar from '../SearchBar';
-
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [currLogo, setCurrLogo] = useState(1);
   const [scrolled, setScrolled] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null); // New state for managing open dropdown
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,7 +25,6 @@ export function Header() {
         setMenuOpen(false);
       }
     };
-
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
@@ -39,20 +38,85 @@ export function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { name: 'Frontend', path: '/frontend/html', icon: FaLaptopCode, color: 'text-purple-400' },
-    { name: 'Backend', path: '/backend/nodejs', icon: FaServer, color: 'text-blue-400' },
-    { name: 'ML/AI', path: '/machine-learning/ai', icon: FaBrain, color: 'text-orange-400' },
-    { name: 'DSA', path: '/dsa/array', icon: FaPlay, color: 'text-purple-400' },         //dsa link added
-    { name: 'System Design', path: '/system-design/scalability', icon: FaDatabase, color: 'text-purple-400' },  //system design link added
-    { name: 'Android', path: '/android', icon: FaAndroid, color: 'text-green-400' },
-    { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
-    { name: 'GitGuide', path: '/GitGuide', icon: FaCode, color: 'text-yellow-400' },
-    { name: 'Gen-AI Dev Tools', path: '/GenAI-Tools/FrontEndTools', icon: FaRobot, color: 'text-purple-400' },
-    //  { name: 'Deployment', path: '/deployment', icon: FaRocket, color: 'text-green-400' },
-   // { name: 'Miscellaneous', path: '/miscellaneous', icon: FaEllipsisH, color: 'text-pink-400' },
-  
-  ];
+  // New useEffect to close dropdowns when the user clicks anywhere else
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      // Check if the click is outside the dropdown and the button
+      if (event.target.closest('.dropdown-container') === null) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+ const navItems = [
+  {
+    name: "Frontend",
+    icon: FaLaptopCode,
+    color: "text-purple-400",
+    children: [
+      { label: "Docs", path: "/frontend/html" },
+      { label: "Notes", path: "/notes/frontend" },
+      {label:"Practice",path:"/frontend/frontendprepsheet"}
+    ],
+  },
+  {
+    name: 'Backend',
+    icon: FaServer,
+    color: 'text-blue-400',
+    children: [
+      { label: "Docs", path: "/backend/nodejs" },
+      { label: "Notes", path: "/notes/backend" },
+    ],
+  },
+  {
+    name: 'ML/AI',
+    icon: FaBrain,
+    color: 'text-orange-400',
+    children: [
+      { label: "Docs", path: "/machine-learning/ai" },
+      { label: "Notes", path: "/notes/ml" },
+    ],
+  },
+  {
+    name: 'DSA',
+    icon: FaPlay,
+    color: 'text-purple-400',
+    children: [
+      { label: "Docs", path: "/dsa/array" },
+      { label: "Notes", path: "/notes/dsa" },
+      {label: "Practice", path: "/dsa/dsaprepsheet" },
+    ],
+  },
+  {
+    name: 'System Design',
+    icon: FaDatabase,
+    color: 'text-purple-400',
+    children: [
+      { label: "Docs", path: "/system-design/scalability" },
+      { label: "Notes", path: "/notes/system" },
+    ],
+  },
+  {
+    name: 'Android',
+    icon: FaAndroid,
+    color: 'text-green-400',
+    children: [
+      { label: "Docs", path: "/android" },
+      { label: "Notes", path: "/notes/android" },
+    ],
+  },
+  { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
+  { name: 'GitGuide', path: '/GitGuide', icon: FaCode, color: 'text-yellow-400' },
+  { name: 'Gen-AI Dev Tools', path: '/GenAI-Tools/FrontEndTools', icon: FaRobot, color: 'text-purple-400' },
+];
+
+  const handleDropdownClick = (itemName) => {
+    setOpenDropdown(openDropdown === itemName ? null : itemName);
+  };
 
   return (
     <header className={`fixed top-0 w-full z-50 transition-all duration-500 max-w-[1424px] m-auto ${scrolled
@@ -84,19 +148,47 @@ export function Header() {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-gray-900/50 backdrop-blur-sm rounded-full px-2 py-1 border border-gray-700/50 ml-6  ">
-          {navItems.map((item, index) => {
+        <nav className="hidden lg:flex items-center gap-1 bg-gray-900/50 backdrop-blur-sm rounded-full px-2 py-1 border border-gray-700/50 ml-6">
+          {navItems.map((item) => {
             const Icon = item.icon;
+            const isDropdownOpen = openDropdown === item.name;
             return (
-              <button
-                key={item.name}
-                onClick={() => window.location.href = item.path}
-                className={`group relative flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 ${item.color} hover:scale-105`}
-              >
-                <Icon className="text-lg" />
-                <span className="text-gray-300 group-hover:text-white">{item.name}</span>
-                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300"></div>
-              </button>
+              <div key={item.name} className="relative dropdown-container">
+                {/* Parent Button */}
+                <button
+                  onClick={() => {
+                    if (item.children) {
+                      handleDropdownClick(item.name);
+                    } else {
+                      window.location.href = item.path;
+                    }
+                  }}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 ${item.color} ${isDropdownOpen ? 'bg-gray-800/50' : ''}`}
+                >
+                  <Icon className="text-lg" />
+                  <span className="text-gray-300 group-hover:text-white">{item.name}</span>
+                  {item.children && (
+                    <FaChevronDown
+                      className={`text-xs ml-1 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                    />
+                  )}
+                </button>
+
+                {/* Dropdown */}
+                {isDropdownOpen && (
+                  <div className="absolute left-0 mt-2 bg-gray-900/90 backdrop-blur-md rounded-lg shadow-lg p-2 min-w-[150px] animate-fadeIn">
+                    {item.children.map((child) => (
+                      <a
+                        key={child.label}
+                        href={child.path}
+                        className="block px-4 py-2 text-sm text-gray-300 hover:bg-gray-700 hover:text-white rounded-md transition-colors duration-200"
+                      >
+                        {child.label}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             );
           })}
         </nav>
@@ -175,7 +267,7 @@ export function Header() {
         )}
       </div>
 
-      {/* Custom CSS for animations */}
+      {/* Custom CSS for animations and dropdown */}
       <style jsx>{`
         @keyframes slideInFromRight {
           from {
@@ -186,6 +278,19 @@ export function Header() {
             opacity: 1;
             transform: translateX(0);
           }
+        }
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out forwards;
         }
       `}</style>
     </header>
