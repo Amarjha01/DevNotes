@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaHeart, FaCode, FaRocket } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className=" relative bottom-[0%] bg-gradient-to-r from-[#0a0415] via-[#11071f] to-[#1a0b2e] text-gray-300 py-12 mt-16 overflow-hidden">
+    <footer className="relative bottom-[0%] bg-gradient-to-r from-[#0a0415] via-[#11071f] to-[#1a0b2e] text-gray-300 py-12 overflow-hidden">
       {/* Animated Background Elements */}
       {/* <div className="absolute bottom-0 inset-0 overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
