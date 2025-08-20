@@ -63,6 +63,7 @@ import Stack from "../components/Dsa/Stack";
 import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
 import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
+import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
 
 const routes = createBrowserRouter([
   {
@@ -94,6 +95,10 @@ const routes = createBrowserRouter([
     { path: "android", element: <AndroidNotes /> },
   ]
 },
+{
+        path: "/frontend/frontendprepsheet",
+        element: <FrontendPrepSheet /> 
+      },
 
 
       {
