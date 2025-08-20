@@ -102,7 +102,7 @@ const Home = () => {
   }, [controls]);
 
   return (
-    <div className="min-h-[80vh] pt-[80px] lg:pt-[90px] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
+    <div className="min-h-[80vh] pt-[80px] lg:pt-[90px] rounded-2xl lg:min-w-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
       <div
         style={{
           width: "100%",
@@ -170,7 +170,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.div
-          className="mb-8 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30"
+          className="mt-10 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
