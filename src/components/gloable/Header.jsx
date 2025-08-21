@@ -71,6 +71,7 @@ export function Header() {
     children: [
       { label: "Docs", path: "/backend/nodejs" },
       { label: "Notes", path: "/notes/backend" },
+      { label: "Practice", path: "/backend/backendprepsheet" },
     ],
   },
   {
