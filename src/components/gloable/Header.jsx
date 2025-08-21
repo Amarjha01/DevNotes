@@ -60,7 +60,8 @@ export function Header() {
     children: [
       { label: "Docs", path: "/frontend/html" },
       { label: "Notes", path: "/notes/frontend" },
-      {label:"Practice",path:"/frontend/frontendprepsheet"}
+      {label:"Practice",path:"/frontend/frontendprepsheet"},
+       { label: "Quiz", path: "/quiz/frontend" },
     ],
   },
   {

@@ -64,6 +64,7 @@ import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
 import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
 import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
+import FrontendQuiz from "../components/quiz/FrontendQuiz";
 
 const routes = createBrowserRouter([
   {
@@ -81,7 +82,7 @@ const routes = createBrowserRouter([
           { path: "js", element: <Js /> },
           { path: "reactjs", element: <ReactJs /> },
           { path: "tailwind", element: <TailwindCss /> },
-          { path: "cheatsheet", element: <CheatSheet /> }
+          { path: "cheatsheet", element: <CheatSheet /> },
                 ],
       },
       {
@@ -99,7 +100,12 @@ const routes = createBrowserRouter([
         path: "/frontend/frontendprepsheet",
         element: <FrontendPrepSheet /> 
       },
-
+     {
+  path: "/quiz",
+  children: [
+    { path: "frontend", element: <FrontendQuiz /> },
+  ]
+},
 
       {
         path: "/backend",
