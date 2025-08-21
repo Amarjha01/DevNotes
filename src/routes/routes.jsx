@@ -64,6 +64,7 @@ import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
 import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
 import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
+import BackendPrepSheet from "../components/backend/BackendPrepSheet";
 
 const routes = createBrowserRouter([
   {
@@ -112,7 +113,10 @@ const routes = createBrowserRouter([
           { path: "/backend/jwt", element: <JwtAuth /> },
         ],
       },
-
+{
+  path: "/backend/backendprepsheet",
+  element: <BackendPrepSheet />,
+},
       {
         path: "/machine-learning",
         element: <MachineLearning />,
