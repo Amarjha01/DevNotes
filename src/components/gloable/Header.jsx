@@ -72,6 +72,8 @@ export function Header() {
       { label: "Docs", path: "/backend/nodejs" },
       { label: "Notes", path: "/notes/backend" },
       { label: "Practice", path: "/backend/backendprepsheet" },
+      { label: "Quiz", path: "/quiz/backend" },
+
     ],
   },
   {
