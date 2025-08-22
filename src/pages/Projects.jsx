@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FaFilter, FaSearch, FaCode, FaRocket, FaStar, FaClock, FaUsers, FaGithub, FaPlay } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  FaFilter,
+  FaSearch,
+  FaCode,
+  FaRocket,
+  FaStar,
+  FaClock,
+  FaUsers,
+  FaGithub,
+  FaPlay,
+} from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [searchTerm, setSearchTerm] = useState('');
-  
+  const [selectedCategory, setSelectedCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
+
   // Load favorites from localStorage
   const [favorites, setFavorites] = useState(() => {
     const saved = localStorage.getItem("favorites");
@@ -20,7 +30,7 @@ const Projects = () => {
   const toggleFavorite = (id) => {
     let updatedFavorites;
     if (favorites.includes(id)) {
-      updatedFavorites = favorites.filter(favId => favId !== id);
+      updatedFavorites = favorites.filter((favId) => favId !== id);
     } else {
       updatedFavorites = [...favorites, id];
     }
@@ -31,166 +41,266 @@ const Projects = () => {
   const projects = {
     beginner: [
       {
-        id: 'portfolio-website',
-        title: 'Portfolio Website',
-        description: 'Build a responsive personal portfolio showcasing your skills and projects',
-        techStack: ['HTML', 'CSS', 'JavaScript'],
-        difficulty: 'Beginner',
-        duration: '2-3 days',
-        learningOutcomes: ['Responsive design', 'Semantic HTML', 'CSS Flexbox/Grid', 'Basic JavaScript'],
-        features: ['Responsive layout', 'Contact form', 'Project showcase', 'About section'],
-        category: 'Frontend',
-        color: 'from-green-500 to-blue-500'
+        id: "portfolio-website",
+        title: "Portfolio Website",
+        description:
+          "Build a responsive personal portfolio showcasing your skills and projects",
+        techStack: ["HTML", "CSS", "JavaScript"],
+        difficulty: "Beginner",
+        duration: "2-3 days",
+        learningOutcomes: [
+          "Responsive design",
+          "Semantic HTML",
+          "CSS Flexbox/Grid",
+          "Basic JavaScript",
+        ],
+        features: [
+          "Responsive layout",
+          "Contact form",
+          "Project showcase",
+          "About section",
+        ],
+        category: "Frontend",
+        color: "from-green-500 to-blue-500",
       },
       {
-        id: 'todo-list-app',
-        title: 'To-Do List App',
-        description: 'Interactive task management application with local storage',
-        techStack: ['HTML', 'CSS', 'JavaScript'],
-        difficulty: 'Beginner',
-        duration: '1-2 days',
-        learningOutcomes: ['DOM manipulation', 'Local storage', 'Event handling', 'Array methods'],
-        features: ['Add/remove tasks', 'Mark as complete', 'Local storage', 'Filter tasks'],
-        category: 'Frontend',
-        color: 'from-purple-500 to-pink-500'
+        id: "todo-list-app",
+        title: "To-Do List App",
+        description:
+          "Interactive task management application with local storage",
+        techStack: ["HTML", "CSS", "JavaScript"],
+        difficulty: "Beginner",
+        duration: "1-2 days",
+        learningOutcomes: [
+          "DOM manipulation",
+          "Local storage",
+          "Event handling",
+          "Array methods",
+        ],
+        features: [
+          "Add/remove tasks",
+          "Mark as complete",
+          "Local storage",
+          "Filter tasks",
+        ],
+        category: "Frontend",
+        color: "from-purple-500 to-pink-500",
       },
       {
-        id: 'quiz-app',
-        title: 'Quiz Application',
-        description: 'Multiple choice quiz with scoring and timer functionality',
-        techStack: ['HTML', 'CSS', 'JavaScript'],
-        difficulty: 'Beginner',
-        duration: '2-3 days',
-        learningOutcomes: ['Logic building', 'Timer functions', 'Score calculation', 'Dynamic content'],
-        features: ['Multiple questions', 'Timer', 'Score tracking', 'Results page'],
-        category: 'Frontend',
-        color: 'from-yellow-500 to-orange-500'
-      }
+        id: "quiz-app",
+        title: "Quiz Application",
+        description:
+          "Multiple choice quiz with scoring and timer functionality",
+        techStack: ["HTML", "CSS", "JavaScript"],
+        difficulty: "Beginner",
+        duration: "2-3 days",
+        learningOutcomes: [
+          "Logic building",
+          "Timer functions",
+          "Score calculation",
+          "Dynamic content",
+        ],
+        features: [
+          "Multiple questions",
+          "Timer",
+          "Score tracking",
+          "Results page",
+        ],
+        category: "Frontend",
+        color: "from-yellow-500 to-orange-500",
+      },
     ],
     intermediate: [
       {
-        id: 'weather-app',
-        title: 'Weather Dashboard',
-        description: 'Real-time weather application using OpenWeather API',
-        techStack: ['HTML', 'CSS', 'JavaScript', 'Weather API'],
-        difficulty: 'Intermediate',
-        duration: '3-5 days',
-        learningOutcomes: ['API integration', 'Async/await', 'Error handling', 'Data visualization'],
-        features: ['Current weather', '5-day forecast', 'Location search', 'Weather maps'],
-        category: 'Frontend',
-        color: 'from-blue-500 to-cyan-500'
+        id: "weather-app",
+        title: "Weather Dashboard",
+        description: "Real-time weather application using OpenWeather API",
+        techStack: ["HTML", "CSS", "JavaScript", "Weather API"],
+        difficulty: "Intermediate",
+        duration: "3-5 days",
+        learningOutcomes: [
+          "API integration",
+          "Async/await",
+          "Error handling",
+          "Data visualization",
+        ],
+        features: [
+          "Current weather",
+          "5-day forecast",
+          "Location search",
+          "Weather maps",
+        ],
+        category: "Frontend",
+        color: "from-blue-500 to-cyan-500",
       },
       {
-        id: 'notes-app',
-        title: 'Notes Application',
-        description: 'Full-featured note-taking app with React and local storage',
-        techStack: ['React', 'CSS', 'Local Storage'],
-        difficulty: 'Intermediate',
-        duration: '4-6 days',
-        learningOutcomes: ['React hooks', 'State management', 'CRUD operations', 'Component architecture'],
-        features: ['Create/edit notes', 'Categories', 'Search', 'Rich text editor'],
-        category: 'Frontend',
-        color: 'from-indigo-500 to-purple-500'
+        id: "notes-app",
+        title: "Notes Application",
+        description:
+          "Full-featured note-taking app with React and local storage",
+        techStack: ["React", "CSS", "Local Storage"],
+        difficulty: "Intermediate",
+        duration: "4-6 days",
+        learningOutcomes: [
+          "React hooks",
+          "State management",
+          "CRUD operations",
+          "Component architecture",
+        ],
+        features: [
+          "Create/edit notes",
+          "Categories",
+          "Search",
+          "Rich text editor",
+        ],
+        category: "Frontend",
+        color: "from-indigo-500 to-purple-500",
       },
       {
-        id: 'blog-cms',
-        title: 'Blog CMS',
-        description: 'Content management system for blogs with Node.js backend',
-        techStack: ['Node.js', 'Express', 'MongoDB', 'React'],
-        difficulty: 'Intermediate',
-        duration: '1-2 weeks',
-        learningOutcomes: ['REST APIs', 'Database design', 'Authentication', 'Full-stack development'],
-        features: ['Create posts', 'User authentication', 'Admin panel', 'Comments system'],
-        category: 'Full-Stack',
-        color: 'from-emerald-500 to-teal-500'
-      }
+        id: "blog-cms",
+        title: "Blog CMS",
+        description: "Content management system for blogs with Node.js backend",
+        techStack: ["Node.js", "Express", "MongoDB", "React"],
+        difficulty: "Intermediate",
+        duration: "1-2 weeks",
+        learningOutcomes: [
+          "REST APIs",
+          "Database design",
+          "Authentication",
+          "Full-stack development",
+        ],
+        features: [
+          "Create posts",
+          "User authentication",
+          "Admin panel",
+          "Comments system",
+        ],
+        category: "Full-Stack",
+        color: "from-emerald-500 to-teal-500",
+      },
     ],
     advanced: [
       {
-        id: 'social-media-platform',
-        title: 'Social Media Platform',
-        description: 'Full-featured social network with real-time features',
-        techStack: ['React', 'Node.js', 'MongoDB', 'Socket.io', 'JWT'],
-        difficulty: 'Advanced',
-        duration: '3-4 weeks',
-        learningOutcomes: ['Real-time communication', 'Advanced authentication', 'Scalable architecture', 'WebSocket integration'],
-        features: ['User profiles', 'Posts & comments', 'Real-time chat', 'Notifications', 'Media upload'],
-        category: 'Full-Stack',
-        color: 'from-rose-500 to-pink-500'
+        id: "social-media-platform",
+        title: "Social Media Platform",
+        description: "Full-featured social network with real-time features",
+        techStack: ["React", "Node.js", "MongoDB", "Socket.io", "JWT"],
+        difficulty: "Advanced",
+        duration: "3-4 weeks",
+        learningOutcomes: [
+          "Real-time communication",
+          "Advanced authentication",
+          "Scalable architecture",
+          "WebSocket integration",
+        ],
+        features: [
+          "User profiles",
+          "Posts & comments",
+          "Real-time chat",
+          "Notifications",
+          "Media upload",
+        ],
+        category: "Full-Stack",
+        color: "from-rose-500 to-pink-500",
       },
       {
-        id: 'ecommerce-platform',
-        title: 'E-commerce Platform',
-        description: 'Complete online store with payment integration',
-        techStack: ['React', 'Node.js', 'MongoDB', 'Stripe API', 'Redux'],
-        difficulty: 'Advanced',
-        duration: '4-6 weeks',
-        learningOutcomes: ['Payment processing', 'Shopping cart logic', 'Order management', 'Inventory tracking'],
-        features: ['Product catalog', 'Shopping cart', 'Payment gateway', 'Order tracking', 'Admin dashboard'],
-        category: 'Full-Stack',
-        color: 'from-amber-500 to-orange-500'
+        id: "ecommerce-platform",
+        title: "E-commerce Platform",
+        description: "Complete online store with payment integration",
+        techStack: ["React", "Node.js", "MongoDB", "Stripe API", "Redux"],
+        difficulty: "Advanced",
+        duration: "4-6 weeks",
+        learningOutcomes: [
+          "Payment processing",
+          "Shopping cart logic",
+          "Order management",
+          "Inventory tracking",
+        ],
+        features: [
+          "Product catalog",
+          "Shopping cart",
+          "Payment gateway",
+          "Order tracking",
+          "Admin dashboard",
+        ],
+        category: "Full-Stack",
+        color: "from-amber-500 to-orange-500",
       },
       {
-        id: 'devops-dashboard',
-        title: 'DevOps Dashboard',
-        description: 'Monitoring dashboard with CI/CD pipeline integration',
-        techStack: ['React', 'Docker', 'GitHub Actions', 'AWS', 'Monitoring Tools'],
-        difficulty: 'Advanced',
-        duration: '2-3 weeks',
-        learningOutcomes: ['DevOps practices', 'Containerization', 'CI/CD pipelines', 'Cloud deployment'],
-        features: ['Pipeline monitoring', 'Deployment tracking', 'Error alerts', 'Performance metrics'],
-        category: 'DevOps',
-        color: 'from-violet-500 to-purple-500'
-      }
-    ]
+        id: "devops-dashboard",
+        title: "DevOps Dashboard",
+        description: "Monitoring dashboard with CI/CD pipeline integration",
+        techStack: [
+          "React",
+          "Docker",
+          "GitHub Actions",
+          "AWS",
+          "Monitoring Tools",
+        ],
+        difficulty: "Advanced",
+        duration: "2-3 weeks",
+        learningOutcomes: [
+          "DevOps practices",
+          "Containerization",
+          "CI/CD pipelines",
+          "Cloud deployment",
+        ],
+        features: [
+          "Pipeline monitoring",
+          "Deployment tracking",
+          "Error alerts",
+          "Performance metrics",
+        ],
+        category: "DevOps",
+        color: "from-violet-500 to-purple-500",
+      },
+    ],
   };
 
-  const allProjects = [...projects.beginner, ...projects.intermediate, ...projects.advanced];
+  const allProjects = [
+    ...projects.beginner,
+    ...projects.intermediate,
+    ...projects.advanced,
+  ];
 
- const filteredProjects = allProjects.filter(project => {
-  const isFavorite = favorites.includes(project.id);
+  const filteredProjects = allProjects.filter((project) => {
+    const isFavorite = favorites.includes(project.id);
 
-  // If favorites filter is on
-  if (showFavorites) {
-    // Still check category if it's not 'all'
+    // If favourites filter is on
+    if (selectedCategory === "favourites") {
+      const matchesSearch =
+        project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        project.techStack.some((tech) =>
+          tech.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+
+      return isFavorite && matchesSearch;
+    }
+
+    // Normal category filtering
     const matchesCategory =
-      selectedCategory === 'all' ||
-      (selectedCategory === 'beginner' && projects.beginner.includes(project)) ||
-      (selectedCategory === 'intermediate' && projects.intermediate.includes(project)) ||
-      (selectedCategory === 'advanced' && projects.advanced.includes(project));
+      selectedCategory === "all" ||
+      (selectedCategory === "beginner" &&
+        projects.beginner.includes(project)) ||
+      (selectedCategory === "intermediate" &&
+        projects.intermediate.includes(project)) ||
+      (selectedCategory === "advanced" && projects.advanced.includes(project));
 
     const matchesSearch =
       project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.techStack.some(tech =>
+      project.techStack.some((tech) =>
         tech.toLowerCase().includes(searchTerm.toLowerCase())
       );
 
-    return isFavorite && matchesCategory && matchesSearch;
-  }
-
-  // If not in favorites view, normal filtering
-  const matchesCategory =
-    selectedCategory === 'all' ||
-    (selectedCategory === 'beginner' && projects.beginner.includes(project)) ||
-    (selectedCategory === 'intermediate' && projects.intermediate.includes(project)) ||
-    (selectedCategory === 'advanced' && projects.advanced.includes(project));
-
-  const matchesSearch =
-    project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    project.techStack.some(tech =>
-      tech.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-  return matchesCategory && matchesSearch;
-});
-
-
+    return matchesCategory && matchesSearch;
+  });
 
   const categories = [
-    { id: 'all', name: showFavorites ? 'Favorite Projects' : 'All Projects', icon: FaCode },
-    { id: 'beginner', name: 'Beginner', icon: FaStar },
-    { id: 'intermediate', name: 'Intermediate', icon: FaRocket },
-    { id: 'advanced', name: 'Advanced', icon: FaUsers }
+    { id: "all", name: "All Projects", icon: FaCode },
+    { id: "favourites", name: "Favourite Projects", icon: FaStar },
+    { id: "beginner", name: "Beginner", icon: FaStar },
+    { id: "intermediate", name: "Intermediate", icon: FaRocket },
+    { id: "advanced", name: "Advanced", icon: FaUsers },
   ];
 
   return (
@@ -214,9 +324,10 @@ const Projects = () => {
             Hands-On Projects
           </h1>
           <p className="text-xl text-gray-300 max-w-4xl mx-auto mb-8">
-            Learn by building real-world projects. From simple beginner exercises to advanced full-stack applications.
+            Learn by building real-world projects. From simple beginner
+            exercises to advanced full-stack applications.
           </p>
-          
+
           {/* Search and Filter */}
           <div className="flex flex-col md:flex-row gap-4 items-center justify-center mb-8">
             <div className="relative">
@@ -244,18 +355,11 @@ const Projects = () => {
             return (
               <button
                 key={category.id}
-                onClick={() => {
-                  if (category.id === 'all') {
-                    setShowFavorites(prev => !prev);
-                  } else {
-                    setSelectedCategory(category.id);
-                    setShowFavorites(false);
-                  }
-                }}
+                onClick={() => setSelectedCategory(category.id)}
                 className={`flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  (category.id === 'all' && showFavorites) || selectedCategory === category.id
-                    ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg'
-                    : 'bg-gray-800/50 backdrop-blur-sm text-gray-300 hover:bg-gray-700/50 border border-gray-700/50'
+                  selectedCategory === category.id
+                    ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-lg"
+                    : "bg-gray-800/50 backdrop-blur-sm text-gray-300 hover:bg-gray-700/50 border border-gray-700/50"
                 }`}
               >
                 <Icon className="text-sm" />
@@ -283,24 +387,43 @@ const Projects = () => {
             >
               {/* Project Header */}
               <div className="flex justify-between items-start mb-4">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${project.color} flex items-center justify-center`}>
+                <div
+                  className={`w-12 h-12 rounded-xl bg-gradient-to-r ${project.color} flex items-center justify-center`}
+                >
                   <FaCode className="text-white text-xl" />
                 </div>
                 <div className="flex flex-col items-end gap-2">
                   {/* Favorite Button */}
-                  <button onClick={() => toggleFavorite(project.id)} className="text-yellow-400 hover:scale-110 transition">
-                    {favorites.includes(project.id) ? <FaStar className="fill-current" /> : <FaStar className="opacity-40" />}
+                  <button
+                    onClick={() => toggleFavorite(project.id)}
+                    className="text-yellow-400 hover:scale-110 transition"
+                  >
+                    {favorites.includes(project.id) ? (
+                      <FaStar className="fill-current" />
+                    ) : (
+                      <FaStar className="opacity-40" />
+                    )}
                   </button>
 
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${
-                    project.difficulty === 'Beginner' ? 'bg-green-500/20 text-green-400' :
-                    project.difficulty === 'Intermediate' ? 'bg-yellow-500/20 text-yellow-400' :
-                    'bg-red-500/20 text-red-400'
-                  }`}>
+                  <span
+                    className={`px-3 py-1 rounded-full text-xs font-medium ${
+                      project.difficulty === "Beginner"
+                        ? "bg-green-500/20 text-green-400"
+                        : project.difficulty === "Intermediate"
+                        ? "bg-yellow-500/20 text-yellow-400"
+                        : "bg-red-500/20 text-red-400"
+                    }`}
+                  >
                     {project.difficulty}
                   </span>
-                  {(project.difficulty === 'Beginner' || project.difficulty === 'Intermediate' ||
-                    (project.difficulty === 'Advanced' && ['social-media-platform', 'ecommerce-platform', 'devops-dashboard'].includes(project.id))) && (
+                  {(project.difficulty === "Beginner" ||
+                    project.difficulty === "Intermediate" ||
+                    (project.difficulty === "Advanced" &&
+                      [
+                        "social-media-platform",
+                        "ecommerce-platform",
+                        "devops-dashboard",
+                      ].includes(project.id))) && (
                     <span className="px-2 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium flex items-center gap-1">
                       <FaPlay className="text-xs" />
                       Walkthrough
@@ -351,9 +474,16 @@ const Projects = () => {
                 to={`/projects/${project.id}`}
                 className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white py-3 px-4 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 flex items-center justify-center gap-2 group-hover:scale-105"
               >
-                {(project.difficulty === 'Beginner' || project.difficulty === 'Intermediate' ||
-                  (project.difficulty === 'Advanced' && ['social-media-platform', 'ecommerce-platform', 'devops-dashboard'].includes(project.id)))
-                  ? 'Start Walkthrough' : 'View Project'}
+                {project.difficulty === "Beginner" ||
+                project.difficulty === "Intermediate" ||
+                (project.difficulty === "Advanced" &&
+                  [
+                    "social-media-platform",
+                    "ecommerce-platform",
+                    "devops-dashboard",
+                  ].includes(project.id))
+                  ? "Start Walkthrough"
+                  : "View Project"}
                 <FaRocket className="text-sm" />
               </Link>
             </motion.div>
@@ -369,8 +499,12 @@ const Projects = () => {
             transition={{ delay: 0.5 }}
           >
             <FaSearch className="text-6xl text-gray-600 mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-400 mb-2">No projects found</h3>
-            <p className="text-gray-500">Try adjusting your search or filter criteria</p>
+            <h3 className="text-2xl font-bold text-gray-400 mb-2">
+              No projects found
+            </h3>
+            <p className="text-gray-500">
+              Try adjusting your search or filter criteria
+            </p>
           </motion.div>
         )}
 
@@ -381,9 +515,13 @@ const Projects = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
         >
-          <h3 className="text-2xl font-bold text-white mb-4">Ready to Start Building?</h3>
+          <h3 className="text-2xl font-bold text-white mb-4">
+            Ready to Start Building?
+          </h3>
           <p className="text-gray-300 mb-6 max-w-2xl mx-auto">
-            Choose a project that matches your skill level and start your coding journey. Each project includes detailed guides, resources, and learning outcomes.
+            Choose a project that matches your skill level and start your coding
+            journey. Each project includes detailed guides, resources, and
+            learning outcomes.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
