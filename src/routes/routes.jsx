@@ -66,6 +66,7 @@ import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
 import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
 import FrontendQuiz from "../components/quiz/FrontendQuiz";
 import BackendPrepSheet from "../components/backend/BackendPrepSheet";
+import BackendQuiz from "../components/quiz/BackendQuiz";
 
 const routes = createBrowserRouter([
   {
@@ -105,6 +106,8 @@ const routes = createBrowserRouter([
   path: "/quiz",
   children: [
     { path: "frontend", element: <FrontendQuiz /> },
+    { path: "backend", element: <BackendQuiz /> },
+
   ]
 },
 
