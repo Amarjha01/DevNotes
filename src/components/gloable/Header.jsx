@@ -83,6 +83,8 @@ export function Header() {
     children: [
       { label: "Docs", path: "/machine-learning/ai" },
       { label: "Notes", path: "/notes/ml" },
+      { label: "Quiz", path: "/quiz/ML" },
+
     ],
   },
   {
