@@ -133,6 +133,88 @@ export function Header() {
 }
 ];
 
+=======
+  const navItems = [
+    {
+      name: "Frontend",
+      icon: FaLaptopCode,
+      color: "text-purple-400",
+      children: [
+        { label: "Docs", path: "/frontend/html" },
+        { label: "Notes", path: "/notes/frontend" },
+        { label: "Practice", path: "/frontend/frontendprepsheet" },
+        { label: "Quiz", path: "/quiz/frontend" },
+      ],
+    },
+    {
+      name: "Backend",
+      icon: FaServer,
+      color: "text-blue-400",
+      children: [
+        { label: "Docs", path: "/backend/nodejs" },
+        { label: "Notes", path: "/notes/backend" },
+        { label: "Practice", path: "/backend/backendprepsheet" },
+        { label: "Quiz", path: "/quiz/backend" },
+      ],
+    },
+    {
+      name: "ML/AI",
+      icon: FaBrain,
+      color: "text-orange-400",
+      children: [
+        { label: "Docs", path: "/machine-learning/ai" },
+        { label: "Notes", path: "/notes/ml" },
+         { label: "Quiz", path: "/quiz/ML" },
+      ],
+    },
+    {
+      name: "DSA",
+      icon: FaPlay,
+      color: "text-purple-400",
+      children: [
+        { label: "Docs", path: "/dsa/array" },
+        { label: "Notes", path: "/notes/dsa" },
+        { label: "Practice", path: "/dsa/dsaprepsheet" },
+      ],
+    },
+    {
+      name: "System Design",
+      icon: FaDatabase,
+      color: "text-purple-400",
+      children: [
+        { label: "Docs", path: "/system-design/scalability" },
+        { label: "Notes", path: "/notes/system" },
+      ],
+    },
+    {
+      name: "Android",
+      icon: FaAndroid,
+      color: "text-green-400",
+      children: [
+        { label: "Docs", path: "/android" },
+        { label: "Notes", path: "/notes/android" },
+      ],
+    },
+    {
+      name: "Projects",
+      path: "/projects",
+      icon: FaProjectDiagram,
+      color: "text-emerald-400",
+    },
+    {
+      name: "GitGuide",
+      path: "/GitGuide",
+      icon: FaCode,
+      color: "text-yellow-400",
+    },
+    {
+      name: "Gen-AI Dev Tools",
+      path: "/GenAI-Tools/FrontEndTools",
+      icon: FaRobot,
+      color: "text-purple-400",
+    },
+  ];
+
 
   const handleDropdownClick = (itemName) => {
     setOpenDropdown(openDropdown === itemName ? null : itemName);

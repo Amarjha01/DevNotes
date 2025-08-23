@@ -78,6 +78,10 @@ import Cloud from "../components/DevOps/Cloud";
 //import BackendQuiz from "../components/quiz/BackendQuiz";
 
 
+import BackendQuiz from "../components/quiz/BackendQuiz";
+import MlQuiz from "../components/quiz/MlQuiz";
+
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -118,6 +122,8 @@ const routes = createBrowserRouter([
   children: [
     { path: "frontend", element: <FrontendQuiz /> },
     { path: "backend", element: <BackendQuiz /> },
+    { path: "ml", element: <MlQuiz /> },
+
 
   ]
 },*/
