@@ -67,6 +67,7 @@ import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
 import FrontendQuiz from "../components/quiz/FrontendQuiz";
 import BackendPrepSheet from "../components/backend/BackendPrepSheet";
 import BackendQuiz from "../components/quiz/BackendQuiz";
+import MlQuiz from "../components/quiz/MlQuiz";
 
 const routes = createBrowserRouter([
   {
@@ -107,6 +108,8 @@ const routes = createBrowserRouter([
   children: [
     { path: "frontend", element: <FrontendQuiz /> },
     { path: "backend", element: <BackendQuiz /> },
+    { path: "ml", element: <MlQuiz /> },
+
 
   ]
 },

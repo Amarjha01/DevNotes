@@ -94,6 +94,7 @@ export function Header() {
       children: [
         { label: "Docs", path: "/machine-learning/ai" },
         { label: "Notes", path: "/notes/ml" },
+         { label: "Quiz", path: "/quiz/ML" },
       ],
     },
     {
@@ -143,6 +144,7 @@ export function Header() {
       color: "text-purple-400",
     },
   ];
+
 
   const handleDropdownClick = (itemName) => {
     setOpenDropdown(openDropdown === itemName ? null : itemName);
