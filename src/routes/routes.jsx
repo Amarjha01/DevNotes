@@ -79,6 +79,7 @@ import Cloud from "../components/DevOps/Cloud";
 
 
 import BackendQuiz from "../components/quiz/BackendQuiz";
+import SystemDesignPrepSheet from "../components/system-design/SystemDesignPrepSheet";
 import MlQuiz from "../components/quiz/MlQuiz";
 
 
@@ -226,7 +227,10 @@ const routes = createBrowserRouter([
           { path: "/system-design/load-balancers", element: <LoadBalancers /> },
         ]
       },
-
+{
+  path: "/system-design/systemdesignprepsheet",
+  element: <SystemDesignPrepSheet />,
+},
       {
         path: "/dsa",
         element: <DSA />,
