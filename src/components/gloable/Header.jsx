@@ -1,9 +1,22 @@
-import { useEffect, useState } from 'react';
-import { FaPlay } from 'react-icons/fa';
-import { FaDatabase } from 'react-icons/fa';
+import { useEffect, useState } from "react";
+import { FaPlay } from "react-icons/fa";
+import { FaDatabase } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
-import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid,FaCogs } from 'react-icons/fa';
-import SearchBar from '../SearchBar';
+import {
+  FaBars,
+  FaTimes,
+  FaCode,
+  FaLaptopCode,
+  FaServer,
+  FaRobot,
+  FaRocket,
+  FaEllipsisH,
+  FaProjectDiagram,
+  FaBrain,
+  FaAndroid,
+  FaCogs
+} from "react-icons/fa";
+import SearchBar from "../SearchBar";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,7 +26,7 @@ export function Header() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrLogo(prev => (prev < 6 ? prev + 1 : 1));
+      setCurrLogo((prev) => (prev < 6 ? prev + 1 : 1));
     }, 2000);
 
     return () => clearInterval(interval);
@@ -34,15 +47,15 @@ export function Header() {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // New useEffect to close dropdowns when the user clicks anywhere else
   useEffect(() => {
     const handleClickOutside = (event) => {
       // Check if the click is outside the dropdown and the button
-      if (event.target.closest('.dropdown-container') === null) {
+      if (event.target.closest(".dropdown-container") === null) {
         setOpenDropdown(null);
       }
     };
@@ -120,19 +133,23 @@ export function Header() {
 }
 ];
 
+
   const handleDropdownClick = (itemName) => {
     setOpenDropdown(openDropdown === itemName ? null : itemName);
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-500 max-w-[1424px] m-auto ${scrolled
-      ? 'bg-[#0a0415]/5 backdrop-blur-xl border-b border-purple-500/20 shadow-lg shadow-purple-500/10'
-      : 'bg-white/5 backdrop-blur-lg'
-      }`}>
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 max-w-[1424px] m-auto ${
+        scrolled
+          ? "bg-[#0a0415]/5 backdrop-blur-xl border-b border-purple-500/20 shadow-lg shadow-purple-500/10"
+          : "bg-white/5 backdrop-blur-lg"
+      }`}
+    >
       <div className="flex items-center justify-between px-6 py-4 lg:py-4 transition-all duration-300 h-20">
         {/* Logo Section */}
         <button
-          onClick={() => window.location.href = '/'}
+          onClick={() => (window.location.href = "/")}
           className="group flex items-center gap-3 z-50 hover:scale-105 transition-all duration-300"
         >
           <div className="relative">
@@ -169,13 +186,19 @@ export function Header() {
                       window.location.href = item.path;
                     }
                   }}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 ${item.color} ${isDropdownOpen ? 'bg-gray-800/50' : ''}`}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 ${
+                    item.color
+                  } ${isDropdownOpen ? "bg-gray-800/50" : ""}`}
                 >
                   <Icon className="text-lg" />
-                  <span className="text-gray-300 group-hover:text-white">{item.name}</span>
+                  <span className="text-gray-300 group-hover:text-white">
+                    {item.name}
+                  </span>
                   {item.children && (
                     <FaChevronDown
-                      className={`text-xs ml-1 transition-transform duration-300 ${isDropdownOpen ? 'rotate-180' : ''}`}
+                      className={`text-xs ml-1 transition-transform duration-300 ${
+                        isDropdownOpen ? "rotate-180" : ""
+                      }`}
                     />
                   )}
                 </button>
@@ -210,21 +233,24 @@ export function Header() {
 
         {/* Mobile Menu */}
         {menuOpen && (
-          <div className="fixed top-20 right-4 rounded-2xl px-4 bg-[#0a0415]/95 pb-5 backdrop-blur-xl flex flex-col items-center justify-center space-y-4 z-40 w-11/12 max-w-md">
+          <div
+            className="fixed top-20 right-4 rounded-2xl px-4 bg-[#0a0415]/95 pb-5 backdrop-blur-xl flex flex-col z-40 w-11/12 max-w-md 
+                  max-h-[calc(100vh-5rem)] overflow-y-auto overflow-x-hidden"
+          >
             {/* Background Effects */}
-            <div className="relative">
-              <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse z-30"></div>
-              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000 z-30"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-500 z-30"></div>
+            <div className="absolute inset-0 pointer-events-none">
+              <div className="absolute -top-40 -right-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse z-0"></div>
+              <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse delay-1000 z-0"></div>
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl animate-pulse delay-500 z-0"></div>
             </div>
 
             {/* Mobile Search Bar */}
-            <div className="relative z-50 w-full px-4">
+            <div className="relative z-10 w-full px-4 py-3 border-b border-gray-700/50">
               <SearchBar />
             </div>
 
-            {/* Mobile Menu Items */}
-            <div className="relative z-40 flex flex-col items-center space-y-4 w-full">
+            {/* Menu Items (no scroll here) */}
+            <div className="relative z-10 flex flex-col items-center space-y-4 w-full px-2 py-4">
               {navItems.map((item, index) => {
                 const Icon = item.icon;
                 return (
@@ -237,7 +263,7 @@ export function Header() {
                     className={`group flex items-center gap-4 px-4 py-3 rounded-xl bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.color} hover:shadow-purple-500/25 w-full`}
                     style={{
                       animationDelay: `${index * 100}ms`,
-                      animation: 'slideInFromRight 0.5s ease-out forwards'
+                      animation: "slideInFromRight 0.5s ease-out forwards",
                     }}
                   >
                     <div className="w-8 h-8 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full flex items-center justify-center">
@@ -251,14 +277,13 @@ export function Header() {
                         Explore {item.name.toLowerCase()}
                       </p>
                     </div>
-                    <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-purple-500/0 to-pink-500/0 group-hover:from-purple-500/10 group-hover:to-pink-500/10 transition-all duration-300"></div>
                   </button>
                 );
               })}
             </div>
 
-            {/* Mobile Menu Footer */}
-            <div className="relative z-40 flex flex-col items-center gap-2 mt-4">
+            {/* Footer */}
+            <div className="relative z-10 flex flex-col items-center gap-2 mt-4 pb-2">
               <div className="flex items-center gap-2 text-gray-400 text-sm">
                 <FaCode className="text-purple-400" />
                 <span>Built with passion</span>

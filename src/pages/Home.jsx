@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import DigestPreferences from "../components/DigestPreferences";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -171,7 +170,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.div
-          className="mt-10 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30"
+          className="mt-10 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30 mb-2"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -183,9 +182,6 @@ const Home = () => {
         </motion.div>
 
         {/* Weekly Digest Preferences */}
-        <div className="flex justify-center my-8">
-          <DigestPreferences userEmail={"user1@example.com"} />
-        </div>
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, scale: 0.8 }}

@@ -64,16 +64,18 @@ import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
 import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
 import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
+import BackendPrepSheet from "../components/backend/BackendPrepSheet";
 import DevOps from "../pages/DevOps";
 import DevOpsIntro from "../components/DevOps/Intro";
-import CICD from "../components/DevOps/cicd";
+import CICD from "../components/DevOps/CICD";
 import Docker from "../components/DevOps/Docker";
 import Kubernetes from "../components/DevOps/Kubernetes";
 import Terraform from "../components/DevOps/Terraform";
 import Monitoring from "../components/DevOps/Monitoring";
 import Deployment from "../components/DevOps/Deployment";
 import Cloud from "../components/DevOps/Cloud";
-
+//import FrontendQuiz from "../components/quiz/FrontendQuiz";
+//import BackendQuiz from "../components/quiz/BackendQuiz";
 
 
 const routes = createBrowserRouter([
@@ -92,7 +94,7 @@ const routes = createBrowserRouter([
           { path: "js", element: <Js /> },
           { path: "reactjs", element: <ReactJs /> },
           { path: "tailwind", element: <TailwindCss /> },
-          { path: "cheatsheet", element: <CheatSheet /> }
+          { path: "cheatsheet", element: <CheatSheet /> },
                 ],
       },
       {
@@ -111,6 +113,14 @@ const routes = createBrowserRouter([
         element: <FrontendPrepSheet /> 
       },
 
+    
+/*  { path: "/quiz",
+  children: [
+    { path: "frontend", element: <FrontendQuiz /> },
+    { path: "backend", element: <BackendQuiz /> },
+
+  ]
+},*/
 
       {
         path: "/backend",
@@ -123,7 +133,10 @@ const routes = createBrowserRouter([
           { path: "/backend/jwt", element: <JwtAuth /> },
         ],
       },
-
+{
+  path: "/backend/backendprepsheet",
+  element: <BackendPrepSheet />,
+},
       {
         path: "/machine-learning",
         element: <MachineLearning />,
