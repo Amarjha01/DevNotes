@@ -1,201 +1,215 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import e from "express";
 
 const questionsBank = {
- easy: [
+easy: [
   {
-    q: "What does HTML stand for?",
-    options: ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Markup Level", "Home Tool Markup Language"],
+    q: "What does ML stand for?",
+    options: ["Machine Learning", "Modern Logic", "Multi Layer", "Math Language"],
     answer: 0,
-    correct: "Hyper Text Markup Language",
+    correct: "Machine Learning",
   },
   {
-    q: "Which tag is used for the largest heading in HTML?",
-    options: ["<h1>", "<h6>", "<heading>", "<head>"],
-    answer: 0,
-    correct: "<h1>",
+    q: "Which of the following is an example of supervised learning?",
+    options: ["Clustering", "Classification", "Dimensionality Reduction", "Reinforcement"],
+    answer: 1,
+    correct: "Classification",
   },
   {
-    q: "Which property changes text color in CSS?",
-    options: ["font-style", "background-color", "color", "text-align"],
+    q: "Which algorithm is commonly used for classification tasks?",
+    options: ["Linear Regression", "K-Means", "Decision Tree", "Apriori"],
     answer: 2,
-    correct: "color",
+    correct: "Decision Tree",
   },
   {
-    q: "Which CSS property makes text bold?",
-    options: ["font-weight", "font-bold", "text-style", "weight"],
-    answer: 0,
-    correct: "font-weight",
+    q: "What does 'AI' stand for?",
+    options: ["Automated Integration", "Artificial Intelligence", "Advanced Information", "Applied Innovation"],
+    answer: 1,
+    correct: "Artificial Intelligence",
   },
   {
-    q: "Which symbol is used for single-line comments in JavaScript?",
-    options: ["//", "/*", "#", "<!-- -->"],
-    answer: 0,
-    correct: "//",
-  },
-  {
-    q: "Which attribute is used in HTML to provide alt text for images?",
-    options: ["title", "src", "alt", "href"],
+    q: "Which type of learning uses rewards and penalties?",
+    options: ["Supervised Learning", "Unsupervised Learning", "Reinforcement Learning", "Deep Learning"],
     answer: 2,
-    correct: "alt",
+    correct: "Reinforcement Learning",
   },
   {
-    q: "CSS stands for?",
-    options: ["Cascading Style Sheets", "Computer Styled Sections", "Creative Style System", "Colorful Style Syntax"],
-    answer: 0,
-    correct: "Cascading Style Sheets",
-  },
-  {
-    q: "Which HTML tag is used to create a hyperlink?",
-    options: ["<link>", "<href>", "<a>", "<url>"],
+    q: "Which library is widely used in Python for machine learning?",
+    options: ["NumPy", "Pandas", "Scikit-learn", "Matplotlib"],
     answer: 2,
-    correct: "<a>",
+    correct: "Scikit-learn",
   },
   {
-    q: "Which keyword declares a constant in JavaScript?",
-    options: ["let", "var", "const", "static"],
-    answer: 2,
-    correct: "const",
+    q: "Which algorithm is used for grouping similar data points?",
+    options: ["Logistic Regression", "K-Means Clustering", "Naive Bayes", "Linear Regression"],
+    answer: 1,
+    correct: "K-Means Clustering",
   },
   {
-    q: "Which HTML tag is used to insert a line break?",
-    options: ["<br>", "<lb>", "<break>", "<newline>"],
+    q: "Which of the following is a deep learning framework?",
+    options: ["TensorFlow", "NumPy", "Matplotlib", "Pandas"],
     answer: 0,
-    correct: "<br>",
+    correct: "TensorFlow",
+  },
+  {
+    q: "Which evaluation metric is commonly used for classification models?",
+    options: ["Mean Squared Error", "Accuracy", "R-squared", "Variance"],
+    answer: 1,
+    correct: "Accuracy",
+  },
+  {
+    q: "Which algorithm is best for predicting continuous values?",
+    options: ["Logistic Regression", "K-Means", "Linear Regression", "Decision Tree Classification"],
+    answer: 2,
+    correct: "Linear Regression",
   },
 ],
- medium : [
+
+medium: [
   {
-    q: "Which HTML element is used to display tabular data?",
-    options: ["<table>", "<grid>", "<tab>", "<data>"],
+    q: "Which algorithm is commonly used for dimensionality reduction?",
+    options: ["PCA", "KNN", "SVM", "Random Forest"],
     answer: 0,
-    correct: "<table>",
+    correct: "PCA",
   },
   {
-    q: "Which CSS property is used to control the stacking order of elements?",
-    options: ["position", "order", "z-index", "stack"],
-    answer: 2,
-    correct: "z-index",
-  },
-  {
-    q: "What will `typeof null` return in JavaScript?",
-    options: ["null", "undefined", "object", "boolean"],
-    answer: 2,
-    correct: "object",
-  },
-  {
-    q: "Which of the following is NOT a JavaScript data type?",
-    options: ["Number", "Boolean", "Float", "Object"],
-    answer: 2,
-    correct: "Float",
-  },
-  {
-    q: "In CSS, which unit is relative to the root element font-size?",
-    options: ["em", "px", "rem", "%"],
-    answer: 2,
-    correct: "rem",
-  },
-  {
-    q: "Which HTML attribute is used to uniquely identify an element?",
-    options: ["class", "id", "key", "unique"],
-    answer: 1,
-    correct: "id",
-  },
-  {
-    q: "Which method is used to parse a JSON string into an object?",
-    options: ["JSON.parse()", "JSON.stringify()", "parse.JSON()", "JSON.toObject()"],
+    q: "Which activation function is most commonly used in hidden layers of neural networks?",
+    options: ["ReLU", "Sigmoid", "Softmax", "Linear"],
     answer: 0,
-    correct: "JSON.parse()",
+    correct: "ReLU",
   },
   {
-    q: "Which CSS property is used to create space inside an element?",
-    options: ["margin", "border", "padding", "spacing"],
+    q: "What does the confusion matrix evaluate in classification?",
+    options: ["Model training time", "Prediction errors", "True vs Predicted labels", "Learning rate"],
     answer: 2,
-    correct: "padding",
+    correct: "True vs Predicted labels",
   },
   {
-    q: "Which event occurs when an input field loses focus?",
-    options: ["onfocus", "onblur", "onchange", "oninput"],
+    q: "Which of the following is NOT an ensemble method?",
+    options: ["Bagging", "Boosting", "Stacking", "Gradient Descent"],
+    answer: 3,
+    correct: "Gradient Descent",
+  },
+  {
+    q: "In Natural Language Processing, TF-IDF is used for?",
+    options: ["Word embeddings", "Stopword removal", "Text vectorization", "Sentence segmentation"],
+    answer: 2,
+    correct: "Text vectorization",
+  },
+  {
+    q: "Which technique helps prevent overfitting in machine learning models?",
+    options: ["Regularization", "Batch Normalization", "Dropout", "All of the above"],
+    answer: 3,
+    correct: "All of the above",
+  },
+  {
+    q: "Which distance metric is most commonly used in K-Nearest Neighbors?",
+    options: ["Manhattan Distance", "Cosine Similarity", "Euclidean Distance", "Hamming Distance"],
+    answer: 2,
+    correct: "Euclidean Distance",
+  },
+  {
+    q: "Which of the following is a generative model?",
+    options: ["Decision Tree", "Naive Bayes", "GAN", "SVM"],
+    answer: 2,
+    correct: "GAN",
+  },
+  {
+    q: "In reinforcement learning, the agent’s goal is to maximize?",
+    options: ["Learning rate", "Reward", "Accuracy", "Exploration"],
     answer: 1,
-    correct: "onblur",
+    correct: "Reward",
   },
   {
-    q: "What is the default position value of an HTML element in CSS?",
-    options: ["relative", "absolute", "static", "inherit"],
-    answer: 2,
-    correct: "static",
+    q: "Which evaluation metric is best for imbalanced classification problems?",
+    options: ["Accuracy", "Precision", "Recall", "F1-score"],
+    answer: 3,
+    correct: "F1-score",
   },
 ],
+
 hard: [
   {
-    q: "Which HTML5 feature allows offline storage of web application data?",
-    options: ["Local Storage", "Cookies", "Web SQL", "Session Storage"],
-    answer: 0,
-    correct: "Local Storage",
-  },
-  {
-    q: "What is the output of `console.log(0.1 + 0.2 === 0.3);` in JavaScript?",
-    options: ["true", "false", "undefined", "Error"],
+    q: "Which algorithm is used for reducing the vanishing gradient problem in deep neural networks?",
+    options: ["Sigmoid Activation", "ReLU", "Softmax", "Tanh"],
     answer: 1,
-    correct: "false",
+    correct: "ReLU",
   },
   {
-    q: "Which CSS property is NOT inherited by default?",
-    options: ["color", "font-size", "border", "font-family"],
-    answer: 2,
-    correct: "border",
-  },
-  {
-    q: "Which method is used to prevent event bubbling in JavaScript?",
-    options: ["stopEvent()", "preventDefault()", "stopPropagation()", "cancelBubble()"],
-    answer: 2,
-    correct: "stopPropagation()",
-  },
-  {
-    q: "Which object is the parent of all JavaScript objects?",
-    options: ["Object", "Window", "Global", "Prototype"],
-    answer: 0,
-    correct: "Object",
-  },
-  {
-    q: "Which HTTP status code means 'Unauthorized'?",
-    options: ["401", "403", "404", "500"],
-    answer: 0,
-    correct: "401",
-  },
-  {
-    q: "Which CSS property is used to create a grid container?",
-    options: ["display: flex", "display: grid", "grid-template", "grid-container"],
-    answer: 1,
-    correct: "display: grid",
-  },
-  {
-    q: "What will `['1','2','3'].map(parseInt)` return?",
-    options: ["[1, 2, 3]", "[NaN, NaN, NaN]", "[1, NaN, NaN]", "[1, 2, NaN]"],
-    answer: 2,
-    correct: "[1, NaN, NaN]",
-  },
-  {
-    q: "In JavaScript, closures are created when?",
+    q: "In Gradient Descent, what happens if the learning rate is too high?",
     options: [
-      "A function is defined inside another function and accesses its variables",
-      "A variable is declared globally",
-      "An object is created",
-      "A function returns a string"
+      "The model converges quickly to the optimal solution",
+      "The model may overshoot and fail to converge",
+      "The model trains slower but more accurately",
+      "The model always reaches a global minimum"
     ],
-    answer: 0,
-    correct: "A function is defined inside another function and accesses its variables",
+    answer: 1,
+    correct: "The model may overshoot and fail to converge",
   },
   {
-    q: "Which HTML API is used to drag and drop elements?",
-    options: ["Drag API", "Droppable API", "Drag and Drop API", "File API"],
+    q: "Which of the following is NOT a type of neural network architecture?",
+    options: ["CNN", "RNN", "DNN", "SQLN"],
+    answer: 3,
+    correct: "SQLN",
+  },
+  {
+    q: "What does the backpropagation algorithm primarily do?",
+    options: [
+      "Optimizes hyperparameters",
+      "Updates weights using gradients",
+      "Splits dataset into training and testing",
+      "Increases model accuracy automatically"
+    ],
+    answer: 1,
+    correct: "Updates weights using gradients",
+  },
+  {
+    q: "Which loss function is commonly used for binary classification?",
+    options: ["Mean Squared Error", "Cross-Entropy Loss", "Hinge Loss", "KL Divergence"],
+    answer: 1,
+    correct: "Cross-Entropy Loss",
+  },
+  {
+    q: "Which optimization algorithm uses momentum to speed up training?",
+    options: ["Adam", "RMSprop", "SGD with Momentum", "Adagrad"],
     answer: 2,
-    correct: "Drag and Drop API",
+    correct: "SGD with Momentum",
+  },
+  {
+    q: "In reinforcement learning, what is the 'exploration vs exploitation' trade-off?",
+    options: [
+      "Balancing training vs testing data",
+      "Choosing between trying new actions or using known rewards",
+      "Optimizing batch size vs learning rate",
+      "Balancing supervised vs unsupervised learning"
+    ],
+    answer: 1,
+    correct: "Choosing between trying new actions or using known rewards",
+  },
+  {
+    q: "Which problem does the vanishing gradient mainly affect?",
+    options: ["Shallow models", "Recurrent Neural Networks", "Decision Trees", "Support Vector Machines"],
+    answer: 1,
+    correct: "Recurrent Neural Networks",
+  },
+  {
+    q: "What is the main advantage of using Dropout in deep learning?",
+    options: [
+      "Increases training accuracy",
+      "Prevents overfitting by randomly ignoring neurons",
+      "Speeds up gradient descent",
+      "Improves interpretability of the model"
+    ],
+    answer: 1,
+    correct: "Prevents overfitting by randomly ignoring neurons",
+  },
+  {
+    q: "Which of the following is a challenge in training GANs (Generative Adversarial Networks)?",
+    options: ["Mode collapse", "High bias", "Over-regularization", "Low variance"],
+    answer: 0,
+    correct: "Mode collapse",
   },
 ],
-
-
 };
 
 export default function QuizApp() {
@@ -255,7 +269,7 @@ const handleAnswer = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setDifficulty(level)}
-              className="px-8 py-4 rounded-2xl bg-purple-600 font-semibold"
+              className="px-8 py-4 rounded-2xl bg-orange-600 font-semibold"
             >
               {level.toUpperCase()}
             </motion.button>
@@ -412,7 +426,5 @@ const handleAnswer = () => {
     </div>
   );
 }
-
-
 
 
