@@ -39,16 +39,16 @@ import MLTools from "../components/GenAITools/MLTools";
 import AndroidDevTools from "../components/GenAITools/AndroidDevTools";
 import GitGuide from "../pages/GitGuide";
 import Miscellaneous from "../pages/miscellaneous";
-import Deployment from "../pages/deployment";
+//import Deployment from "../pages/deployment";
 import Git from "../components/miscellaneous/Git";
 import Heroku from "../components/deployment/Heroku";
 import Testing from "../components/miscellaneous/Testing";
 import PackageManagers from "../components/miscellaneous/PackageManagers";
 import WebPerformance from "../components/miscellaneous/WebPerformance";
-import Docker from "../components/deployment/Docker";
-import CICD from "../components/deployment/CICD";
-import StaticHosting from "../components/deployment/StaticHosting";
-import CloudHosting from "../components/deployment/CloudHosting";
+//import Docker from "../components/deployment/Docker";
+//import CICD from "../components/deployment/CICD";
+//import StaticHosting from "../components/deployment/StaticHosting";
+//import CloudHosting from "../components/deployment/CloudHosting";
 import Accessibility from "../components/miscellaneous/Accessibility";
 import SystemDesign from "../pages/SystemDesign";
 import API from "../components/system-design/API-Design";
@@ -64,6 +64,17 @@ import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
 import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
 import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
+import DevOps from "../pages/DevOps";
+import DevOpsIntro from "../components/DevOps/Intro";
+import CICD from "../components/DevOps/cicd";
+import Docker from "../components/DevOps/Docker";
+import Kubernetes from "../components/DevOps/Kubernetes";
+import Terraform from "../components/DevOps/Terraform";
+import Monitoring from "../components/DevOps/Monitoring";
+import Deployment from "../components/DevOps/Deployment";
+import Cloud from "../components/DevOps/Cloud";
+
+
 
 const routes = createBrowserRouter([
   {
@@ -123,6 +134,7 @@ const routes = createBrowserRouter([
           { path: "/machine-learning/unsupervised", element: <UnsupervisedLearning /> },
           { path: "/machine-learning/reinforcement", element: <ReinforcementLearning /> },
           { path: "/machine-learning/evaluation", element: <Evaluation /> },
+        
         ],
       },
 
@@ -142,16 +154,34 @@ const routes = createBrowserRouter([
         ],
       },
 
-      {
+      /*{
         path: "/deployment",
         element: <Deployment />,
         children: [
           { path: "/deployment/heroku", element: <Heroku /> },
           { path: "/deployment/docker", element: <Docker /> },
-          { path: "/deployment/cicd", element: <CICD /> },
+          //{ path: "/deployment/cicd", element: <CICD /> },
           { path: "/deployment/statichosting", element: <StaticHosting /> },
           { path: "/deployment/cloudhosting", element: <CloudHosting /> },
         ],
+      },*/
+
+      {
+        path: "/devops",
+        element: <DevOps />,
+        children: [
+          {path: "/devops/intro", element: <DevOpsIntro /> },
+          {path: "/devops/cicd", element: <CICD /> },
+          {path: "/devops/docker", element: <Docker /> },
+          {path: "/devops/kubernetes", element: <Kubernetes /> },
+          {path: "/devops/terraform", element: <Terraform /> },
+          {path: "/devops/monitoring", element: <Monitoring /> },
+          {path: "/devops/deployment", element: <Deployment /> },
+          {path: "/devops/cloud", element: <Cloud /> },
+     
+
+        ]
+
       },
 
       {

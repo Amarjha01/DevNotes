@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { FaPlay } from 'react-icons/fa';
 import { FaDatabase } from 'react-icons/fa';
 import { FaChevronDown } from "react-icons/fa";
-import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid } from 'react-icons/fa';
+import { FaBars, FaTimes, FaCode, FaLaptopCode, FaServer, FaRobot, FaRocket, FaEllipsisH, FaProjectDiagram, FaBrain, FaAndroid,FaCogs } from 'react-icons/fa';
 import SearchBar from '../SearchBar';
 
 export function Header() {
@@ -111,7 +111,13 @@ export function Header() {
   },
   { name: 'Projects', path: '/projects', icon: FaProjectDiagram, color: 'text-emerald-400' },
   { name: 'GitGuide', path: '/GitGuide', icon: FaCode, color: 'text-yellow-400' },
-  { name: 'Gen-AI Dev Tools', path: '/GenAI-Tools/FrontEndTools', icon: FaRobot, color: 'text-purple-400' },
+  //{ name: 'Gen-AI Dev Tools', path: '/GenAI-Tools/FrontEndTools', icon: FaRobot, color: 'text-purple-400' },
+  { 
+  name: 'DevOps', 
+  path: '/devops/intro', 
+  icon: FaCogs,   // from react-icons/fa
+  color: 'text-indigo-400' 
+}
 ];
 
   const handleDropdownClick = (itemName) => {
