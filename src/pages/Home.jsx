@@ -15,6 +15,7 @@ import {
   FaBrain,
   FaAndroid,
   FaEllipsisH,
+  FaCogs
 } from "react-icons/fa";
 import Particles from "./Particles";
 
@@ -292,15 +293,16 @@ const Home = () => {
             </span>
           </Link>
           <Link
-            to="/deployment/heroku"
-            className="group relative px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl shadow-lg hover:shadow-pink-400/25 transition-all duration-300 hover:scale-105 font-medium"
+            to="/devops/intro"
+            className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-xl shadow-lg hover:shadow-teal-300/50 transition-all duration-300 hover:scale-105 font-medium"
           >
             <span className="flex items-center gap-2 text-3xl">
-              <FaRocket />
-              Deployment
-              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <FaCogs />
+              DevOps
+              <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
             </span>
           </Link>
+
           <Link
             to="/GenAI-Tools/FrontEndTools"
             className="group relative px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl shadow-lg hover:shadow-purple-400/25 transition-all duration-300 hover:scale-105 font-medium"
@@ -379,8 +381,8 @@ const Home = () => {
             <motion.div
               key={q}
               className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30  ${openFaq === index
-                  ? "border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80"
-                  : "border-gray-700/50 hover:border-purple-500/30"
+                ? "border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80"
+                : "border-gray-700/50 hover:border-purple-500/30"
                 }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -396,14 +398,14 @@ const Home = () => {
                 </h3>
                 <div
                   className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${openFaq === index
-                      ? "bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]"
-                      : "bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50"
+                    ? "bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]"
+                    : "bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50"
                     }`}
                 >
                   <motion.div
                     className={`flex items-center justify-center w-full h-full transition-all duration-300 ${openFaq === index
-                        ? "text-purple-200 drop-shadow-lg"
-                        : "text-purple-300"
+                      ? "text-purple-200 drop-shadow-lg"
+                      : "text-purple-300"
                       }`}
                     animate={{ rotate: openFaq === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
