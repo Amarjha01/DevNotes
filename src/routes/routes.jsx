@@ -67,6 +67,7 @@ import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
 import FrontendQuiz from "../components/quiz/FrontendQuiz";
 import BackendPrepSheet from "../components/backend/BackendPrepSheet";
 import BackendQuiz from "../components/quiz/BackendQuiz";
+import SystemDesignPrepSheet from "../components/system-design/SystemDesignPrepSheet";
 
 const routes = createBrowserRouter([
   {
@@ -190,7 +191,10 @@ const routes = createBrowserRouter([
           { path: "/system-design/load-balancers", element: <LoadBalancers /> },
         ]
       },
-
+{
+  path: "/system-design/systemdesignprepsheet",
+  element: <SystemDesignPrepSheet />,
+},
       {
         path: "/dsa",
         element: <DSA />,

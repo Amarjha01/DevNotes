@@ -113,6 +113,7 @@ export function Header() {
       children: [
         { label: "Docs", path: "/system-design/scalability" },
         { label: "Notes", path: "/notes/system" },
+        { label: "Practice", path: "/system-design/systemdesignprepsheet" },
       ],
     },
     {
