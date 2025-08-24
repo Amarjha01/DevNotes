@@ -65,6 +65,7 @@ export function Header() {
     };
   }, []);
 
+
 //  const navItems = [
 //   {
 //     name: "Frontend",
@@ -229,14 +230,8 @@ export function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 max-w-[1424px] m-auto ${
-        scrolled
-          ? "bg-[#0a0415]/5 backdrop-blur-xl border-b border-purple-500/20 shadow-lg shadow-purple-500/10"
-          : "bg-white/5 backdrop-blur-lg"
-      }`}
-    >
-      <div className="flex items-center justify-between px-6 py-4 lg:py-4 transition-all duration-300 h-20">
+   <header className={`fixed top-0 w-full z-50 transition-all duration-500 max-w-full m-auto ${scrolled ? "bg-[#0a0415]/5 backdrop-blur-xl border-b border-purple-500/20 shadow-lg shadow-purple-500/10" : "bg-white/5 backdrop-blur-lg"}`}>
+      <div className="flex items-center justify-between px-6 py-4 lg:py-6 transition-all duration-300 h-20 mb-0">
         {/* Logo Section */}
         <button
           onClick={() => (window.location.href = "/")}
@@ -261,7 +256,7 @@ export function Header() {
         </button>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 bg-gray-900/50 backdrop-blur-sm rounded-full px-2 py-1 border border-gray-700/50 ml-6">
+        <nav className="hidden lg:flex  items-center gap-1 bg-gray-900/50 backdrop-blur-sm rounded-full px-3 py-1.5 border border-gray-700/50 ml-6">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isDropdownOpen = openDropdown === item.name;
@@ -276,7 +271,7 @@ export function Header() {
                       window.location.href = item.path;
                     }
                   }}
-                  className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 ${
+                  className={`flex items-center gap-2 px-2 py-1 md:px-4 md:py-2 rounded-full text-sm md:text-md font-medium transition-all duration-300 hover:bg-gray-800/50 ${
                     item.color
                   } ${isDropdownOpen ? "bg-gray-800/50" : ""}`}
                 >
