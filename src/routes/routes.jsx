@@ -111,11 +111,19 @@ import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
 import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
 
+
 // =========================
 // Import Utility Components
 // =========================
 import ProjectDetail from "../components/projects/ProjectDetail";
 import NotFound from "../components/gloable/NotFound";
+
+
+import BackendQuiz from "../components/quiz/BackendQuiz";
+import SystemDesignPrepSheet from "../components/system-design/SystemDesignPrepSheet";
+import MlQuiz from "../components/quiz/MlQuiz";
+import MLAIPrepSheet from "../components/machineLearning/MLAIPrepSheet";
+
 
 
 // =========================
@@ -185,8 +193,19 @@ const routes = createBrowserRouter([
         ],
       },
 
+
       // ========= Git / Miscellaneous =========
       { path: "/GitGuide", element: <GitGuide /> },
+
+{
+  path: "/machine-learning/mlaiprepsheet",
+  element: <MLAIPrepSheet />,
+},
+      {
+        path: "/GitGuide",
+        element: <GitGuide />,
+      },
+
       {
         path: "/miscellaneous",
         element: <Miscellaneous />,
