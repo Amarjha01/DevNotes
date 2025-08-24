@@ -70,30 +70,10 @@ import Terraform from "../components/DevOps/Terraform";
 import Monitoring from "../components/DevOps/Monitoring";
 import Deployment from "../components/DevOps/Deployment";
 import Cloud from "../components/DevOps/Cloud";
+//import FrontendQuiz from "../components/quiz/FrontendQuiz";
+//import BackendQuiz from "../components/quiz/BackendQuiz";
 
-// GenAI Tools Pages
-import GenAITools from "../pages/GenAITools";
-import FrontEndTools from "../components/GenAITools/FrontEndTools";
-import BackEndTools from "../components/GenAITools/BackEndTools";
-import MLTools from "../components/GenAITools/MLTools";
-import AndroidDevTools from "../components/GenAITools/AndroidDevTools";
 
-// Project Pages
-import Projects from "../pages/Projects";
-import ProjectDetail from "../components/projects/ProjectDetail";
-
-// Note Pages
-import FrontendNotes from "../components/notes/Frontend";
-import BackendNotes from "../components/notes/Backend";
-import DsaNotes from "../components/notes/Dsa";
-import SystemNotes from "../components/notes/System";
-import MlNotes from "../components/notes/Ml";
-
-// Global Components
-import NotFound from "../components/gloable/NotFound";
-import DigestInfo from "../pages/DigestInfo";
-
-// Creating routes using createBrowserRouter
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -117,20 +97,30 @@ const routes = createBrowserRouter([
       
       // Notes Section
       {
-        path: "/notes",
-        children: [
-          { path: "frontend", element: <FrontendNotes /> },
-          { path: "backend", element: <BackendNotes /> },
-          { path: "dsa", element: <DsaNotes /> },
-          { path: "system", element: <SystemNotes /> },
-          { path: "ml", element: <MlNotes /> },
-          { path: "android", element: <AndroidNotes /> },
-        ]
+  path: "/notes",
+  children: [
+    { path: "frontend", element: <FrontendNotes /> },
+    { path: "backend", element: <BackendNotes /> },
+    { path: "dsa", element: <DsaNotes /> },
+    { path: "system", element: <SystemNotes /> },
+    { path: "ml", element: <MlNotes /> },
+    { path: "android", element: <AndroidNotes /> },
+  ]
+},
+{
+        path: "/frontend/frontendprepsheet",
+        element: <FrontendPrepSheet /> 
       },
 
-      { path: "/frontend/frontendprepsheet", element: <FrontendPrepSheet /> },
-      
-      // Backend Routes
+    
+/*  { path: "/quiz",
+  children: [
+    { path: "frontend", element: <FrontendQuiz /> },
+    { path: "backend", element: <BackendQuiz /> },
+
+  ]
+},*/
+
       {
         path: "/backend",
         element: <Backend />,
