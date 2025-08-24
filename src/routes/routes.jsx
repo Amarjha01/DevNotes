@@ -81,6 +81,7 @@ import Cloud from "../components/DevOps/Cloud";
 import BackendQuiz from "../components/quiz/BackendQuiz";
 import SystemDesignPrepSheet from "../components/system-design/SystemDesignPrepSheet";
 import MlQuiz from "../components/quiz/MlQuiz";
+import MLAIPrepSheet from "../components/machineLearning/MLAIPrepSheet";
 
 
 const routes = createBrowserRouter([
@@ -157,7 +158,10 @@ const routes = createBrowserRouter([
         
         ],
       },
-
+{
+  path: "/machine-learning/mlaiprepsheet",
+  element: <MLAIPrepSheet />,
+},
       {
         path: "/GitGuide",
         element: <GitGuide />,

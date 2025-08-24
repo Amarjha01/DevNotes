@@ -164,6 +164,7 @@ export function Header() {
       children: [
         { label: "Docs", path: "/machine-learning/ai" },
         { label: "Notes", path: "/notes/ml" },
+        { label: "Practice", path: "/machine-learning/mlaiprepsheet" },
          { label: "Quiz", path: "/quiz/ML" },
       ],
     },
