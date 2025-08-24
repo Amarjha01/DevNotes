@@ -78,28 +78,30 @@ import Cloud from "../components/DevOps/Cloud";
 //import BackendQuiz from "../components/quiz/BackendQuiz";
 
 
+import BackendQuiz from "../components/quiz/BackendQuiz";
+import SystemDesignPrepSheet from "../components/system-design/SystemDesignPrepSheet";
+import MlQuiz from "../components/quiz/MlQuiz";
+
+
 const routes = createBrowserRouter([
   {
     path: "/",
     element: <App />,
     children: [
       { path: "/", element: <Home /> },
-
-      // Frontend Routes
+      
       {
-        path: "frontend",
+         path: "frontend", // No leading slash here
         element: <Frontend />,
         children: [
-          { path: "html", element: <Html /> },
+          { path: "html", element: <Html /> }, // Relative path
           { path: "css", element: <Css /> },
           { path: "js", element: <Js /> },
           { path: "reactjs", element: <ReactJs /> },
           { path: "tailwind", element: <TailwindCss /> },
           { path: "cheatsheet", element: <CheatSheet /> },
-        ],
+                ],
       },
-      
-      // Notes Section
       {
   path: "/notes",
   children: [
@@ -121,6 +123,8 @@ const routes = createBrowserRouter([
   children: [
     { path: "frontend", element: <FrontendQuiz /> },
     { path: "backend", element: <BackendQuiz /> },
+    { path: "ml", element: <MlQuiz /> },
+
 
   ]
 },*/
@@ -129,61 +133,78 @@ const routes = createBrowserRouter([
         path: "/backend",
         element: <Backend />,
         children: [
-          { path: "nodejs", element: <Nodejs /> },
-          { path: "express", element: <Express /> },
-          { path: "mongodb", element: <MongoDB /> },
-          { path: "restapi", element: <RestApi /> },
-          { path: "jwt", element: <JwtAuth /> },
+          { path: "/backend/nodejs", element: <Nodejs /> },
+          { path: "/backend/express", element: <Express /> },
+          { path: "/backend/mongodb", element: <MongoDB /> },
+          { path: "/backend/restapi", element: <RestApi /> },
+          { path: "/backend/jwt", element: <JwtAuth /> },
         ],
       },
-      
-      { path: "/backend/backendprepsheet", element: <BackendPrepSheet /> },
-
-      // Machine Learning Routes
+{
+  path: "/backend/backendprepsheet",
+  element: <BackendPrepSheet />,
+},
       {
         path: "/machine-learning",
         element: <MachineLearning />,
         children: [
-          { path: "introduction", element: <Introduction /> },
-          { path: "ai", element: <AI /> },
-          { path: "supervised", element: <SupervisedLearning /> },
-          { path: "unsupervised", element: <UnsupervisedLearning /> },
-          { path: "reinforcement", element: <ReinforcementLearning /> },
-          { path: "evaluation", element: <Evaluation /> },
+          { path: "/machine-learning/introduction", element: <Introduction /> },
+          { path: "/machine-learning/ai", element: <AI /> },
+          { path: "/machine-learning/supervised", element: <SupervisedLearning /> },
+          { path: "/machine-learning/unsupervised", element: <UnsupervisedLearning /> },
+          { path: "/machine-learning/reinforcement", element: <ReinforcementLearning /> },
+          { path: "/machine-learning/evaluation", element: <Evaluation /> },
+        
         ],
       },
 
-      // Miscellaneous Routes
+      {
+        path: "/GitGuide",
+        element: <GitGuide />,
+      },
       {
         path: "/miscellaneous",
         element: <Miscellaneous />,
         children: [
-          { path: "git", element: <Git /> },
-          { path: "testing", element: <Testing /> },
-          { path: "accessibility", element: <Accessibility /> },
-          { path: "packagemanagers", element: <PackageManagers /> },
-          { path: "webperformance", element: <WebPerformance /> },
+          { path: "/miscellaneous/git", element: <Git /> },
+          { path: "/miscellaneous/testing", element: <Testing /> },
+          { path: "/miscellaneous/accessibility", element: <Accessibility /> },
+          { path: "/miscellaneous/packagemanagers", element: <PackageManagers /> },
+          { path: "/miscellaneous/webperformance", element: <WebPerformance /> },
         ],
       },
 
-      // DevOps Routes
+      /*{
+        path: "/deployment",
+        element: <Deployment />,
+        children: [
+          { path: "/deployment/heroku", element: <Heroku /> },
+          { path: "/deployment/docker", element: <Docker /> },
+          //{ path: "/deployment/cicd", element: <CICD /> },
+          { path: "/deployment/statichosting", element: <StaticHosting /> },
+          { path: "/deployment/cloudhosting", element: <CloudHosting /> },
+        ],
+      },*/
+
       {
         path: "/devops",
         element: <DevOps />,
         children: [
-          { path: "intro", element: <DevOpsIntro /> },
-          { path: "cicd", element: <CICD /> },
-          { path: "docker", element: <Docker /> },
-          { path: "kubernetes", element: <Kubernetes /> },
-          { path: "terraform", element: <Terraform /> },
-          { path: "monitoring", element: <Monitoring /> },
-          { path: "deployment", element: <Deployment /> },
-          { path: "cloud", element: <Cloud /> },
-        ],
+          {path: "/devops/intro", element: <DevOpsIntro /> },
+          {path: "/devops/cicd", element: <CICD /> },
+          {path: "/devops/docker", element: <Docker /> },
+          {path: "/devops/kubernetes", element: <Kubernetes /> },
+          {path: "/devops/terraform", element: <Terraform /> },
+          {path: "/devops/monitoring", element: <Monitoring /> },
+          {path: "/devops/deployment", element: <Deployment /> },
+          {path: "/devops/cloud", element: <Cloud /> },
+     
+
+        ]
+
       },
 
-      // GenAI Tools Routes
-     {
+      {
         path: "/GenAI-Tools",
         element: <GenAITools />,
         children: [
@@ -195,48 +216,46 @@ const routes = createBrowserRouter([
         ],
       },
 
-      // System Design Routes
       {
         path: "/system-design",
         element: <SystemDesign />,
         children: [
-          { path: "api-design", element: <API /> },
-          { path: "caching", element: <Caching /> },
-          { path: "database-design", element: <DatabaseDesign /> },
-          { path: "scalability", element: <Scalability /> },
-          { path: "load-balancers", element: <LoadBalancers /> },
-        ],
+          { path: "/system-design/api-design", element: <API /> },
+          { path: "/system-design/caching", element: <Caching /> },
+          { path: "/system-design/database-design", element: <DatabaseDesign /> },
+          { path: "/system-design/scalability", element: <Scalability /> },
+          { path: "/system-design/load-balancers", element: <LoadBalancers /> },
+        ]
       },
-
-      // DSA Routes
+{
+  path: "/system-design/systemdesignprepsheet",
+  element: <SystemDesignPrepSheet />,
+},
       {
         path: "/dsa",
         element: <DSA />,
         children: [
-          { path: "array", element: <Array /> },
-          { path: "greedy", element: <Greedy /> },
-          { path: "stack", element: <Stack /> },
-          { path: "queue", element: <Queue /> },
-          { path: "string", element: <String /> },
-        ],
+          { path: "/dsa/array", element: <Array /> },
+          { path: "/dsa/greedy", element: <Greedy /> },
+          { path: "/dsa/stack", element: <Stack /> },
+          { path: "/dsa/queue", element: <Queue /> },
+          { path: "/dsa/string", element: <String /> }
+        ]
+      },
+      {
+        path: "/dsa/dsaprepsheet",
+        element: <DsaPrepSheet /> 
       },
       
-      { path: "/dsa/dsaprepsheet", element: <DsaPrepSheet /> },
       { path: "/android", element: <AndroidDevelopmentRoadmap /> },
       { path: "/projects", element: <Projects /> },
       { path: "/projects/:projectId", element: <ProjectDetail /> },
-      { path: "/digest-info", element: <DigestInfo /> },
+  { path: "/GitGuide", element: <GitGuide /> },
+  { path: "/digest-info", element: <DigestInfo /> },
 
-      
-      // Fallback Route
-      { path: "*", element: <NotFound /> },
-
-
-      //single page routes
-       { path: "/GitGuide",element: <GitGuide />,},
     ],
   },
+  { path: "*", element: <NotFound /> },
 ]);
 
 export default routes;
-
