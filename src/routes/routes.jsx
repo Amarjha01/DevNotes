@@ -1,28 +1,29 @@
-// Importing necessary modules from react-router-dom and components
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
-
-// Frontend Pages
 import Frontend from "../pages/Frontend";
+import FrontendNotes from "../components/notes/Frontend";
+import BackendNotes from "../components/notes/Backend";
+import MlNotes from "../components/notes/Ml";
+import DsaNotes from "../components/notes/Dsa";
+import SystemNotes from "../components/notes/System";
+import AndroidNotes from "../components/notes/Android";
 import Html from "../components/frontend/Html";
 import Css from "../components/frontend/Css";
 import Js from "../components/frontend/Js";
 import ReactJs from "../components/frontend/ReactJs";
 import TailwindCss from "../components/frontend/TailwindCss";
 import CheatSheet from "../components/frontend/cheatsheet";
-import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
-
-// Backend Pages
+import NotFound from "../components/gloable/NotFound";
+import DigestInfo from "../pages/DigestInfo";
 import Backend from "../pages/Backend";
 import Nodejs from "../components/backend/NodeJs";
 import Express from "../components/backend/Express";
 import MongoDB from "../components/backend/MongoDB";
 import RestApi from "../components/backend/RestApi";
 import JwtAuth from "../components/backend/JwtAuth";
-import BackendPrepSheet from "../components/backend/BackendPrepSheet";
-
-// Machine Learning Pages
+import Projects from "../pages/Projects";
+import ProjectDetail from "../components/projects/ProjectDetail";
 import MachineLearning from "../pages/MachineLearning";
 import Introduction from "../components/machineLearning/Introduction";
 import AI from "../components/machineLearning/AI";
@@ -30,28 +31,31 @@ import SupervisedLearning from "../components/machineLearning/SupervisedLearning
 import UnsupervisedLearning from "../components/machineLearning/UnsupervisedLearning";
 import ReinforcementLearning from "../components/machineLearning/ReinforcementLearning";
 import Evaluation from "../components/machineLearning/Evaluation";
-
-// Android Development Pages
 import AndroidDevelopmentRoadmap from "../pages/AndroidDevelopmentRoadmap";
-import AndroidNotes from "../components/notes/Android";
-
-// Miscellaneous Pages
+import GenAITools from "../pages/GenAITools";
+import FrontEndTools from "../components/GenAITools/FrontEndTools";
+import BackEndTools from "../components/GenAITools/BackEndTools";
+import MLTools from "../components/GenAITools/MLTools";
+import AndroidDevTools from "../components/GenAITools/AndroidDevTools";
+import GitGuide from "../pages/GitGuide";
 import Miscellaneous from "../pages/miscellaneous";
+//import Deployment from "../pages/deployment";
 import Git from "../components/miscellaneous/Git";
+import Heroku from "../components/deployment/Heroku";
 import Testing from "../components/miscellaneous/Testing";
 import PackageManagers from "../components/miscellaneous/PackageManagers";
 import WebPerformance from "../components/miscellaneous/WebPerformance";
+//import Docker from "../components/deployment/Docker";
+//import CICD from "../components/deployment/CICD";
+//import StaticHosting from "../components/deployment/StaticHosting";
+//import CloudHosting from "../components/deployment/CloudHosting";
 import Accessibility from "../components/miscellaneous/Accessibility";
-
-// System Design Pages
 import SystemDesign from "../pages/SystemDesign";
 import API from "../components/system-design/API-Design";
 import Caching from "../components/system-design/Caching";
 import DatabaseDesign from "../components/system-design/Database-Design";
 import Scalability from "../components/system-design/Scalability";
 import LoadBalancers from "../components/system-design/Load-Balancers";
-
-// DSA Pages
 import DSA from "../pages/Dsa";
 import Array from "../components/Dsa/Array";
 import Greedy from "../components/Dsa/Greedy";
@@ -59,8 +63,8 @@ import Stack from "../components/Dsa/Stack";
 import Queue from "../components/Dsa/Queue";
 import String from "../components/Dsa/String";
 import DsaPrepSheet from "../components/Dsa/DsaPrepSheet";
-
-// DevOps Pages
+import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
+import BackendPrepSheet from "../components/backend/BackendPrepSheet";
 import DevOps from "../pages/DevOps";
 import DevOpsIntro from "../components/DevOps/Intro";
 import CICD from "../components/DevOps/CICD";
@@ -179,14 +183,15 @@ const routes = createBrowserRouter([
       },
 
       // GenAI Tools Routes
-      {
-        path: "/genai-tools",
+     {
+        path: "/GenAI-Tools",
         element: <GenAITools />,
         children: [
-          { path: "frontend-tools", element: <FrontEndTools /> },
-          { path: "backend-tools", element: <BackEndTools /> },
-          { path: "ml-tools", element: <MLTools /> },
-          { path: "android-dev-tools", element: <AndroidDevTools /> },
+          { path: "", element: <Introduction /> },
+          { path: "FrontEndTools", element: <FrontEndTools /> },
+          { path: "BackEndTools", element: <BackEndTools /> },
+          { path: "MLTools", element: <MLTools /> },
+          { path: "AndroidDevTools", element: <AndroidDevTools /> },
         ],
       },
 
@@ -221,9 +226,14 @@ const routes = createBrowserRouter([
       { path: "/projects", element: <Projects /> },
       { path: "/projects/:projectId", element: <ProjectDetail /> },
       { path: "/digest-info", element: <DigestInfo /> },
+
       
       // Fallback Route
       { path: "*", element: <NotFound /> },
+
+
+      //single page routes
+       { path: "/GitGuide",element: <GitGuide />,},
     ],
   },
 ]);
