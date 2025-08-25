@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Chat from '../Chat';
 
+
 const Html = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedCards, setExpandedCards] = useState(new Set());

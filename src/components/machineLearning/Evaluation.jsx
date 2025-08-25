@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Chat from '../Chat';
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 const notes = [
   {
@@ -173,9 +174,7 @@ const Evaluation = () => {
             </div>
             <p className="text-white/90 mb-4">{note.description}</p>
             {note.code && (
-              <pre className="bg-[#2a2a3e] text-sm text-green-400 rounded-md p-4 overflow-x-auto whitespace-pre-wrap mb-4">
-                <code>{note.code}</code>
-              </pre>
+              <CodeBlock code={note.code} language="python" />
             )}
             {note.tips?.length > 0 && (
               <div>

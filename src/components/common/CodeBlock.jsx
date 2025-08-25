@@ -24,13 +24,18 @@ const CodeBlock = ({ code, language = "javascript" }) => {
         style={oneDark}
         wrapLines={true}  // ✅ ensures each line is wrapped properly
         wrapLongLines={true} // ✅ prevents overflow for long code
-        showLineNumbers={true} // ✅ adds line numbers
+      //  showLineNumbers={true} // ✅ adds line numbers
         customStyle={{
+           
+          color: "#53eafd",
           borderRadius: "0.5rem",
           padding: "1rem",
           fontSize: "0.9rem",
           lineHeight: "1.5",
           whiteSpace: "pre-wrap", // ✅ ensures line breaks are respected
+        }}
+        codeTagProps={{
+          className: "text-cyan-300", // ✅ Tailwind controls text color
         }}
       >
         {code}
