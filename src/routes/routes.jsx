@@ -38,6 +38,7 @@ import ReactJs from "../components/frontend/ReactJs";
 import TailwindCss from "../components/frontend/TailwindCss";
 import CheatSheet from "../components/frontend/cheatsheet";
 import FrontendPrepSheet from "../components/frontend/FrontendPrepSheet";
+import AndroidPrepSheet from "../components/AndroidPrepSheet";
 
 // =========================
 // Import Backend Components
@@ -279,6 +280,7 @@ const routes = createBrowserRouter([
       { path: "/android", element: <AndroidDevelopmentRoadmap /> },
       { path: "/projects", element: <Projects /> },
       { path: "/projects/:projectId", element: <ProjectDetail /> },
+      {path:"/androidprepsheet", element:<AndroidPrepSheet />},
 
       // ========= Digest =========
       { path: "/digest-info", element: <DigestInfo /> },
