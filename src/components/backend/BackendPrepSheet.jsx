@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 export default function BackendPrepSheet() {
   const [filter, setFilter] = useState("All");

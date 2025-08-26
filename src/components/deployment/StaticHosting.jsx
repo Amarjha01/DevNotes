@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+
 const StaticHosting = () => {
   const note = {
     title: 'Static Site Hosting (Netlify/Vercel)',

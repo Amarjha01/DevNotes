@@ -1,6 +1,7 @@
 // components/frontend/Tailwindcss.jsx
 import React from 'react';
 import Chat from '../Chat';
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 const TailwindCss = () => {
   const notes = [
@@ -63,7 +64,8 @@ npx tailwindcss init`
           <p className="mb-2 text-gray-200">{note.description}</p>
           {note.code && (
             <pre className="bg-black/40 p-3 text-sm rounded overflow-x-auto text-green-300">
-              <code>{note.code}</code>
+              <CodeBlock code={note.code} language="javascript" />
+
             </pre>
           )}
         </div>

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Chat from '../Chat'; // Uses your original Chat component and style
 import { GoChevronDown } from "react-icons/go";
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 // Full DevOps concepts covered in notes
 const notes = [
@@ -99,9 +100,7 @@ const Intro = () => {
           {note.code && (
             <div className="mb-4">
               <div className="text-sm font-medium text-purple-400 mb-1">Example Code:</div>
-              <pre className="bg-[#1e1e2f] text-sm text-emerald-500 rounded-md p-4 overflow-x-auto whitespace-pre-wrap">
-                <code>{note.code}</code>
-              </pre>
+              <CodeBlock code={note.code} language="yaml" />
             </div>
           )}
 

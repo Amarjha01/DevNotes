@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import Chat from '../Chat';
 import { GoChevronDown } from "react-icons/go";
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 const notes = [
   {
@@ -97,9 +98,7 @@ const Docker = () => {
           {note.code && (
             <div className="mb-4">
               <div className="text-sm font-medium text-purple-200 mb-1">Example Code:</div>
-              <pre className="bg-[#1e1e2f] text-sm text-emerald-200 rounded-md p-4 overflow-x-auto whitespace-pre-wrap">
-                <code>{note.code}</code>
-              </pre>
+              <CodeBlock code={note.code} language="yaml" />
             </div>
           )}
 
