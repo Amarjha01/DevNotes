@@ -196,6 +196,7 @@ export function Header() {
       children: [
         { label: "Docs", path: "/android" },
         { label: "Notes", path: "/notes/android" },
+        { label: "Practice", path: "/androidprepsheet" },
       ],
     },
     {
