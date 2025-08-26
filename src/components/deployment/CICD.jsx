@@ -1,6 +1,8 @@
 
 import React from 'react';
 
+
+
 const CICD = () => {
   const note = {
     title: 'CI/CD Pipelines',

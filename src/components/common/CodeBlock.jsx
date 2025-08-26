@@ -1,8 +1,20 @@
 // src/components/common/CodeBlock.jsx
 import { useState } from "react";
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter"; 
+import { oneDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { Copy } from "lucide-react";
+
+// ✅ Import languages you want Prism to support
+import js from "react-syntax-highlighter/dist/cjs/languages/prism/javascript";
+import bash from "react-syntax-highlighter/dist/cjs/languages/prism/bash";
+import yaml from "react-syntax-highlighter/dist/cjs/languages/prism/yaml";
+import json from "react-syntax-highlighter/dist/cjs/languages/prism/json";
+
+// ✅ Register them
+SyntaxHighlighter.registerLanguage("javascript", js);
+SyntaxHighlighter.registerLanguage("bash", bash);
+SyntaxHighlighter.registerLanguage("yaml", yaml);
+SyntaxHighlighter.registerLanguage("json", json);
 
 const CodeBlock = ({ code, language = "javascript" }) => {
   const [copied, setCopied] = useState(false);
@@ -19,23 +31,21 @@ const CodeBlock = ({ code, language = "javascript" }) => {
 
   return (
     <div className="relative group mb-4">
+      
       <SyntaxHighlighter
         language={language}
         style={oneDark}
-        wrapLines={true}  // ✅ ensures each line is wrapped properly
-        wrapLongLines={true} // ✅ prevents overflow for long code
-      //  showLineNumbers={true} // ✅ adds line numbers
+        wrapLines={true}
+        wrapLongLines={true}
         customStyle={{
-           
-          color: "#53eafd",
           borderRadius: "0.5rem",
           padding: "1rem",
           fontSize: "0.9rem",
           lineHeight: "1.5",
-          whiteSpace: "pre-wrap", // ✅ ensures line breaks are respected
+          whiteSpace: "pre-wrap",
         }}
         codeTagProps={{
-          className: "text-cyan-300", // ✅ Tailwind controls text color
+          className: "text-cyan-300",
         }}
       >
         {code}
