@@ -343,7 +343,12 @@ export function Header() {
                   <button
                     key={item.name}
                     onClick={() => {
-                      window.location.href = item.path;
+                      // If item has children, go to first child's path (Docs)
+                      if (item.children && item.children.length > 0) {
+                        window.location.href = item.children[0].path;
+                      } else {
+                        window.location.href = item.path;
+                      }
                       setMenuOpen(false);
                     }}
                     className={`group flex items-center gap-4 px-4 py-3 rounded-xl bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 hover:border-purple-500/50 transition-all duration-300 hover:scale-105 hover:shadow-lg ${item.color} hover:shadow-purple-500/25 w-full`}
