@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Chat from '../Chat';
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 const notes = [
   {
@@ -158,9 +159,7 @@ const SupervisedLearning = () => {
             {note.code && (
               <div className="mb-4">
                 <div className="text-sm font-medium text-blue-300 mb-1">Example Notes:</div>
-                <pre className="bg-[#2c3e50] text-sm text-cyan-300 rounded-md p-4 overflow-x-auto whitespace-pre-wrap">
-                  <code>{note.code}</code>
-                </pre>
+                <CodeBlock code={note.code} language="python" />
               </div>
             )}
 

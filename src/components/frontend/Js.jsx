@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Chat from "../Chat";
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 const Js = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -827,11 +828,7 @@ fetchData(); // "Data fetched!" after 1 second`,
               {/* Code Block */}
               {note.code && (
                 <div className="mb-4">
-                  <pre className="bg-black/40 p-4 rounded-lg overflow-x-auto text-sm border border-white/10">
-                    <code className="text-green-300 font-mono">
-                      {note.code}
-                    </code>
-                  </pre>
+                  <CodeBlock code={note.code} language="javascript" />
                 </div>
               )}
 

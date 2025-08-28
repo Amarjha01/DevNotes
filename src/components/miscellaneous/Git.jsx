@@ -1,5 +1,6 @@
 
 import React from 'react';
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 const Git = () => {
   const note = {
@@ -57,9 +58,7 @@ git push origin main`,
           <p className="text-gray-200 mb-4 leading-relaxed">{note.description}</p>
           {note.code && (
             <div className="mb-4">
-              <pre className="bg-black/40 p-4 rounded-lg overflow-x-auto text-sm border border-white/10">
-                <code className="text-green-300 font-mono">{note.code}</code>
-              </pre>
+              <CodeBlock code={note.code} language="bash" />
             </div>
           )}
           {note.tips && (
