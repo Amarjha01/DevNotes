@@ -36,6 +36,18 @@ const Home = () => {
   ];
   const fullText = "Master Web Development";
 
+    // 🟢 Added for typewriter rotating words
+  const [wordIndex, setWordIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const titles = [
+    "Frontend Development",
+    "Backend Development",
+    "AI / ML",
+    "System Design",
+    "Android Development",
+    "DSA",
+  ];
+
   const faqs = [
     {
       q: "What is DevNotes?",
@@ -78,17 +90,30 @@ const Home = () => {
     e.target.reset();
   };
 
+
+   // 🟢 Modified typing effect (rotates through titles)
   useEffect(() => {
-    const typeText = () => {
-      if (currentIndex < fullText.length) {
-        setTypedText((prev) => prev + fullText[currentIndex]);
+    const currentWord = titles[wordIndex];
+    let typingSpeed = isDeleting ? 50 : 120;
+
+    const type = () => {
+      if (!isDeleting && currentIndex < currentWord.length) {
+        setTypedText((prev) => prev + currentWord[currentIndex]);
         setCurrentIndex((prev) => prev + 1);
+      } else if (isDeleting && currentIndex > 0) {
+        setTypedText((prev) => prev.slice(0, -1));
+        setCurrentIndex((prev) => prev - 1);
+      } else if (!isDeleting && currentIndex === currentWord.length) {
+        setTimeout(() => setIsDeleting(true), 1000);
+      } else if (isDeleting && currentIndex === 0) {
+        setIsDeleting(false);
+        setWordIndex((prev) => (prev + 1) % titles.length);
       }
     };
 
-    const timer = setTimeout(typeText, 100);
+    const timer = setTimeout(type, typingSpeed);
     return () => clearTimeout(timer);
-  }, [currentIndex, fullText]);
+  }, [currentIndex, isDeleting, titles, wordIndex]);
 
   useEffect(() => {
     controls.start({
@@ -191,7 +216,7 @@ const Home = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
-          {typedText}
+          Master {typedText}
           <span className="animate-pulse text-purple-400">|</span>
         </motion.h1>
 
@@ -203,7 +228,7 @@ const Home = () => {
         >
           Your daily dose of web development notes. Master
           <span className="text-purple-400 font-semibold">
-            {" "}
+            {" "} 
             HTML, CSS, JavaScript, React, Node.js
           </span>{" "}
           and more in a structured, beautifully organized format.
