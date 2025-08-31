@@ -1,12 +1,27 @@
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import QA_DATA from "./qaData";
 
-export default function ChatbotModal({ onClose }) {
+function findAnswer(query) {
+    const q = query.toLowerCase();
+
+    for (let item of QA_DATA) {
+        if (item.keywords.some((kw) => q.includes(kw.toLowerCase()))) {
+            return item;
+        }
+    }
+
+    return null;
+}
+
+export default function ChatbotModel({ onClose }) {
     const [messages, setMessages] = useState([
-        { sender: "bot", text: "Hi! 👋 I am DevNotes Assistant. How can I help you today?" }
+        { sender: "bot", text: "Hi! 👋 Ask me anything about DevNotes topics like Git, React, Deployment, DSA, etc." }
     ]);
     const [input, setInput] = useState("");
     const listRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (listRef.current) {
@@ -14,13 +29,27 @@ export default function ChatbotModal({ onClose }) {
         }
     }, [messages]);
 
+    const sendMessage = (text, sender) => {
+        setMessages((prev) => [...prev, { sender, text }]);
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!input.trim()) return;
 
         const userQuery = input.trim();
-        setMessages((prev) => [...prev, { sender: "user", text: userQuery }]);
+        sendMessage(userQuery, "user");
         setInput("");
+
+        const answer = findAnswer(userQuery);
+        if (answer) {
+            setMessages((prev) => [
+                ...prev,
+                { sender: "bot", text: answer.answer, link: answer.link }
+            ]);
+        } else {
+            sendMessage("Sorry, I couldn’t find an exact match. Please try another question.", "bot");
+        }
     };
 
     return (
@@ -43,6 +72,16 @@ export default function ChatbotModal({ onClose }) {
                     <div key={idx} className={`flex ${m.sender === "user" ? "justify-end" : "justify-start"}`}>
                         <div className={`max-w-[80%] px-3 py-2 rounded-lg ${m.sender === "user" ? "bg-slate-700 text-white" : "bg-[#0f1724] text-gray-200"}`}>
                             {m.text}
+                            {m.link && (
+                                <div className="mt-2">
+                                    <button
+                                        onClick={() => navigate(m.link)}
+                                        className="text-xs bg-gradient-to-r from-blue-500 to-cyan-400 px-2 py-1 rounded text-white cursor-pointer"
+                                    >
+                                        Go to Page
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
                 ))}
