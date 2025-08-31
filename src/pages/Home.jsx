@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import DigestPreferences from "../components/DigestPreferences";
 import { motion, useAnimation } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -16,6 +15,7 @@ import {
   FaBrain,
   FaAndroid,
   FaEllipsisH,
+  FaCogs
 } from "react-icons/fa";
 import Particles from "./Particles";
 
@@ -34,6 +34,7 @@ const Home = () => {
     "MongoDB",
     "TypeScript",
   ];
+
   const fullText = "Master Web Development";
 
     // 🟢 Added for typewriter rotating words
@@ -84,9 +85,7 @@ const Home = () => {
     const email = formData.get("email");
     const message = formData.get("message");
 
-    alert(
-      `Thank you ${name}! Your message has been received.\n\nWe'll get back to you at ${email} soon!`
-    );
+    alert(`Thank you ${name}! Your message has been received.\n\nWe'll get back to you at ${email} soon!`);
     e.target.reset();
   };
 
@@ -127,15 +126,8 @@ const Home = () => {
   }, [controls]);
 
   return (
-    <div className="min-h-[80vh] pt-[80px] lg:pt-[90px] rounded-2xl lg:min-h-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          position: "absolute",
-          zIndex: 5,
-        }}
-      >
+    <div className="min-h-[80vh] pt-[80px] lg:pt-[90px] rounded-2xl lg:min-w-screen bg-gradient-to-br from-[#0a0415] via-[#11071f] to-[#1a0b2e] relative overflow-hidden flex flex-col justify-center items-center">
+      <div className="absolute inset-0 pointer-events-none z-10">
         <Particles
           particleColors={["#ffffff", "#ffffff"]}
           particleCount={1000}
@@ -165,24 +157,14 @@ const Home = () => {
         <motion.div
           className="absolute top-32 right-20 text-blue-400/80 lg:text-blue-400/20 font-mono text-sm"
           animate={{ y: [0, 20, 0] }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1,
-          }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         >
           {/* function() {{ return  'awesome' }} */}
         </motion.div>
         <motion.div
           className="absolute bottom-32 left-20 text-green-400/50 lg:text-green-400/30 font-mono text-sm"
           animate={{ y: [0, -15, 0] }}
-          transition={{
-            duration: 3.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2,
-          }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
         >
           const learn = () =&gt; code;
         </motion.div>
@@ -195,7 +177,7 @@ const Home = () => {
         transition={{ duration: 0.8 }}
       >
         <motion.div
-          className="mb-8 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30"
+          className="mt-10 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-sm rounded-full border border-purple-500/30 mb-2"
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
@@ -206,10 +188,6 @@ const Home = () => {
           </span>
         </motion.div>
 
-        {/* Weekly Digest Preferences */}
-        <div className="flex justify-center my-8">
-          <DigestPreferences userEmail={"user1@example.com"} />
-        </div>
         <motion.h1
           className="text-5xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -227,11 +205,15 @@ const Home = () => {
           transition={{ delay: 0.5, duration: 0.8 }}
         >
           Your daily dose of web development notes. Master
+ feature/typewriter-effect
           <span className="text-purple-400 font-semibold">
             {" "} 
             HTML, CSS, JavaScript, React, Node.js
           </span>{" "}
           and more in a structured, beautifully organized format.
+
+          <span className="text-purple-400 font-semibold"> HTML, CSS, JavaScript, React, Node.js</span> and more in a structured, beautifully organized format.
+main
         </motion.p>
 
         <motion.div
@@ -260,80 +242,57 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <Link
-            to="/frontend/html"
-            className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+          <Link to="/frontend/html" className="group relative px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
               <FaLaptopCode />
               Explore Frontend
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link
-            to="/projects"
-            className="group relative px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-xl shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+          <Link to="/projects" className="group relative px-8 py-4 bg-gradient-to-r from-emerald-600 to-teal-600 text-white rounded-xl shadow-lg hover:shadow-emerald-500/25 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
               <FaProjectDiagram />
               Build Projects
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link
-            to="/backend/nodejs"
-            className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+          <Link to="/backend/nodejs" className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl shadow-lg hover:shadow-blue-500/25 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
               <FaServer />
               Explore Backend
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link
-            to="/machine-learning/ai"
-            className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl shadow-lg hover:shadow-orange-400/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+          <Link to="/machine-learning/ai" className="group relative px-8 py-4 bg-gradient-to-r from-orange-500 to-pink-500 text-white rounded-xl shadow-lg hover:shadow-orange-400/25 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
               <FaBrain />
               Machine Learning
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link
-            to="/android"
-            className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+          <Link to="/android" className="group relative px-8 py-4 bg-gradient-to-r from-indigo-600 to-cyan-500 text-white rounded-xl shadow-lg hover:shadow-indigo-500/25 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
               <FaAndroid />
               Android Development
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link
-            to="/miscellaneous/git"
-            className="group relative px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl shadow-lg hover:shadow-teal-400/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+          <Link to="/miscellaneous/git" className="group relative px-8 py-4 bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-xl shadow-lg hover:shadow-teal-400/25 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
               <FaEllipsisH />
               Miscellaneous Tools
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </span>
           </Link>
-          <Link
-            to="/deployment/heroku"
-            className="group relative px-8 py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-xl shadow-lg hover:shadow-pink-400/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+          <Link to="/devops/intro" className="group relative px-8 py-4 bg-gradient-to-r from-blue-500 to-teal-400 text-white rounded-xl shadow-lg hover:shadow-teal-300/50 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
-              <FaRocket />
-              Deployment
-              <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <FaCogs />
+              DevOps
+              <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
             </span>
           </Link>
-          <Link
-            to="/GenAI-Tools/FrontEndTools"
-            className="group relative px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl shadow-lg hover:shadow-purple-400/25 transition-all duration-300 hover:scale-105 font-medium"
-          >
+
+          <Link to="/GenAI-Tools/FrontEndTools" className="group relative px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl shadow-lg hover:shadow-purple-400/25 transition-all duration-300 hover:scale-105 font-medium">
             <span className="flex items-center gap-2 text-3xl">
               <FaCode />
               Gen-AI Dev Tools
@@ -376,11 +335,6 @@ const Home = () => {
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 1.5, duration: 0.5 }}
-          style={{
-            zIndex: 999999, pointerEvents: "auto",
-            pointerEvents: "auto",
-            position: "fixed",
-          }}
         >
           <a
             href="https://github.com/amarjha01"
@@ -407,47 +361,32 @@ const Home = () => {
           {faqs.map(({ q, a }, index) => (
             <motion.div
               key={q}
-              className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30  ${openFaq === index
-                  ? "border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80"
-                  : "border-gray-700/50 hover:border-purple-500/30"
+              className={`bg-gray-800/50 backdrop-blur-sm rounded-xl border transition-all duration-300 cursor-pointer relative z-30 ${openFaq === index
+                ? "border-purple-500/60 shadow-[0_0_40px_rgba(168,85,247,0.5)] bg-gray-800/80"
+                : "border-gray-700/50 hover:border-purple-500/30"
                 }`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 2.0 + index * 0.1 }}
-              style={{ pointerEvents: "auto" }}
             >
-              <div
-                className="p-6 flex items-center justify-between group"
-                onClick={() => toggleFaq(index)}
-              >
+              <div className="p-6 flex items-center justify-between group" onClick={() => toggleFaq(index)}>
                 <h3 className="font-semibold text-lg md:text-xl text-purple-300 group-hover:text-purple-200 transition-colors">
                   {q}
                 </h3>
-                <div
-                  className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${openFaq === index
-                      ? "bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]"
-                      : "bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50"
+                <div className={`flex items-center justify-center w-8 h-8 rounded-full border transition-all duration-300 ${openFaq === index
+                    ? "bg-purple-500/40 border-purple-400/60 shadow-[0_0_30px_rgba(168,85,247,0.7)]"
+                    : "bg-purple-500/20 border-purple-500/30 group-hover:bg-purple-500/30 group-hover:border-purple-500/50"
                     }`}
                 >
                   <motion.div
                     className={`flex items-center justify-center w-full h-full transition-all duration-300 ${openFaq === index
-                        ? "text-purple-200 drop-shadow-lg"
-                        : "text-purple-300"
+                      ? "text-purple-200 drop-shadow-lg"
+                      : "text-purple-300"
                       }`}
                     animate={{ rotate: openFaq === index ? 180 : 0 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="transition-all duration-300"
-                    >
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-all duration-300">
                       {openFaq === index ? (
                         <line x1="5" y1="12" x2="19" y2="12" />
                       ) : (
@@ -468,7 +407,6 @@ const Home = () => {
                   opacity: openFaq === index ? 1 : 0,
                 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
-
               >
                 <div className="px-6 pb-6">
                   <p className="text-gray-300 leading-relaxed text-base md:text-lg">
@@ -498,7 +436,6 @@ const Home = () => {
         <form
           onSubmit={handleFormSubmit}
           className="max-w-2xl mx-auto space-y-6 relative z-30"
-          style={{ pointerEvents: "auto" }}
         >
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -513,11 +450,6 @@ const Home = () => {
               required
               placeholder="Your awesome name"
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all relative z-50"
-              style={{
-                pointerEvents: "auto",
-                position: "relative",
-                zIndex: 50,
-              }}
             />
           </motion.div>
 
@@ -527,20 +459,13 @@ const Home = () => {
             transition={{ delay: 2.3, duration: 0.6 }}
             className="relative z-40"
           >
-            <label className="block text-gray-300 mb-2 font-medium">
-              Email
-            </label>
+            <label className="block text-gray-300 mb-2 font-medium">Email</label>
             <input
               type="email"
               name="email"
               required
               placeholder="your.email@awesome.com"
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all relative z-50"
-              style={{
-                pointerEvents: "auto",
-                position: "relative",
-                zIndex: 50,
-              }}
             />
           </motion.div>
 
@@ -550,20 +475,13 @@ const Home = () => {
             transition={{ delay: 2.4, duration: 0.6 }}
             className="relative z-40"
           >
-            <label className="block text-gray-300 mb-2 font-medium">
-              Message
-            </label>
+            <label className="block text-gray-300 mb-2 font-medium">Message</label>
             <textarea
               name="message"
               rows="6"
               required
               placeholder="Tell us what's on your mind..."
               className="w-full bg-gray-900/70 text-white placeholder-gray-400 px-4 py-3 rounded-lg border border-gray-700/50 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-all resize-none relative z-50"
-              style={{
-                pointerEvents: "auto",
-                position: "relative",
-                zIndex: 50,
-              }}
             />
           </motion.div>
 
@@ -575,11 +493,6 @@ const Home = () => {
             transition={{ delay: 2.5, duration: 0.6 }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            style={{
-              pointerEvents: "auto",
-              position: "relative",
-              zIndex: 50,
-            }}
           >
             Send Message
           </motion.button>

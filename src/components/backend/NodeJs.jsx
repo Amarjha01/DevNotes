@@ -3,6 +3,7 @@ import React from 'react';
 import Chat from '../Chat';
 import { useRef } from 'react';
 import { GoChevronDown } from "react-icons/go";
+import CodeBlock from '../../components/common/CodeBlock'; // ✅ import reusable CodeBlock
 
 const notes = [
   {
@@ -98,9 +99,7 @@ const Nodejs = () => {
           {note.code && (
             <div className="mb-4">
               <div className="text-sm font-medium text-purple-400 mb-1">Example Code:</div>
-              <pre className="bg-[#1e1e2f] text-sm text-green-300 rounded-md p-4 overflow-x-auto whitespace-pre-wrap">
-                <code>{note.code}</code>
-              </pre>
+              <CodeBlock code={note.code} language="javascript" />
             </div>
           )}
 

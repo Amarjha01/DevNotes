@@ -1,5 +1,6 @@
 // components/backend/Express.jsx
 import React from 'react';
+import CodeBlock from '../../components/common/CodeBlock'; 
 
 const notes = [
   {
@@ -129,9 +130,7 @@ const String = () => {
           {note.code && (
             <div className="mb-4">
               <div className="text-sm font-medium text-purple-400 mb-1">Example Code:</div>
-              <pre className="bg-[#1e1e2f] text-sm text-emerald-500 rounded-md p-4 overflow-x-auto whitespace-pre-wrap">
-                <code>{note.code}</code>
-              </pre>
+              <CodeBlock code={note.code} language="javascript" />
             </div>
           )}
 

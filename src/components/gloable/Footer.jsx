@@ -3,24 +3,18 @@ import { FaGithub, FaLinkedin, FaHeart, FaCode, FaRocket } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className=" relative bottom-[0%] bg-gradient-to-r from-[#0a0415] via-[#11071f] to-[#1a0b2e] text-gray-300 py-12 mt-16 overflow-hidden">
+    <footer className="relative bg-gradient-to-r from-[#0a0415] via-[#11071f] to-[#1a0b2e] text-gray-300 py-12 overflow-visible">
       {/* Animated Background Elements */}
-      {/* <div className="absolute bottom-0 inset-0 overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-pink-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div> */}
-      
-      {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 opacity-10">
+        {/* Subtle Grid Pattern can go here if needed */}
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6">
+      <div className="relative z-10 max-w-full mx-auto px-6">
         {/* Main Content */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+        <div className="flex flex-col lg:flex-row items-stretch justify-between gap-8">
           
           {/* Left Section - Brand & Info */}
-          <div className="flex flex-col items-center lg:items-start gap-4 text-center lg:text-left">
+          <div className="flex flex-col items-center gap-4 text-left ml-30">
             <div className="flex items-center gap-3">
               <div className="relative">
                 <div className="lg:w-10 lg:h-10 w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center shadow-lg">
@@ -64,7 +58,7 @@ const Footer = () => {
           </div>
 
           {/* Right Section - Social Links */}
-          <div className="flex flex-col items-center lg:items-end gap-4">
+          <div className="flex flex-col items-center lg:items-end gap-4 mr-30">
             <div className="flex items-center gap-1 lg:text-sm text-2xl text-gray-400">
               <span>Connect with me</span>
               <div className="w-8 h-px bg-gradient-to-r from-purple-500 to-transparent"></div>
@@ -93,21 +87,21 @@ const Footer = () => {
         </div>
 
         {/* Bottom Divider */}
-        {/* <div className="mt-8 pt-6 border-t border-gray-700/50">
+        <div className="mt-8 pt-6 border-t border-gray-700/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ml-20">
               <span>Made with passion in India</span>
               <span className="hidden md:inline">•</span>
               <span className="hidden md:inline">Crafted for developers</span>
             </div>
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-1 mr-24">
               <span>Powered by</span>
               <span className="text-purple-400 font-medium">React</span>
               <span>&</span>
               <span className="text-blue-400 font-medium">Tailwind CSS</span>
             </div>
           </div>
-        </div> */}
+        </div>
       </div>
     </footer>
   );

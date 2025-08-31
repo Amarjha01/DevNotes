@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Chat from '../Chat';
+import CodeBlock from '../../components/common/CodeBlock';
 
 const notes = [
   {
@@ -203,9 +204,7 @@ const ReinforcementLearning = () => {
             {note.code && (
               <div className="mb-4">
                 <div className="text-sm font-medium text-yellow-300 mb-1">Example Code:</div>
-                <pre className="bg-[#1e1e2f] text-sm text-amber-300 rounded-md p-4 overflow-x-auto whitespace-pre-wrap">
-                  <code>{note.code}</code>
-                </pre>
+                <CodeBlock code={note.code} language="python" />
               </div>
             )}
 

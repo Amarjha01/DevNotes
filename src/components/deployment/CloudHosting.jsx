@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+
 const CloudHosting = () => {
   const note = {
     title: 'Cloud Hosting (AWS/GCP)',
